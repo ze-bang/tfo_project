@@ -1,0 +1,23 @@
+# TmFeO3 Gamma_2 ground state (1x1x1 mixed lattice)
+# Two-stage protocol: biased SA (Ka=0 Kc=-0.029) + physical relax
+# Physical params: Ka=-0.0153 Kc=-0.0187 D1=0.049 (qFM=0.38 THz, qAFM=0.91 THz)
+# SA convergence: 10/10 biased trials reached Gamma_2
+#
+E_per_site_meV = -42.49675775
+#
+# Fe sublattice magnetisations (lab Cartesian, physical Hamiltonian)
+M0 = -0.008372092053 4.508874579e-132 -2.499985982
+M1 = -0.008372092053 -4.501610811e-132 2.499985982
+M2 = -0.008372092053 4.509764085e-132 -2.499985982
+M3 = -0.008372092053 -4.503178351e-132 2.499985982
+#
+# Bertaut vectors (Pbnm a/b/c)
+F = -0.008372092053 3.462375612e-135 0   |F|=0.008372092053
+G = 2.067790383e-15 4.505856956e-132 -2.499985982   |G|=2.499985982
+A = 0 1.695087059e-136 0   |A|=1.695087059e-136
+C = -1.734723476e-18 -6.142614644e-136 0   |C|=1.734723476e-18
+#
+# Gamma_2 magnitudes
+|F_x| = 0.008372092053
+|C_y| = 6.142614644e-136
+|G_z| = 2.499985982

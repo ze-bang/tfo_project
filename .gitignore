@@ -1,0 +1,10 @@
+# raw simulation output (regenerate via catalogue_single_vertex/regen_fullres.py)
+*.h5
+*.npy
+# latex build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk

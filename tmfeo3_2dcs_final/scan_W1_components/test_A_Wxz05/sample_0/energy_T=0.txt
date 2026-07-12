@@ -1,0 +1,14 @@
+# Energy summary
+# N_SU2 = 4
+# N_SU3 = 4
+# N_total = 8
+#
+# Total energies:
+E_total = -341.168710373833
+E_SU2 = -321.225857263557
+E_SU3 = -19.9428531102759
+#
+# Energy per site:
+E_total/N = -42.6460887967291
+E_SU2/N_SU2 = -80.3064643158892
+E_SU3/N_SU3 = -4.98571327756898
