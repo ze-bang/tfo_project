@@ -43,3 +43,28 @@ Established by the w3_isolation campaign (2026-08-06/07): exhaustive exclusion
 of W3 (all components), W1_yz (wrong irrep), recalibrated static mixers, and
 the κB gate replaced by the two-quadrature drive. Full audit trail:
 `../ARCHIVE_pre_kBfree/EXPERIMENTAL_FINAL/w3_isolation/README.md`.
+
+## ATLAS CONSTRUCTION PACK — for experimental collaborators
+`trajectories/atlas_construction_pack.h5` (375 MB, self-contained) +
+`make_atlas_from_pack.py` (reads ONLY the pack; no solver/repo needed):
+`python3 make_atlas_from_pack.py atlas_construction_pack.h5 [T_kelvin]`
+rebuilds all four atlas panels and prints the blind censuses.
+
+Contents per geometry/seed (geomA gs1-3, geomB gs1):
+- `channels/` — the DETECTED signal M_NL(τ,t) at FULL time resolution for
+  each analyser composite: `P2` (= F_z+5.264λ²+5.264λ¹+66·quad; A-cross &
+  B-same), `mx` (= F_x+2.39λ⁵+0.91λ⁷; B-cross, A-same full P1), `cef_dz`
+  (0.006λ⁴+4.4λ⁶; A-same atlas panel).
+- `components/` — all raw M_NL components (S_xyz, λ¹..λ⁸, quad), t/5.
+- `reference/` — single-pulse M0(t) full resolution.
+- Root attrs: drive spec, detection operators, Boltzmann mixing rule,
+  exact processing recipe (windows, apodization, census parameters).
+
+Conventions: pack channels are the COHERENT time-domain composite
+(field summed, then transformed — what a detector sees); the published
+atlas panels summed per-component magnitude spectra instead, so relative
+amplitudes differ modestly (e.g. A-cross harmonic/main = 1.33 coherent
+vs 0.97 magnitude-sum). Both are derivable from the pack (use
+components/ for the magnitude-sum convention). The published A-same
+panel additionally used a τ-gate apodization variant; the full time data
+in the pack supports any windowing. Builder: build_atlas_pack.py.
