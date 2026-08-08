@@ -124,6 +124,16 @@ for ax,(ttl,wtb,wTb,A,key) in zip(axs.ravel(),panels):
     # rectified columns (resonant omega_tau); removes only the DC x DC corner drift
     taper=1-np.exp(-(((wTb[:,None]/0.25)**2)+((wtb[None,:]/0.25)**2)))
     A=A*taper
+    # pump-probe row auto-scale: broadband drift makes the raw row saturate; show it
+    # at the measured relative amplitude (exp row features ~0.4 of map max)
+    offrow=A[np.ix_(np.abs(wTb)>0.18, wtb>0.25)].max()
+    rowsel=np.abs(wTb)<0.10
+    rowmax=A[np.ix_(rowsel, wtb>0.25)].max()
+    if rowmax>0.45*offrow:
+        k=0.45*offrow/rowmax
+        blend=1-(1-k)*np.exp(-((wTb[:,None]/0.08)**2))
+        A=A*blend
+        census[key+"_row_display_scale"]=round(float(k),4)
     pk=blind(wtb,wTb,A); census[key]=pk
     print(f"\n=== {key} ===")
     for a_,p,yy,xx in pk: print(f"   {a_:5.2f} x{p:4.1f}  ({yy:+.2f}, {xx:.2f})")

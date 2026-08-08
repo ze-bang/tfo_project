@@ -7,6 +7,7 @@
  "anchor_insensitivity": "A-cross observables move by <=0.04 over a 50x range of W_E1 (see p2_operator_fix.py)",
  "drive": "A_Fe=0.12 tied su3=0.02195, dark-mu13",
  "mu13_admixture_pct": 0.14,
+ "A_cross_row_display_scale": 0.3066,
  "A_cross": [
   [
    1.0,
@@ -107,6 +108,7 @@
    1.38
   ]
  ],
+ "A_same_row_display_scale": 0.0777,
  "A_same": [
   [
    1.0,
@@ -151,7 +153,7 @@
    0.69
   ],
   [
-   0.151,
+   0.15,
    2.7,
    0.19,
    0.69
