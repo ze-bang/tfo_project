@@ -51,7 +51,10 @@ balance of the rare-earth dipole ($w_{E1}=0.54$) from a single cross
 peak.  We
 give the pathway of every peak in all four channels---which vertex
 permits it, which coherence occupies the delay axis, which multipole
-radiates, and what would falsify the assignment.  A single reciprocal
+radiates, and what would falsify the assignment---and put the
+structural absences to work: a missing delay row measures a fully dark
+crystal-field dipole, and the missing magnon diagonal bounds the iron
+emission weight.  A single reciprocal
 propagation filter---self-absorption at the strong electric-dipole
 crystal-field lines---accounts for the remaining structure of the
 same-polarised map, and the two residuals that survive funnel into one
@@ -329,7 +332,7 @@ the spin reorientation as any magnon-derived feature would; it is one
 field order above the main peak; its width is twice the $E_{12}$
 linewidth; and it is independent of $W^{xz}_1$ and of the Zeeman drive.
 
-\emph{$(\qafm,\qafm)=0.36$: the magnon diagonal, seen through the Tm
+\emph{$(\qafm,\qafm)=0.28$: the magnon diagonal, seen through the Tm
 ion.}  Since $F_z\equiv0$ the magnon cannot radiate here at all.  What
 radiates is the Tm dipole, which carries a component at the magnon
 frequency: in $\Gamma_2$ the static vertex $W^{xz}_1S_xS_z\lambda^1$
@@ -435,12 +438,14 @@ reservoir this Hamiltonian does not contain.
 \subsection{Geometry A, same-polarised}
 
 The analysed moment is $m_x$, and three contributions reach it, each
-required by symmetry and each carrying measured features: the Tm CEF
-moments (emitting at $E_{13}$, $E_{23}$), the Fe $F_x$ (magnon
-frequencies), and $d_z^{\rm eff}\lambda^2$ (emitting at $E_{12}$), the
-last demanded by reciprocity once $d_z^{\rm eff}$ appears in the drive.
-Fitting those three weights to the digitised measurement, with the cross
-channels held fixed, gives Table~\ref{tab:samepol}.
+required by symmetry: the Tm CEF moments (the $d_z$ lines at $E_{23}$,
+$E_{13}$, which also carry the magnon frequencies as conversion
+sidebands), $d_z^{\rm eff}\lambda^2$ (emitting at $E_{12}$, demanded by
+reciprocity once $d_z^{\rm eff}$ appears in the drive), and the Fe
+$F_x$ itself.  Two weights are fitted to the digitised measurement with
+the cross channels held fixed; the third---the Fe emission efficiency
+$c_{\rm Fe}$---is \emph{bounded from above by a null}, the absence of
+the magnon diagonal (below).  The result is Table~\ref{tab:samepol}.
 
 \begin{table}[b]
 \caption{Geometry-A same-polarised channel: measured amplitudes against
@@ -458,8 +463,8 @@ peak & exp. & model & pathway\\
 \hline
 $(E_{12},0)$ & $1.00$ & --- & rectified storage (see text)\\
 $(E_{12},E_{23})$ & $1.00$ & $1.00$ & coherence$\to$pop.$\to\rho_{23}$\\
-$(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$\\
-$(E_{12},\qafm)$ & $0.40$ & $0.43$ & Tm$\to$magnon, $\qafm$\\
+$(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$ sideband on $\lambda^6$\\
+$(E_{12},\qafm)$ & $0.40$ & $0.43$ & Tm$\to$magnon, $\qafm$ sideband on $\lambda^6$\\
 $(0,E_{12})$ & $0.40$ & --- & pump--probe row\\
 $(\qafm,E_{12})$ & $0.30$ & $0.34$ & magnon$\to$Tm via $d_z^{\rm eff}$\\
 $(\qafm,\qafm)$ & absent & $0.14$ & magnon diagonal; absence bounds $c_{\rm Fe}$\\
@@ -517,13 +522,33 @@ and its strength relative to $(E_{12},E_{23})$ calibrates
 $c_{\rm heat}W_3$ directly.
 
 \emph{$(E_{12},\qfm)=0.45$ and $(E_{12},\qafm)=0.40$: Tm$\to$magnon,
-read through Fe.}  The stored $E_{12}$ coherence is handed to the Fe
-sublattice by the static couplings and radiates through $F_x$, which
-carries both branches.  These are the reverse of the geometry-A cross
-peak---there the magnon feeds the Tm dipole, here the Tm coherence feeds
-the magnon---so the static $W$ family is read in both directions.  They
-require the Fe term in the detection operator; without it this channel
-has no magnon-frequency emission at all.
+read back through the Tm ion itself.}  The stored $E_{12}$ coherence is
+handed to the Fe sublattice by the static couplings; the launched
+magnon then modulates the Tm crystal field in turn, imprinting the
+magnon frequencies as sidebands on the strong $\lambda^6$ ($d_z$) line.
+The emission is therefore \emph{electric and rare-earth}, not magnetic
+and iron: decomposing the model composite shows both features carried
+almost entirely by $\lambda^6$, insensitive to the Fe weight
+($0.46\to0.43$ when $c_{\rm Fe}$ is reduced fourfold).  These are the
+reverse of the geometry-A cross peak---there the magnon feeds the Tm
+dipole, here the Tm coherence feeds the magnon---so the static $W$
+family is read in both directions, and in both directions it is the Tm
+dipole that does the radiating.
+
+\emph{$(\qafm,\qafm)$: absent---and the absence is a measurement.}
+The magnon diagonal is the one feature of this channel that genuinely
+requires Fe emission: a $\qafm$ delay coherence re-emitting at its own
+frequency through the $F_x$ magnetic dipole, with no Tm conversion
+involved.  The measured map does not contain it.  Since every other
+magnon-frequency feature is $\lambda^6$-carried, this null bounds the
+Fe emission efficiency from above ($c_{\rm Fe}$ set at the bound puts
+the diagonal at $0.14$, below the digitisation threshold, and moves
+nothing else); the same small $c_{\rm Fe}$ is consistent with the
+geometry-A cross channel, where $F_z\equiv0$ makes Fe silence exact
+rather than approximate.  The physical statement is uniform across the
+atlas: the Fe sublattice is loud in geometry B, where the magnon owns
+the analysed $m_x$ directly, and quiet in geometry A, where everything
+measured arrives by conversion through the rare-earth ion.
 
 \emph{$(\qafm,E_{12})=0.30$: the reciprocity partner, observed.}  The
 magnon occupies the delay axis and the Tm ion radiates at $E_{12}$ into
@@ -648,7 +673,18 @@ $\omega_t=1.1$--$1.3$ at $\omega_\tau=\qafm$ must show a self-reversal
 channel must carry a $d_z^{\rm eff}$ doublet at $\omega_t=0.45/0.54$
 at the $\sim\!0.17$ level; and every wing amplitude scales with sample
 thickness, so a thin sample revives the $E_{13}$ line centre and the
-two-quantum $(E_{13},E_{23})$ row together.  The temperature scan
+two-quantum $(E_{13},E_{23})$ row together.  The emission assignments
+carry linewidth fingerprints: the same-polarised magnon-frequency
+features, being sidebands on the Tm $d_z$ line, must show the CEF
+linewidth along $\omega_t$, while the geometry-B magnon emission shows
+the $15\times$ sharper magnon linewidth---and any recovered
+$(\qafm,\qafm)$ diagonal in the same-polarised channel would raise the
+$c_{\rm Fe}$ bound and must then appear with the \emph{magnon} width.
+Finally, the smallness of the measured $(E_{12},1.20)$ feature bounds
+all four remaining quadratic moments of the $4c$ site at once, since
+each would radiate the stored $E_{12}$ coherence at the
+$E_{12}+E_{23}$ sum frequency an order of magnitude above the
+$(\qafm,1.20)$ peak it might otherwise explain.  The temperature scan
 through the reorientation remains the decisive test, since it separates
 the symmetry-broken from the conversion-generated features and measures
 $d_z^{\rm eff}$ by the size of the collapse.
@@ -665,9 +701,14 @@ rare-earth site---completed by a single reciprocal propagation filter,
 the self-absorption of the electric-dipole light at the strong CEF
 lines---account for the measured 2DCS atlas of TmFeO$_3$, computed from
 measured inputs with no field-assisted coupling and no free lineshape
-parameters.  The two residuals that remain are named, characterised,
-and funnel jointly into one measurable object: the sample's
-polarisation-resolved optical depths at the CEF lines.  Every peak has been given a pathway, every
+parameters.  The absences do quantitative work alongside the peaks:
+the missing $E_{13}$ delay row measures the fully dark $1\!\to\!3$
+dipole, the missing magnon diagonal bounds the Fe emission weight, and
+the missing $(E_{12},1.20)$ sum-frequency partner excludes every
+remaining quadratic moment of the rare-earth site.  The two residuals
+that remain are named, characterised, and funnel jointly into one
+measurable object: the sample's polarisation-resolved optical depths
+at the CEF lines.  Every peak has been given a pathway, every
 structural absence a selection rule, and every assignment a falsifiable
 signature.  The program---bound the vertex space by symmetry, assign
 every feature and every absence, and let the atlas overdetermine the

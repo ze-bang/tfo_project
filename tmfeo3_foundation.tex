@@ -1957,11 +1957,11 @@ temperature range.}
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figs/samepol_vs_experiment.png}
-\caption{Digitised measurement (left) against the model with the three
-symmetry-required detection weights fitted (right), same axes and
-colour scale.  Crosses mark the two designated peaks.  Four of the six
-measured amplitudes are reproduced within $15\%$
-(\cref{sec:samepolfit}).}
+\caption{Digitised measurement (left) against the model (right), same
+axes and colour scale: two symmetry-required detection weights fitted,
+the Fe weight bounded by the absent magnon diagonal.  Crosses mark the
+two designated peaks.  Four of the six measured amplitudes are
+reproduced within $15\%$ (\cref{sec:samepolfit}).}
 \label{fig:found-vsexp}
 \end{figure*}
 
@@ -2025,9 +2025,12 @@ not exist in that polarisation.
 \subsection{Result: the same-polarised channel}
 \label{sec:samepolfit}
 
-With the cross channels held fixed, the detection weights fitted once,
-the overlap-gated delay apodisation applied (this channel's documented
-convention), and the propagation filter included (self-absorption of
+With the cross channels held fixed, two detection weights fitted once
+(the CEF weight and the $d_z^{\rm eff}$ emission avatar) and the third
+---the Fe weight $c_{\rm Fe}$---bounded from above by the absent
+magnon diagonal, the overlap-gated delay apodisation applied (this
+channel's documented convention), and the propagation filter included
+(self-absorption of
 $E1$ emission: optical depth $\simeq6$ at the $E_{13}$ line on both the
 emission column and the delay-axis FID, $\simeq1$ at $E_{12}$;
 magnetic-dipole light passes freely):
@@ -2039,7 +2042,8 @@ peak & experiment & model & mechanism\\
 \midrule
 $(E_{12},E_{23})$ & $1.00$ & $1.00$ &
   coherence$\to$population$\to\rho_{23}$, non-rephasing\\
-$(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$ branch\\
+$(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$ sideband on
+  the $\lambda^6$ ($d_z$) line\\
 $(E_{12},\qafm)$ & $0.40$ & $0.43$ & Tm$\to$magnon, carried as the
   magnon sideband on the $\lambda^6$ ($d_z$) line\\
 $(\qafm,E_{12})$ & $0.30$ & $0.34$ &
@@ -2053,6 +2057,25 @@ $(-E_{12},E_{23})$ & $<0.15$ & $\sim0.6$ & \textbf{open}: residual R1, point-ion
 \bottomrule
 \end{tabular}
 \end{center}
+The emission accounting deserves one explicit paragraph, because it
+inverts the naive reading of an ``$m_x$ channel''.  Decomposing the
+model composite shows that every magnon-\emph{frequency} feature in
+this channel except the diagonal is carried by the Tm electric dipole:
+the launched magnon modulates the crystal field and rides out as a
+sideband on the strong $\lambda^6$ ($d_z$) line, so reducing the Fe
+weight fourfold moves $(E_{12},\qafm)$ only from $0.46$ to $0.43$.
+The magnon \emph{diagonal} $(\qafm,\qafm)$ is the one feature that
+genuinely requires Fe $F_x$ emission---a magnon re-emitting at its own
+frequency with no Tm conversion---and the measurement does not contain
+it.  That null is therefore the direct measurement (an upper bound) of
+the Fe:Tm emission efficiency $c_{\rm Fe}$, and it completes a picture
+that is uniform across the atlas: the Fe sublattice is loud in
+geometry B, where the magnon owns the analysed $m_x$ directly and is
+driven resonantly, and quiet in geometry A, where everything measured
+arrives by conversion through the rare-earth ion ($F_z\equiv0$ makes
+the cross channel's Fe silence exact; the small $c_{\rm Fe}$ makes the
+same-polarised channel's approximate).
+
 The data additionally force the $1\!\to\!3$ transition to be
 magnetically dark in \emph{every} polarisation: the analyser physically
 contains $\mu_x\lambda^5$, and at the crystal-field value
@@ -2116,12 +2139,17 @@ sample's polarisation-resolved optical depths at the three CEF lines.
 \label{sec:predictions2}
 
 \begin{enumerate}
-\item \textbf{Emission fingerprint and linewidth.}  Any peak emitting
-  at $\qafm$ inherits the magnon linewidth, $15\times$ sharper than a
-  CEF emission.
+\item \textbf{Emission fingerprint and linewidth.}  The linewidth
+  along $\omega_t$ names the emitter.  Geometry-B magnon emission (Fe
+  $m_x$, M1) carries the magnon linewidth, $15\times$ sharper than a
+  CEF line.  The geometry-A same-polarised magnon-frequency features,
+  being sidebands on the Tm $d_z$ line, must instead carry the
+  \emph{CEF} linewidth---and any recovered $(\qafm,\qafm)$ diagonal in
+  that channel would raise the $c_{\rm Fe}$ bound and must then appear
+  with the magnon width.
 \item \textbf{Thermal trends.}  $(\qfm,\qafm)$ is temperature-flat;
-  $(E_{12},\qafm)$ falls as $n_1-n_2$; $(\qafm,E_{13})$ grows with the
-  level-2 population.
+  $(E_{12},\qafm)$ falls as $n_1-n_2$; the cascade member
+  $(\qafm,E_{23})$ grows with the level-2 population.
 \item \textbf{The dark dipole.}  Rotating either polarisation away from
   $c$ must revive the $\omega_\tau=E_{13}$ rows.
 \item \textbf{The harmonic.}  The $2E_{12}$ line tracks $E_{12}$ and is
@@ -2166,6 +2194,15 @@ sample's polarisation-resolved optical depths at the three CEF lines.
   population channel: its strength relative to $(E_{12},E_{23})$
   calibrates $c_{\rm heat}W_3$, its delay width equals the $E_{12}$
   linewidth, and its two signs are symmetric.
+\item \textbf{The quadratic-moment bound.}  The $4c$ site admits
+  exactly five quadratic moments; one ($\beta\lambda^1\lambda^2$) is
+  measured, and the other four all radiate at the sum frequency
+  $E_{12}+E_{23}=1.20$\,THz with an $(E_{12},1.20)$ feature an order of
+  magnitude above their $(\qafm,1.20)$ one.  The measured smallness of
+  $(E_{12},1.20)$ therefore bounds all four at once; conversely, a
+  future observation of a strong $(E_{12},1.20)$ peak, in either
+  same-polarised channel, would revive them and reopen the R2
+  assignment.
 \end{enumerate}
 
 % =====================================================================
