@@ -60,8 +60,15 @@ Channel map:  A-cross = O₁→O₂;  A-same = O₁→O₁;  B-cross = O₂→O�
   emission column and the delay-row FID; self-reversal wings at 1.15/1.25).
 - Three cross-family scales (one number each, used consistently):
   w_E1 = 0.54 (E1:M1 — measured by the B transfer ratio);
-  g_d (d_z^eff strength — enters drive and detection identically; absolute
-  value not fixable by ratios); Fe:Tm emission scale (the g-knob,
+  g_d (d_z^eff = the ESJ vertex E_z·S·λ² with the spin leg condensed on
+  ⟨F_x⟩: an order-induced electric dipole of the 1↔2 transition, g_d ∝ ⟨F_x⟩,
+  hence collapses at the spin reorientation. ONE parameter seen through two
+  unit systems: drive avatar = the su3 vector entry 3.0 (g_d × internal field,
+  calibrated by the E12-excitation amplitude); detection avatar =
+  c_E12 = 1.488e-4 per raw λ² map (g_d × emission conversion, calibrated by
+  the measured (qAFM,E12) = 0.30). Connecting the two would need the absolute
+  field inside the sample — reciprocity holds but is untestable on this term
+  by ratios alone); Fe:Tm emission scale (the g-knob,
   c_Fe = 8.205e−5 per raw S_x map vs 4.4 per raw λ⁶ map — detector/mode overlap).
 
 Strictly reciprocal: operator content, within-family dipole ratios, and the
