@@ -68,3 +68,15 @@ vs 0.97 magnitude-sum). Both are derivable from the pack (use
 components/ for the magnitude-sum convention). The published A-same
 panel additionally used a τ-gate apodization variant; the full time data
 in the pack supports any windowing. Builder: build_atlas_pack.py.
+
+## Conventional formats (generated from the pack by export_conventional.py)
+- `trajectories/matlab/<geom>_<seed>.mat` (370 MB total, MATLAB v5 compressed):
+  MNL_P2 / MNL_mx / MNL_cef_dz at FULL time resolution [tau x t], raw
+  components (t/5), full-resolution M0 references, axes, and a `readme`
+  string with operators/units/recipe — `load('geomB_gs1.mat')` and go.
+- `trajectories/csv/` (82 MB): per-channel MNL as gzipped CSV (rows = tau,
+  columns = t decimated x5), plain-text axes, full-resolution M0 reference
+  CSVs, README.txt. For Origin/Igor/Excel-style import.
+Both are derived from atlas_construction_pack.h5 (single source of truth);
+regenerate with build_atlas_pack.py + export_conventional.py. Data files are
+gitignored — share directly.

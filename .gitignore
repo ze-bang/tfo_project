@@ -8,3 +8,6 @@
 *.toc
 *.fls
 *.fdb_latexmk
+# bulk trajectory exports (regenerate: FINAL_SCENARIO/build_atlas_pack.py + export_conventional.py)
+*.mat
+*.csv.gz
