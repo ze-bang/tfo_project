@@ -102,7 +102,7 @@ wtb,wTb,f4=mix(S,"SU3",3,10,True,subtract=False); _,_,f6=mix(S,"SU3",5,10,True,s
 _,_,fF=mix(S,"SU2",0,10,True,subtract=False);     _,_,f2=mix(S,"SU3",1,10,True,subtract=False)
 T13c=np.exp(-6.0/(1+((wtb-1.20)/0.05)**2))[None,:]
 T13r=np.exp(-6.0/(1+((np.abs(wTb)-1.20)/0.05)**2))[:,None]
-Asame_full=(0.006*f4+4.4*f6)*T13c*T13r + 8.205e-5*fF + 1.488e-4*f2
+Asame_full=(0.006*f4+4.4*f6)*T13c*T13r + 2.0e-5*fF + 1.488e-4*f2   # c_Fe <= 2.0e-5: bounded by the experimental NON-observation of the (0.90,0.90) magnon diagonal
 panels.append(("A same-pol   DRIVE: same single geometry-A pulse as A cross (second analyser on one experiment)\n"
                "DETECT (E$\\parallel$c,H$\\parallel$a) out: (0.006$\\lambda^4$+4.4$\\lambda^6$)$\\times$T$_{13}$ + c$_{Fe}$F$_x$ + c$_{E12}\\lambda^2$(d$_z^{eff}$);  E$_{13}$ self-absorbed (d=6),  $T$=10 K",
                wtb,wTb,Asame_full,"A_same"))

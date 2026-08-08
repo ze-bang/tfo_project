@@ -1901,7 +1901,12 @@ Calibrated once each and used consistently on both sides: $w_{E1}=0.54$
 $g_d$ (one parameter with a drive avatar, calibrated by the
 $E_{12}$-excitation amplitude, and an emission avatar, calibrated by
 the $(\qafm,E_{12})$ peak; only absolute-field calibration could
-over-determine it), and the Fe:Tm emission efficiency.  The
+over-determine it), and the Fe:Tm emission efficiency $c_{\rm Fe}$,
+bounded from \emph{above} by the non-observation of the
+$(\qafm,\qafm)$ magnon diagonal (the atlas uses the bound value, at
+which the diagonal sits at $0.14$, below the digitisation threshold,
+while the $\lambda^6$-carried $(E_{12},\qafm)$ transfer is untouched:
+$0.46\to0.43$).  The
 $g_d\lambda^2$ member is the $ESJ$ vertex with its spin leg condensed
 on $\langle F_x\rangle$: the one legal way an electric field reaches a
 $\mathcal T$-odd quadrature, and the reason every $d_z^{\rm eff}$-fed
@@ -2035,9 +2040,12 @@ peak & experiment & model & mechanism\\
 $(E_{12},E_{23})$ & $1.00$ & $1.00$ &
   coherence$\to$population$\to\rho_{23}$, non-rephasing\\
 $(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$ branch\\
-$(E_{12},\qafm)$ & $0.40$ & $0.46$ & Tm$\to$magnon, read through Fe $F_x$\\
-$(\qafm,E_{12})$ & $0.30$ & $0.33$ &
+$(E_{12},\qafm)$ & $0.40$ & $0.43$ & Tm$\to$magnon, carried as the
+  magnon sideband on the $\lambda^6$ ($d_z$) line\\
+$(\qafm,E_{12})$ & $0.30$ & $0.34$ &
   magnon$\to$Tm, read through $d_z^{\rm eff}$ (reciprocity partner)\\
+$(\qafm,\qafm)$ & absent & $0.14$ & magnon diagonal (Fe $F_x$, M1);
+  its absence bounds $c_{\rm Fe}$ from above\\
 $(E_{13},E_{23})$ 2Q & $0$ & $0.00$ & killed exactly by FID reabsorption\\
 $(E_{12},1.15)$ & $0.15$ & $0.04$ & self-reversal wing of the $E_{13}$ line\\
 $(\qafm,1.25)$ & $0.30$ & $0.05$ & \textbf{open}: residual R2\\
@@ -2082,6 +2090,20 @@ route, $\kappa^E_{5y}$ of the $ESJ$ family (previously untested),
 produces it but floods the $1\!\leftrightarrow\!2$ block at any useful
 strength---at $\kappa^E_{5y}=0.003$ already $(\qafm,E_{12})$ moves
 $0.32\to0.57$ while the reabsorbed peak itself stays at $0.05$.
+The emission side is exhausted as well: the Tm 4c site admits exactly
+four quadratic moments beyond the measured $\beta\,\lambda^1\lambda^2$
+---the electric $d_z$ pairs $\lambda^1\lambda^6$ and
+$\lambda^2\lambda^7$ (mirror-odd, $\mathcal T$-even) and the magnetic
+$m_x$ pairs $\lambda^1\lambda^7$ and $\lambda^2\lambda^6$ (mirror-odd,
+$\mathcal T$-odd; M1, hence \emph{not} reabsorbed)---and every one
+radiates at the sum frequency $E_{12}+E_{23}=1.20$\,THz.  Computed
+directly from the production trajectories, all four product channels
+share one structure: the $(E_{12},1.20)$ partner (stored $E_{12}$
+coherence beating against the driven $\rho_{23}$) is $10$--$12\times$
+the $(\qafm,1.20)$ target, whereas the measurement shows the opposite
+ratio ($0.30$ against $\leq0.15$).  No linear channel and no quadratic
+moment reproduces the peak without a dominant partner that is not
+observed.
 Matching R2 in-model would require the sequential $1\to2\to3$ cascade
 to be $\sim\!15\times$ weaker than ideal three-level dynamics: physics
 of the real third level beyond the qutrit truncation (its different

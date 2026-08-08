@@ -50,6 +50,7 @@ Channel map:  A-cross = O₁→O₂;  A-same = O₁→O₁;  B-cross = O₂→O�
 | W₃ʸᶻ | S_y S_z λ³ (+ thermal feedback c_heat=2000, cap 0.05) | 0.01 | population channel: reorientation physics; 2DCS tail only |
 | m_z quad. | μλ² + βλ¹λ²   | β≈50–66 | hyperpolarisability (Tm 4c lacks inversion) → 2E₁₂ harmonic |
 | κᴮ (BSλ), κᴱ (ESλ) | —   | 0    | catalogued; superseded / rejected (κE_5y floods the 1↔2 block) |
+| other quadratics | λ¹λ⁶, λ²λ⁷ (d_z E1); λ¹λ⁷, λ²λ⁶ (m_x M1) | 0 | all four symmetry-allowed; radiate at E₁₂+E₂₃=1.20; tested for the (qAFM,1.2) peak — each carries a 10–12× (E₁₂,1.2) partner (opposite of the measured ratio) → rejected; R2 stays open |
 | Fe sector | J₁=4.74/5.15, J₂=0.15/0.30, Ka=−0.0153, Kc=−0.0187, D₁=0.049, D₂=0.014 | | magnons; (qFM,qAFM) magnon–magnon peak |
 | Tm onsite | −(Δ₁₂/2)λ³ + ((Δ₁₂−2Δ₁₃)/2√3)λ⁸, e₁=2.0678, e₂=4.9628 | | qutrit spectrum |
 
@@ -69,7 +70,11 @@ Channel map:  A-cross = O₁→O₂;  A-same = O₁→O₁;  B-cross = O₂→O�
   the measured (qAFM,E12) = 0.30). Connecting the two would need the absolute
   field inside the sample — reciprocity holds but is untestable on this term
   by ratios alone); Fe:Tm emission scale (the g-knob,
-  c_Fe = 8.205e−5 per raw S_x map vs 4.4 per raw λ⁶ map — detector/mode overlap).
+  c_Fe ≤ 2.0e−5 per raw S_x map vs 4.4 per raw λ⁶ map — detector/mode overlap;
+  bounded from ABOVE by the experimental non-observation of the (qAFM,qAFM)
+  magnon diagonal in A same-pol (atlas uses 2.0e−5 → diagonal 0.14, below the
+  digitisation threshold; the λ⁶-carried (E₁₂,qAFM) transfer is insensitive,
+  0.46→0.43).
 
 Strictly reciprocal: operator content, within-family dipole ratios, and the
 filter. Calibrated: the three cross-family scales. Everything else is zero.
