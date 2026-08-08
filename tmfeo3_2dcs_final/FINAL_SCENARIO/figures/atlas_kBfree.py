@@ -27,7 +27,7 @@ def spec(t,tau,M,samepol=False,subtract=True):
     wt=np.fft.fftshift(np.fft.fftfreq(tm.sum(),t[1]-t[0]))*SCALE
     wta=np.fft.fftshift(np.fft.fftfreq(len(tau),tau[1]-tau[0]))*SCALE
     mx=(wt>0.12)&(wt<1.9); my=(np.abs(wta)<1.6)
-    A=gaussian_filter(np.abs(np.fft.fftshift(np.fft.fft2(Md)))[np.ix_(my,mx)],sigma=(1,0.8))
+    A=gaussian_filter(np.abs(np.fft.fftshift(np.fft.fft2(Md)))[np.ix_(my,mx)],sigma=(1,0.5))
     return wt[mx],-wta[my],A
 def blind(wtb,wTb,A,amp_min=0.05):
     B=A.copy(); B[np.abs(wTb)<0.18,:]=0   # census keeps the published exclusion zone; the DISPLAY retains the row
@@ -162,7 +162,7 @@ for ax,(ttl,wtb,wTb,A,key) in zip(axs.ravel(),panels):
     for a_,p,yy,xx in pk: print(f"   {a_:5.2f} x{p:4.1f}  ({yy:+.2f}, {xx:.2f})")
     Z=A.copy()
     zref=Z[np.ix_(np.abs(wTb)>0.18, wtb>0.25)].max()
-    ax.pcolormesh(wtb,wTb,np.minimum(Z/zref,1.0),shading="auto",cmap="inferno",norm=PowerNorm(gamma=0.55,vmin=0,vmax=1),rasterized=True)
+    ax.pcolormesh(wtb,wTb,np.minimum(Z/zref,1.0),shading="auto",cmap="inferno",norm=PowerNorm(gamma=1.0,vmin=0,vmax=1),rasterized=True)
     for nm,v in MODES:
         ax.axvline(v,color="w",ls="--",lw=0.7,alpha=0.32)
         ax.axhline(v,color="w",ls="--",lw=0.7,alpha=0.32); ax.axhline(-v,color="w",ls="--",lw=0.7,alpha=0.32)
@@ -176,7 +176,7 @@ for ax,(ttl,wtb,wTb,A,key) in zip(axs.ravel(),panels):
     ax.set_xlabel("$\\omega_t$ (THz)"); ax.set_ylabel("physical $\\omega_T$ (THz)")
     ax.set_title(ttl,fontsize=8.2)
 fig.suptitle("The TmFeO$_3$ 2DCS atlas — $\\kappa^B$-FREE scenario: one Hamiltonian (all-static Fe-Tm vertices), one physical pulse per geometry\n"
-             "(geometry-B coherence written electrically via d$_x$, converted by master W$_1^{xz}$; pump--probe row retained in the A panels (as in the measured map); blind census; amplitude$^{0.55}$ colour scale)",fontsize=11)
+             "(geometry-B coherence written electrically via d$_x$, converted by master W$_1^{xz}$; pump--probe row retained in the A panels (as in the measured map); blind census; linear amplitude colour scale)",fontsize=11)
 fig.tight_layout(); fig.savefig("tfo_project/tmfeo3_2dcs_final/FINAL_SCENARIO/figures/atlas_kBfree.png",dpi=118)
 json.dump(census,open("tfo_project/tmfeo3_2dcs_final/FINAL_SCENARIO/figures/census_atlas_kBfree.json","w"),indent=1)
 print("\nsaved w3_isolation/atlas_kBfree.png + census_atlas_kBfree.json")
