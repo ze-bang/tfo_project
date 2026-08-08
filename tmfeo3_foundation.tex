@@ -1860,7 +1860,7 @@ $(E\!\parallel\!a,H\!\parallel\!c)$ &
 $(E\!\parallel\!c,H\!\parallel\!a)$ &
   $F_x+\mu_x(\lambda^5,\lambda^7)$ ($m_x$, mirror-odd)\newline
   $+\,w_{E1}'(\lambda^4,\lambda^6)$ ($d_z$, mirror-odd)\newline
-  $+\,d_z^{\rm eff}\lambda^2$;\ \ no $\lambda^{3,8}$ &
+  $+\,g_d(\langle F_x\rangle{+}\delta F_x)\lambda^2$;\ \ no $\lambda^{3,8}$ &
   A same;\newline B cross (Tm part $\equiv0$\newline by closure)\\
 \bottomrule
 \end{tabular}
@@ -1888,7 +1888,8 @@ one operator serving excitation and detection alike---
 $O_2\equiv(E\!\parallel\!a,H\!\parallel\!c)
 =S_z+5.264\lambda^2+2.84\lambda^1+\beta\lambda^1\lambda^2$ and
 $O_1\equiv(E\!\parallel\!c,H\!\parallel\!a)
-=S_x+0.913\lambda^7+4.4\lambda^6+0.006\lambda^4+g_d\lambda^2$ with
+=S_x+0.913\lambda^7+4.4\lambda^6+0.006\lambda^4
++g_d(\langle F_x\rangle+\delta F_x)\lambda^2$ with
 $\mu^x_{13}=0$---and the channel map is
 A-cross$\,=O_1\!\to\!O_2$, A-same$\,=O_1\!\to\!O_1$,
 B-cross$\,=O_2\!\to\!O_1$, B-same$\,=O_2\!\to\!O_2$.  Strict and
@@ -1899,18 +1900,25 @@ changes no pathway ratio---a direct scan gives exact nulls).
 Calibrated once each and used consistently on both sides: $w_{E1}=0.54$
 (measured by the geometry-B transfer), the $d_z^{\rm eff}$ strength
 $g_d$ (one parameter with a drive avatar, calibrated by the
-$E_{12}$-excitation amplitude, and an emission avatar, calibrated by
-the $(\qafm,E_{12})$ peak; only absolute-field calibration could
-over-determine it), and the Fe:Tm emission efficiency $c_{\rm Fe}$,
+$E_{12}$-excitation amplitude, an emission avatar, calibrated by
+the $(\qafm,E_{12})$ peak, and a \emph{condensation-ratio} correction
+$s=0.42$ on its dynamical piece, calibrated by the measured sum tone
+$(\qafm,1.41)$---the trajectory value $\delta F_x/\langle F_x\rangle$
+overestimates it by about two, which is the model's canting-angle
+uncertainty), and the Fe:Tm emission efficiency $c_{\rm Fe}$,
 bounded from \emph{above} by the non-observation of the
-$(\qafm,\qafm)$ magnon diagonal (the atlas uses the bound value, at
-which the diagonal sits at $0.14$, below the digitisation threshold,
-while the $\lambda^6$-carried $(E_{12},\qafm)$ transfer is untouched:
-$0.46\to0.43$).  The
-$g_d\lambda^2$ member is the $ESJ$ vertex with its spin leg condensed
-on $\langle F_x\rangle$: the one legal way an electric field reaches a
-$\mathcal T$-odd quadrature, and the reason every $d_z^{\rm eff}$-fed
-feature must collapse at the spin reorientation.
+$(\qafm,\qafm)$ magnon diagonal (the atlas uses $c_{\rm Fe}=0$, at
+which the diagonal sits at $0.13$, below the digitisation threshold,
+while the $\lambda^6$-carried $(E_{12},\qafm)$ transfer is untouched).
+The $g_d(\langle F_x\rangle+\delta F_x)\lambda^2$ member is the $ESJ$
+vertex $E_z\,(F_x\lambda^2)$: condensing the spin leg on
+$\langle F_x\rangle$ gives the static avatars (the one legal way an
+electric field reaches a $\mathcal T$-odd quadrature), while the
+retained fluctuation $\delta F_x\lambda^2$ is a product emitter
+radiating at $\qafm\pm E_{12}$ (\cref{sec:samepolfit})---and every
+member of the family rides $\langle F_x\rangle$, the reason all
+$d_z^{\rm eff}$-fed features must collapse together at the spin
+reorientation.
 
 \subsection{Operating point}
 \label{sec:operating2}
@@ -2025,10 +2033,11 @@ not exist in that polarisation.
 \subsection{Result: the same-polarised channel}
 \label{sec:samepolfit}
 
-With the cross channels held fixed, two detection weights fitted once
-(the CEF weight and the $d_z^{\rm eff}$ emission avatar) and the third
----the Fe weight $c_{\rm Fe}$---bounded from above by the absent
-magnon diagonal, the overlap-gated delay apodisation applied (this
+With the cross channels held fixed, the detection weights fitted once
+(the CEF weight, the $d_z^{\rm eff}$ emission avatar, and the
+condensation-ratio correction $s=0.42$ of its dynamical piece), the
+Fe weight $c_{\rm Fe}$ bounded from above by the absent magnon
+diagonal, the overlap-gated delay apodisation applied (this
 channel's documented convention), and the propagation filter included
 (self-absorption of
 $E1$ emission: optical depth $\simeq6$ at the $E_{13}$ line on both the
@@ -2046,14 +2055,18 @@ $(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$ sideband on
   the $\lambda^6$ ($d_z$) line\\
 $(E_{12},\qafm)$ & $0.40$ & $0.43$ & Tm$\to$magnon, carried as the
   magnon sideband on the $\lambda^6$ ($d_z$) line\\
-$(\qafm,E_{12})$ & $0.30$ & $0.34$ &
+$(\qafm,E_{12})$ & $0.30$ & $0.38$ &
   magnon$\to$Tm, read through $d_z^{\rm eff}$ (reciprocity partner)\\
-$(\qafm,\qafm)$ & absent & $0.14$ & magnon diagonal (Fe $F_x$, M1);
+$(\qafm,\qafm)$ & absent & $0.13$ & magnon diagonal (Fe $F_x$, M1);
   its absence bounds $c_{\rm Fe}$ from above\\
 $(E_{13},E_{23})$ 2Q & $0$ & $0.00$ & killed exactly by FID reabsorption\\
 $(E_{12},1.15)$ & $0.15$ & $0.04$ & self-reversal wing of the $E_{13}$ line\\
-$(\qafm,1.25)$ & $0.30$ & $0.05$ & \textbf{open}: residual R2\\
-$(-E_{12},E_{23})$ & $<0.15$ & $\sim0.6$ & \textbf{open}: residual R1, point-ion floor\\
+$(\qafm,1.41)$ & $0.30$ & $0.30$ & dynamical $d_z^{\rm eff}$
+  ($\delta F_x\lambda^2$): sum tone at $\qafm{+}E_{12}$\\
+$(\qafm,0.40)$ & obs. & $0.42$ & its difference tone
+  $\qafm{-}E_{12}$, merging into the $(\qafm,E_{12})$ blob\\
+$(E_{12},1.41)$ & obs. & $0.41$ & its $E_{12}$-delay partner\\
+$(-E_{12},E_{23})$ & $<0.15$ & $\sim0.7$ & \textbf{open}: residual R1, point-ion floor\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -2075,6 +2088,30 @@ driven resonantly, and quiet in geometry A, where everything measured
 arrives by conversion through the rare-earth ion ($F_z\equiv0$ makes
 the cross channel's Fe silence exact; the small $c_{\rm Fe}$ makes the
 same-polarised channel's approximate).
+
+The dynamical $d_z^{\rm eff}$ rows deserve their own account, because
+this channel is structurally unique in the whole coupling space.
+Un-truncating the $ESJ$ moment---keeping
+$g_d(\langle F_x\rangle+\delta F_x)\lambda^2$ instead of condensing
+the spin leg---adds a \emph{product} emitter, the stored $\qafm$
+magnon beating against the $E_{12}$ coherence on one dipole.  It
+radiates the triplet: the sum tone at $\qafm{+}E_{12}=1.40$\,THz on
+the $\qafm$-delay row, the difference tone at $0.40$, and an
+$E_{12}$-delay partner at $1.40$---all three measured.  Of the roughly
+forty conversion vertices, emission moments and quadratic products
+catalogued in this program, $\delta F_x\lambda^2$ (with its
+$m_x$-type siblings $\delta F_x\lambda^1$, $\delta G_y\lambda^{1,2}$)
+is the \emph{only} channel whose 2D map is led by the $\qafm$-delay
+row rather than the $E_{12}$-delay row: both of its factors are
+written at first order by the same pulse, so the stored magnon does
+not pay the conversion penalty that suppresses every other
+$\qafm$-row candidate by an order of magnitude.  The sum tone sits one
+absorption linewidth \emph{outside} the opaque $E_{13}$ window
+(transmission $0.68$ at $1.39$ against $0.002$ at line centre), which
+is why it is visible while the true $E_{13}$ centre is dark.  The
+Fe--Fe striction alternative ($G_xG_y$-type pair dipoles at
+$\qafm{+}\qfm=1.28$) is excluded by its full-strength combination
+delay rows at $|\omega_\tau|=1.05/1.49$, which the measurement lacks.
 
 The data additionally force the $1\!\to\!3$ transition to be
 magnetically dark in \emph{every} polarisation: the analyser physically
@@ -2101,37 +2138,41 @@ $c_{\rm heat}W_3$.
 \subsection{The open items, and where they all point}
 \label{sec:openitem}
 
-Two residuals survive the propagation-completed model, each named and
-characterised.  \emph{R1, the rephasing remnant} $(-E_{12},E_{23})$:
-the point-ion qutrit has an exact floor of $0.47$--$0.58$ of the
-dominant transfer (verified against a standalone three-level
-integrator); no coupling in the exhausted vertex space, no drive
-quadrature or sign (both scanned: exact nulls), and no linear filter
-symmetric in $\pm\omega_\tau$ removes it.  \emph{R2, the marked
-$(\qafm,1.25)$ peak}: the only symmetry-allowed magnon$\to$$E_{13}$
-route, $\kappa^E_{5y}$ of the $ESJ$ family (previously untested),
+One residual survives the completed model.  How the second was
+retired is worth recording, because the exhaustion \emph{was} the
+discovery procedure.  The marked $\qafm$-row peak above $1.2$\,THz
+resisted every $E_{13}$-emission route: the only symmetry-allowed
+magnon$\to$$E_{13}$ vertex, $\kappa^E_{5y}$ of the $ESJ$ family,
 produces it but floods the $1\!\leftrightarrow\!2$ block at any useful
 strength---at $\kappa^E_{5y}=0.003$ already $(\qafm,E_{12})$ moves
-$0.32\to0.57$ while the reabsorbed peak itself stays at $0.05$.
-The emission side is exhausted as well: the Tm 4c site admits exactly
-four quadratic moments beyond the measured $\beta\,\lambda^1\lambda^2$
----the electric $d_z$ pairs $\lambda^1\lambda^6$ and
-$\lambda^2\lambda^7$ (mirror-odd, $\mathcal T$-even) and the magnetic
-$m_x$ pairs $\lambda^1\lambda^7$ and $\lambda^2\lambda^6$ (mirror-odd,
-$\mathcal T$-odd; M1, hence \emph{not} reabsorbed)---and every one
-radiates at the sum frequency $E_{12}+E_{23}=1.20$\,THz.  Computed
-directly from the production trajectories, all four product channels
-share one structure: the $(E_{12},1.20)$ partner (stored $E_{12}$
-coherence beating against the driven $\rho_{23}$) is $10$--$12\times$
-the $(\qafm,1.20)$ target, whereas the measurement shows the opposite
-ratio ($0.30$ against $\leq0.15$).  No linear channel and no quadratic
-moment reproduces the peak without a dominant partner that is not
-observed.
-Matching R2 in-model would require the sequential $1\to2\to3$ cascade
-to be $\sim\!15\times$ weaker than ideal three-level dynamics: physics
-of the real third level beyond the qutrit truncation (its different
-spatial character, faster dephasing, or hybridisation).  Both
-residuals, the self-reversal wing amplitudes, and the geometry-B
+$0.32\to0.57$ while the reabsorbed peak itself stays at $0.05$; and
+the Tm $4c$ site's four remaining quadratic moments beyond the
+measured $\beta\,\lambda^1\lambda^2$---the electric $d_z$ pairs
+$\lambda^1\lambda^6$, $\lambda^2\lambda^7$ ($\mathcal T$-even) and the
+magnetic $m_x$ pairs $\lambda^1\lambda^7$, $\lambda^2\lambda^6$
+($\mathcal T$-odd; M1, hence not even reabsorbed)---all radiate at
+$E_{12}+E_{23}=1.20$\,THz with an $(E_{12},1.20)$ partner
+$10$--$12\times$ the $\qafm$-row target, opposite to the measured
+ratio.  That double exhaustion defines what the data demand: an
+emitter with \emph{no} conversion penalty on the magnon leg---both
+factors written at first order.  The model contained one, in truncated
+form: the fluctuation piece of the $ESJ$ moment,
+$g_d\,\delta F_x\,\lambda^2$, whose sum tone $(\qafm,1.41)$,
+difference tone $(\qafm,0.40)$ and $E_{12}$-delay partner
+$(E_{12},1.41)$ are all present in the measured map
+(\cref{sec:samepolfit}).  The peak is thereby reassigned: it is not an
+$E_{13}$ emission at all but the $\qafm{+}E_{12}$ sum tone, escaping
+one linewidth outside the opaque window.
+
+\emph{R1, the rephasing remnant} $(-E_{12},E_{23})$, remains: the
+point-ion qutrit has an exact floor of $0.47$--$0.58$ of the dominant
+transfer (verified against a standalone three-level integrator); no
+coupling in the exhausted vertex space, no drive quadrature or sign
+(both scanned: exact nulls), and no linear filter symmetric in
+$\pm\omega_\tau$ removes it---and the dynamical tones now contribute
+rephasing partners of their own on the negative-delay side (model
+$0.5$--$0.7$), sharpening the same question.  This residual, the
+self-reversal wing amplitudes, and the geometry-B
 $d_z^{\rm eff}$ doublet strength funnel into one measurable object: the
 sample's polarisation-resolved optical depths at the three CEF lines.
 
@@ -2199,10 +2240,19 @@ sample's polarisation-resolved optical depths at the three CEF lines.
   measured, and the other four all radiate at the sum frequency
   $E_{12}+E_{23}=1.20$\,THz with an $(E_{12},1.20)$ feature an order of
   magnitude above their $(\qafm,1.20)$ one.  The measured smallness of
-  $(E_{12},1.20)$ therefore bounds all four at once; conversely, a
-  future observation of a strong $(E_{12},1.20)$ peak, in either
-  same-polarised channel, would revive them and reopen the R2
-  assignment.
+  $(E_{12},1.20)$ therefore bounds all four at once.
+\item \textbf{The dynamical $d_z^{\rm eff}$ triplet.}  All three
+  tones come from one product, so their ratios are locked with a
+  single fitted number.  The sum tone sits at $\qafm{+}E_{12}$
+  \emph{exactly}---at $1.20$ it would be a quadratic moment
+  instead, and the dark $E_{13}$ window separates the two cases; its
+  position must track the magnon as $\qafm$ softens toward the
+  reorientation; the difference tone at $\qafm{-}E_{12}=0.40$ is
+  mandatory (the $(\qafm,0.40$--$0.55)$ blob must show the double
+  structure); the tones carry the CEF linewidth; and the entire
+  triplet collapses at the spin reorientation together with
+  $(\qafm,E_{12})$, since every member rides
+  $g_d\propto\langle F_x\rangle$.
 \end{enumerate}
 
 % =====================================================================

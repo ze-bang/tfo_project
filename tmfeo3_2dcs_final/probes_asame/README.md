@@ -89,3 +89,12 @@ Falsifiables if adopted: whole family ~ g_d -> collapses at spin
 reorientation together with (qAFM,E12); peak tracks qAFM+E12 in T; CEF
 linewidth; difference partner at 0.40 mandatory.
 NOT yet wired into the atlas/tex - awaiting position confirmation.
+
+### ADOPTED 2026-08-08 (user: "Fold it. Actually it seems like experiment has
+all of those"). Experiment confirms position ~1.4, the (E12,1.4) partner and
+the 0.40 difference-tone structure. Wired into atlas_kBfree.py (dynprod()
+channel, s=0.42, static lambda2 avatar x0.30, cFe=0), OPERATORS.md, main.tex
+and tmfeo3_foundation.tex. R2 -> RESOLVED (reassigned: not an E13 emission;
+the qAFM+E12 sum tone of the dynamical d_z^eff). R1 is the sole open residual.
+Atlas census: (0.90,1.41)=0.30, (0.51,1.41)=0.41, (0.90,0.40)=0.42,
+(0.90,0.50)=0.38, diagonal 0.13 (sub-threshold).

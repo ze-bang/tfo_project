@@ -98,13 +98,36 @@ panels.append(("A cross   DRIVE: B$\\parallel$a$\\,f(t)$ Zeeman on Fe (0.12) + T
 wtb,wTb,e=mix(B,"SU2",0,0)
 panels.append(("B cross   DRIVE: B$\\parallel$c$\\,f(t)$ Zeeman on Fe (0.10) + Tm: B$\\parallel$c $\\mu_z$0.0307$\\lambda^2$, E$\\parallel$a d$_x$($-$0.0165)$\\lambda^1$ [w$_{E1}$=0.54]\nDETECT (E$\\parallel$c,H$\\parallel$a) out: $m_x$ = Fe S$_x$ (M1); Tm $\\lambda^{5,7}{\\equiv}$0 (closure), $\\kappa^B$=0,  $T$=0",wtb,wTb,e,"B_cross"))
 # 3. A same-pol: full adopted O1 operator + propagation layer (E13 d=6 both axes; fitted cross-family scales)
+# d_z^eff UN-TRUNCATED (adopted 2026-08-08): the ESJ moment is g_d*(<F_x>+dF_x)*lambda2.
+# The condensed piece is the old static avatar; the DYNAMICAL piece dF_x*lambda2 radiates
+# at qAFM+-E12 = 1.40/0.40 with qAFM delay -- the measured (0.90,~1.4) peak, its (0.50,1.4)
+# partner and the 0.40 difference tone (experiment confirms all three).  Condensation-ratio
+# correction s=0.42 fitted once; static avatar rebalanced x0.30; c_Fe -> 0 (diagonal bound).
+def dynprod(runs,T):  # dF_x*lambda2 product channel, and <F_x> from the reference
+    ws=np.array([1.,0,0]) if T<=0 else np.array([np.exp(-e/(T*0.086173)) for e in E]); ws=ws/ws.sum()
+    tot=None; fxm=[]
+    for w,r in zip(ws,runs):
+        if w<1e-6: continue
+        with h5py.File(f"{BASE}/{r}/sample_0/pump_probe_spectroscopy.h5") as f:
+            t=f['/reference/times'][:]; tau=f['/tau_scan/tau_values'][:]
+            R2_=f['/reference/M_global_SU2'][:]; R3_=f['/reference/M_local_SU3'][:]
+            fxm.append(np.abs(R2_[:,0]).mean()); q0=R2_[:,0]*R3_[:,1]
+            Q=np.zeros((len(tau),len(t)))
+            for i in range(len(tau)):
+                g=f[f'/tau_scan/tau_{i}']
+                Q[i]=g['M01_global_SU2'][:,0]*g['M01_local_SU3'][:,1]-g['M1_global_SU2'][:,0]*g['M1_local_SU3'][:,1]-q0
+        tot=w*Q if tot is None else tot+w*Q
+    wt_,wT_,Sp=spec(t,tau,tot,True,subtract=False)
+    return wt_,wT_,Sp,float(np.mean(fxm))
 wtb,wTb,f4=mix(S,"SU3",3,10,True,subtract=False); _,_,f6=mix(S,"SU3",5,10,True,subtract=False)
-_,_,fF=mix(S,"SU2",0,10,True,subtract=False);     _,_,f2=mix(S,"SU3",1,10,True,subtract=False)
+_,_,f2=mix(S,"SU3",1,10,True,subtract=False)
+_,_,fdyn,FXM=dynprod(S,10)
 T13c=np.exp(-6.0/(1+((wtb-1.20)/0.05)**2))[None,:]
 T13r=np.exp(-6.0/(1+((np.abs(wTb)-1.20)/0.05)**2))[:,None]
-Asame_full=(0.006*f4+4.4*f6)*T13c*T13r + 2.0e-5*fF + 1.488e-4*f2   # c_Fe <= 2.0e-5: bounded by the experimental NON-observation of the (0.90,0.90) magnon diagonal
+CE12=1.488e-4   # g_d emission conversion, calibrated on the (qAFM,E12) peak (pre-split)
+Asame_full=(0.006*f4+4.4*f6)*T13c*T13r + 0.30*CE12*f2 + 0.42*(CE12/FXM)*fdyn*T13c
 panels.append(("A same-pol   DRIVE: same single geometry-A pulse as A cross (second analyser on one experiment)\n"
-               "DETECT (E$\\parallel$c,H$\\parallel$a) out: (0.006$\\lambda^4$+4.4$\\lambda^6$)$\\times$T$_{13}$ + c$_{Fe}$F$_x$ + c$_{E12}\\lambda^2$(d$_z^{eff}$);  E$_{13}$ self-absorbed (d=6),  $T$=10 K",
+               "DETECT (E$\\parallel$c,H$\\parallel$a) out: (0.006$\\lambda^4$+4.4$\\lambda^6$)$\\times$T$_{13}$ + g$_d$($\\langle F_x\\rangle$+$\\delta F_x$)$\\lambda^2$ (d$_z^{eff}$, un-truncated);  c$_{Fe}$=0;  E$_{13}$ self-abs. (d=6),  $T$=10 K",
                wtb,wTb,Asame_full,"A_same"))
 # 4. B same-pol PREDICTION: SAME operator as A cross -- both analyse (E||a,H||c)
 wtb,wTb,g_=mix(B,"SU2",2,0); _,_,bl2=mix(B,"SU3",1,0); _,_,bq=quad(B,0)

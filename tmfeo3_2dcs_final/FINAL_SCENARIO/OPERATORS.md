@@ -30,9 +30,16 @@ O₁ ≡ (E∥c, H∥a):
     S_x(Fe)  +  0.9128 λ⁷ (μ_x(2↔3), M1)
              +  0 λ⁵      (μ_x(1↔3): dark)
              +  4.4 λ⁶ + 0.006 λ⁴  (d_z, E1)
-             +  g_d λ²    (d_z^eff: order-induced ESJ term, E-field × condensed
-                           T-odd spin leg → lands legally on the T-odd quadrature;
-                           ∝ ⟨F_x⟩ ⇒ collapses at the spin reorientation)
+             +  g_d (⟨F_x⟩ + δF_x) λ²
+                          (d_z^eff UN-TRUNCATED, adopted 2026-08-08: the ESJ term
+                           E_z·(F_x λ²).  Condensed piece ⟨F_x⟩λ² = the old static
+                           avatars; dynamical piece δF_x·λ² is a PRODUCT emitter
+                           radiating at qAFM±E12 = 1.40/0.40 with qAFM delay →
+                           the measured (0.90,1.41)=0.30 sum tone, the 0.40
+                           difference tone, and the (E12,1.41) partner.  The ONLY
+                           channel in the ~40-entry catalogue whose map is led by
+                           the qAFM-delay row (both factors first-order-written).
+                           Whole family ∝ ⟨F_x⟩ ⇒ collapses at the reorientation)
     — no λ³/λ⁸ (mirror-odd analyser has no diagonals anyway).
     Drives geometry A; detects A-same and B-cross.
     Implemented drive vector (geometry A, production = O₁ × incoming transmission):
@@ -50,7 +57,8 @@ Channel map:  A-cross = O₁→O₂;  A-same = O₁→O₁;  B-cross = O₂→O�
 | W₃ʸᶻ | S_y S_z λ³ (+ thermal feedback c_heat=2000, cap 0.05) | 0.01 | population channel: reorientation physics; 2DCS tail only |
 | m_z quad. | μλ² + βλ¹λ²   | β≈50–66 | hyperpolarisability (Tm 4c lacks inversion) → 2E₁₂ harmonic |
 | κᴮ (BSλ), κᴱ (ESλ) | —   | 0    | catalogued; superseded / rejected (κE_5y floods the 1↔2 block) |
-| other quadratics | λ¹λ⁶, λ²λ⁷ (d_z E1); λ¹λ⁷, λ²λ⁶ (m_x M1) | 0 | all four symmetry-allowed; radiate at E₁₂+E₂₃=1.20; tested for the (qAFM,1.2) peak — each carries a 10–12× (E₁₂,1.2) partner (opposite of the measured ratio) → rejected; R2 stays open |
+| other quadratics | λ¹λ⁶, λ²λ⁷ (d_z E1); λ¹λ⁷, λ²λ⁶ (m_x M1) | 0 | all four symmetry-allowed; radiate at E₁₂+E₂₃=1.20; tested for the (qAFM,>1.2) peak — each carries a 10–12× (E₁₂,1.2) partner (opposite of the measured ratio) → rejected. The peak is instead the dynamical d_z^eff sum tone at qAFM+E12=1.40 (see O₁) — R2 RESOLVED 2026-08-08 |
+| Fe–Fe striction | d ∝ G_xG_y / F_yG_y pair dipoles | 0 | right position (qAFM+qFM=1.28) but full-strength unobserved combination delay rows at \|ω_τ\|=1.05/1.49 → rejected |
 | Fe sector | J₁=4.74/5.15, J₂=0.15/0.30, Ka=−0.0153, Kc=−0.0187, D₁=0.049, D₂=0.014 | | magnons; (qFM,qAFM) magnon–magnon peak |
 | Tm onsite | −(Δ₁₂/2)λ³ + ((Δ₁₂−2Δ₁₃)/2√3)λ⁸, e₁=2.0678, e₂=4.9628 | | qutrit spectrum |
 
@@ -61,20 +69,19 @@ Channel map:  A-cross = O₁→O₂;  A-same = O₁→O₁;  B-cross = O₂→O�
   emission column and the delay-row FID; self-reversal wings at 1.15/1.25).
 - Three cross-family scales (one number each, used consistently):
   w_E1 = 0.54 (E1:M1 — measured by the B transfer ratio);
-  g_d (d_z^eff = the ESJ vertex E_z·S·λ² with the spin leg condensed on
-  ⟨F_x⟩: an order-induced electric dipole of the 1↔2 transition, g_d ∝ ⟨F_x⟩,
-  hence collapses at the spin reorientation. ONE parameter seen through two
-  unit systems: drive avatar = the su3 vector entry 3.0 (g_d × internal field,
-  calibrated by the E12-excitation amplitude); detection avatar =
-  c_E12 = 1.488e-4 per raw λ² map (g_d × emission conversion, calibrated by
-  the measured (qAFM,E12) = 0.30). Connecting the two would need the absolute
-  field inside the sample — reciprocity holds but is untestable on this term
-  by ratios alone); Fe:Tm emission scale (the g-knob,
-  c_Fe ≤ 2.0e−5 per raw S_x map vs 4.4 per raw λ⁶ map — detector/mode overlap;
+  g_d (d_z^eff = the ESJ vertex E_z·(F_x λ²), one parameter seen through THREE
+  avatars: drive avatar = su3 vector entry 3.0 (condensed, calibrated by the
+  E12-excitation amplitude); static emission avatar = 0.30 × c_E12 with
+  c_E12 = 1.488e-4 per raw λ² map (condensed, rebalanced 2026-08-08 when the
+  dynamical piece was adopted; the (qAFM,E12) blob is now fed jointly);
+  dynamical emission avatar = s·c_E12/⟨F_x⟩ on the (F_x·λ²) product map with
+  s = 0.42 (condensation-ratio correction, calibrated by the measured
+  (qAFM,1.41) = 0.30 sum tone; the naive trajectory value δF_x/⟨F_x⟩,
+  ⟨F_x⟩ = 0.0084, overshoots ×2 — the model's canting-angle uncertainty));
+  Fe:Tm emission scale (the g-knob: the atlas now uses c_Fe = 0;
   bounded from ABOVE by the experimental non-observation of the (qAFM,qAFM)
-  magnon diagonal in A same-pol (atlas uses 2.0e−5 → diagonal 0.14, below the
-  digitisation threshold; the λ⁶-carried (E₁₂,qAFM) transfer is insensitive,
-  0.46→0.43).
+  magnon diagonal in A same-pol (diagonal 0.13 at c_Fe=0, below the
+  digitisation threshold; the λ⁶-carried (E₁₂,qAFM) transfer is insensitive).
 
 Strictly reciprocal: operator content, within-family dipole ratios, and the
 filter. Calibrated: the three cross-family scales. Everything else is zero.
