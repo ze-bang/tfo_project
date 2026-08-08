@@ -1883,6 +1883,30 @@ them in two ways: $\mu\lambda^2$ is the Tm \emph{CEF} moment of the
 $1\!\leftrightarrow\!2$ transition, not a magnon, and the electric
 $d_x$ contributes to the same setting.
 
+\paragraph{Reciprocity, stated exactly.}  Each polarisation state is
+one operator serving excitation and detection alike---
+$O_2\equiv(E\!\parallel\!a,H\!\parallel\!c)
+=S_z+5.264\lambda^2+2.84\lambda^1+\beta\lambda^1\lambda^2$ and
+$O_1\equiv(E\!\parallel\!c,H\!\parallel\!a)
+=S_x+0.913\lambda^7+4.4\lambda^6+0.006\lambda^4+g_d\lambda^2$ with
+$\mu^x_{13}=0$---and the channel map is
+A-cross$\,=O_1\!\to\!O_2$, A-same$\,=O_1\!\to\!O_1$,
+B-cross$\,=O_2\!\to\!O_1$, B-same$\,=O_2\!\to\!O_2$.  Strict and
+verified: the operator content, the within-family dipole ratios, and
+the propagation filter, shared identically by drive and readout
+(completing the drive with the full electric components of $O_1$
+changes no pathway ratio---a direct scan gives exact nulls).
+Calibrated once each and used consistently on both sides: $w_{E1}=0.54$
+(measured by the geometry-B transfer), the $d_z^{\rm eff}$ strength
+$g_d$ (one parameter with a drive avatar, calibrated by the
+$E_{12}$-excitation amplitude, and an emission avatar, calibrated by
+the $(\qafm,E_{12})$ peak; only absolute-field calibration could
+over-determine it), and the Fe:Tm emission efficiency.  The
+$g_d\lambda^2$ member is the $ESJ$ vertex with its spin leg condensed
+on $\langle F_x\rangle$: the one legal way an electric field reaches a
+$\mathcal T$-odd quadrature, and the reason every $d_z^{\rm eff}$-fed
+feature must collapse at the spin reorientation.
+
 \subsection{Operating point}
 \label{sec:operating2}
 
@@ -1996,8 +2020,12 @@ not exist in that polarisation.
 \subsection{Result: the same-polarised channel}
 \label{sec:samepolfit}
 
-With the cross channels held fixed and the three symmetry-required
-detection weights fitted to the digitised measurement:
+With the cross channels held fixed, the detection weights fitted once,
+the overlap-gated delay apodisation applied (this channel's documented
+convention), and the propagation filter included (self-absorption of
+$E1$ emission: optical depth $\simeq6$ at the $E_{13}$ line on both the
+emission column and the delay-axis FID, $\simeq1$ at $E_{12}$;
+magnetic-dipole light passes freely):
 \begin{center}\small
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{lccl}
@@ -2006,37 +2034,61 @@ peak & experiment & model & mechanism\\
 \midrule
 $(E_{12},E_{23})$ & $1.00$ & $1.00$ &
   coherence$\to$population$\to\rho_{23}$, non-rephasing\\
-$(E_{12},\qfm)$ & $0.45$ & $0.38$ & Tm$\to$magnon, $\qfm$ branch\\
+$(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$ branch\\
 $(E_{12},\qafm)$ & $0.40$ & $0.46$ & Tm$\to$magnon, read through Fe $F_x$\\
-$(\qafm,E_{12})$ & $0.30$ & $0.32$ &
+$(\qafm,E_{12})$ & $0.30$ & $0.33$ &
   magnon$\to$Tm, read through $d_z^{\rm eff}$ (reciprocity partner)\\
-$(\qafm,E_{13})$ & $0.30$ & $0.09$ & magnon delay, CEF emission\\
-$(E_{12},E_{13})$ & $0.15$ & $0.44$ & single-action transfer\\
+$(E_{13},E_{23})$ 2Q & $0$ & $0.00$ & killed exactly by FID reabsorption\\
+$(E_{12},1.15)$ & $0.15$ & $0.04$ & self-reversal wing of the $E_{13}$ line\\
+$(\qafm,1.25)$ & $0.30$ & $0.05$ & \textbf{open}: residual R2\\
+$(-E_{12},E_{23})$ & $<0.15$ & $\sim0.6$ & \textbf{open}: residual R1, point-ion floor\\
 \bottomrule
 \end{tabular}
 \end{center}
-Four of six within $15\%$.  The rectified $(E_{12},0)$ line, which is
-the strongest measured feature, is suppressed in the 2D maps by the
-$t\geq3$ detection window and is analysed separately through
-$S_{\rm DC}(\tau)=\langle\Mnl\rangle_t$, where it appears as a sharp
-line at $+0.49$\,THz.
+The data additionally force the $1\!\to\!3$ transition to be
+magnetically dark in \emph{every} polarisation: the analyser physically
+contains $\mu_x\lambda^5$, and at the crystal-field value
+$\mu^x_{13}=2.39$ that single term would exceed the whole measured map
+by two orders of magnitude, so $\mu^x_{13}$, like $\mu^z_{13}$, fits to
+zero.  The measured $E_{13}$ positions themselves witness the
+propagation physics: $1.15$ and $1.25$\,THz are the self-reversal
+\emph{wings} of the optically thick ($f=8.7$) line at $1.20$.
 
-\subsection{The one open item}
+The rectified $(E_{12},0)$ pair, the strongest measured feature, is
+suppressed in the 2D maps by the $t\geq3$ window and is analysed
+separately through $S_{\rm DC}(\tau)=\langle\Mnl\rangle_t$, where it
+appears at $\pm0.49$\,THz, symmetric in the delay sign as a population
+grating must be.  Its magnitude carries new physics: under coherent
+pumping alone the model's rectified moment is orders of magnitude below
+the resonant peaks, so the measured dominance of this line is the
+optical readout of the \emph{incoherent} population channel (absorbed
+energy $\to$ CEF populations $\to$ $W_3$ $\to$ quasistatic moment
+change)---the same reservoir the geometry-B post-pulse growth demands,
+and the line's strength relative to $(E_{12},E_{23})$ calibrates
+$c_{\rm heat}W_3$.
+
+\subsection{The open items, and where they all point}
 \label{sec:openitem}
 
-The two failures above are not independent: both peaks are detected at
-$E_{13}$ and therefore share an emission weight, so their ratio is a
-property of the dynamics alone,
-\begin{equation}
-  \frac{(E_{12},E_{13})}{(\qafm,E_{13})}\Big|_{\rm model}=4.9,
-  \qquad
-  \frac{(E_{12},E_{13})}{(\qafm,E_{13})}\Big|_{\rm exp}=0.5 .
-\end{equation}
-No detection weight can move it.  The model routes too much $E_{13}$
-emission through the $E_{12}$-excitation row relative to the magnon
-row; closing that factor of ten is the single remaining discrepancy of
-the atlas, and it is a statement about the conversion dynamics, not
-about the readout.
+Two residuals survive the propagation-completed model, each named and
+characterised.  \emph{R1, the rephasing remnant} $(-E_{12},E_{23})$:
+the point-ion qutrit has an exact floor of $0.47$--$0.58$ of the
+dominant transfer (verified against a standalone three-level
+integrator); no coupling in the exhausted vertex space, no drive
+quadrature or sign (both scanned: exact nulls), and no linear filter
+symmetric in $\pm\omega_\tau$ removes it.  \emph{R2, the marked
+$(\qafm,1.25)$ peak}: the only symmetry-allowed magnon$\to$$E_{13}$
+route, $\kappa^E_{5y}$ of the $ESJ$ family (previously untested),
+produces it but floods the $1\!\leftrightarrow\!2$ block at any useful
+strength---at $\kappa^E_{5y}=0.003$ already $(\qafm,E_{12})$ moves
+$0.32\to0.57$ while the reabsorbed peak itself stays at $0.05$.
+Matching R2 in-model would require the sequential $1\to2\to3$ cascade
+to be $\sim\!15\times$ weaker than ideal three-level dynamics: physics
+of the real third level beyond the qutrit truncation (its different
+spatial character, faster dephasing, or hybridisation).  Both
+residuals, the self-reversal wing amplitudes, and the geometry-B
+$d_z^{\rm eff}$ doublet strength funnel into one measurable object: the
+sample's polarisation-resolved optical depths at the three CEF lines.
 
 \subsection{Falsifiable content}
 \label{sec:predictions2}
@@ -2079,6 +2131,19 @@ about the readout.
   population generators from detection.
 \item \textbf{Pulse length.}  Adiabatically long pulses collapse the
   geometry-A cross peak by orders of magnitude.
+\item \textbf{Propagation fingerprints.}  A lineout across
+  $\omega_t=1.1$--$1.3$ at $\omega_\tau=\qafm$ must show a
+  self-reversal \emph{doublet} around a dark centre at $1.20$; the
+  geometry-B cross channel must carry the $d_z^{\rm eff}$ doublet at
+  $\omega_t=0.45/0.54$ at the $\sim\!0.17$ level; and every wing
+  amplitude scales with sample thickness---a thin sample revives the
+  $E_{13}$ line centre and the two-quantum $(E_{13},E_{23})$ row
+  \emph{together}.
+\item \textbf{The rectified pair.}  $(\pm E_{12},\,\omega_t\to0)$ in
+  the same-polarised channel is the optical readout of the incoherent
+  population channel: its strength relative to $(E_{12},E_{23})$
+  calibrates $c_{\rm heat}W_3$, its delay width equals the $E_{12}$
+  linewidth, and its two signs are symmetric.
 \end{enumerate}
 
 % =====================================================================

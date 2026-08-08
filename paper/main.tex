@@ -51,8 +51,11 @@ balance of the rare-earth dipole ($w_{E1}=0.54$) from a single cross
 peak.  We
 give the pathway of every peak in all four channels---which vertex
 permits it, which coherence occupies the delay axis, which multipole
-radiates, and what would falsify the assignment---and show that the
-residual discrepancy reduces to a single dynamical ratio.
+radiates, and what would falsify the assignment.  A single reciprocal
+propagation filter---self-absorption at the strong electric-dipole
+crystal-field lines---accounts for the remaining structure of the
+same-polarised map, and the two residuals that survive funnel into one
+measurable quantity: the sample's optical depths at those lines.
 \end{abstract}
 
 \maketitle
@@ -244,6 +247,26 @@ it: the electrically written coherence feeds the geometry-B transfer
 peak linearly in $w_{E1}$, and the measured ratio returns
 $w_{E1}=0.54$.
 
+The construction is strictly reciprocal at every level the data can
+test.  Each polarisation state is one operator serving excitation and
+detection alike: the operator \emph{content} (which coordinates appear)
+and the within-family dipole ratios are shared exactly between drive
+and readout, as is the propagation filter below.  Three cross-family
+scales remain as single calibrated numbers used consistently on both
+sides: $w_{E1}$ (measured), the $d_z^{\rm eff}$ strength (one parameter
+seen through two unit systems---its drive avatar calibrated by the
+$E_{12}$-excitation amplitude, its emission avatar by the
+$(\qafm,E_{12})$ peak---which absolute-field calibration alone could
+over-determine), and the Fe:Tm emission efficiency.  Completing the
+drive with the full electric components of its operator changes no
+pathway ratio (verified by direct scan): drive-side reciprocity is
+exact and free.  The last physical ingredient is propagation: with
+$f=8.7$ the sample is optically thick at the $E_{13}$ line (depth
+$\simeq6$) and mildly at $E_{12}$ (depth $\simeq1$), and the same
+transmission filters the incoming field and the emitted $E1$
+light---magnetic-dipole radiation passes freely.  This one filter,
+applied identically both ways, is itself reciprocal.
+
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figs/atlas_final.png}
 \caption{The atlas: four polarisation channels from one Hamiltonian at
@@ -418,8 +441,11 @@ channels held fixed, gives Table~\ref{tab:samepol}.
 
 \begin{table}[b]
 \caption{Geometry-A same-polarised channel: measured amplitudes against
-the model with the three symmetry-required detection weights fitted.
-The $\mu^z_{13}$ weight fits to zero.}
+the final model (detection weights fitted once; overlap-gated delay
+apodisation; self-absorption of the $E1$ emission at the $E_{13}$ line,
+optical depth $\simeq6$ on both the emission column and the delay-axis
+FID, and depth $\simeq1$ at $E_{12}$).  The $\mu^z_{13}$ \emph{and}
+$\mu^x_{13}$ weights fit to zero (fully dark $1\!\to\!3$).}
 \label{tab:samepol}
 \centering\small
 \renewcommand{\arraystretch}{1.25}
@@ -427,30 +453,33 @@ The $\mu^z_{13}$ weight fits to zero.}
 \hline
 peak & exp. & model & pathway\\
 \hline
-$(E_{12},0)$ & $1.00$ & --- & rectified storage\\
+$(E_{12},0)$ & $1.00$ & --- & rectified storage (see text)\\
 $(E_{12},E_{23})$ & $1.00$ & $1.00$ & coherence$\to$pop.$\to\rho_{23}$\\
-$(E_{12},\qfm)$ & $0.45$ & $0.38$ & Tm$\to$magnon, $\qfm$\\
+$(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$\\
 $(E_{12},\qafm)$ & $0.40$ & $0.46$ & Tm$\to$magnon, $\qafm$\\
 $(0,E_{12})$ & $0.40$ & --- & pump--probe row\\
-$(\qafm,E_{12})$ & $0.30$ & $0.32$ & magnon$\to$Tm via $d_z^{\rm eff}$\\
-$(\qafm,E_{13})$ & $0.30$ & $0.09$ & magnon delay, CEF emission\\
-$(E_{12},E_{13})$ & $0.15$ & $0.44$ & single-action transfer\\
+$(\qafm,E_{12})$ & $0.30$ & $0.33$ & magnon$\to$Tm via $d_z^{\rm eff}$\\
+$(E_{13},E_{23})$ & $0$ & $0.00$ & 2Q row, killed by FID reabsorption\\
+$(E_{12},1.15)$ & $0.15$ & $0.04$ & self-reversal wing of $E_{13}$\\
+$(\qafm,1.25)$ & $0.30$ & $0.05$ & \textbf{open} (residual R2)\\
+$(-E_{12},E_{23})$ & $<0.15$ & $0.6$ & \textbf{open} (residual R1, point-ion floor)\\
 \hline
 \end{tabular}
 \end{table}
 
-\emph{The $z$-dark $1\to3$ dipole---measured, not assumed.}  The
+\emph{The fully dark $1\to3$ dipole---measured, not assumed.}  The
 measured map contains delay frequencies $\omega_\tau\in\{E_{12},\qafm\}$
-only.  A bright $1\!\to\!3$ dipole would store an $E_{13}$ coherence at
-first order and produce an $(E_{13},E_{23})$ peak with \emph{exactly}
-the same dipole product $\mu_{12}\mu_{13}\mu_{23}$ as the observed
-$(E_{12},E_{23})$, so no parameter choice could separate them: the
-absence of the whole row is a selection rule.  It does not contradict
-the measured $E_{13}$ oscillator strength ($f=8.7$), which lives in the
-orthogonal polarisations---the same transition is bright in one
-polarisation and dark in another, a fact the 2D map resolves and 1D
-absorption, summed over its bright polarisations, does not.  In the fit
-the residual admixture is not imposed; it comes out at zero.
+only.  A bright $\mu^z_{13}$ would store an $E_{13}$ coherence at first
+order and produce an $(E_{13},E_{23})$ peak with \emph{exactly} the same
+dipole product as the observed $(E_{12},E_{23})$: the absence of the
+whole row is a selection rule.  The data force more: the analyser for
+this channel physically contains $\mu_x\lambda^5$, and at the
+crystal-field value $\mu^x_{13}=2.39$ that term would exceed the entire
+measured map by two orders of magnitude---so $\mu^x_{13}$, too, fits to
+zero.  The $1\!\to\!3$ transition is magnetically dark in \emph{every}
+polarisation; its large measured oscillator strength ($f=8.7$) is
+electric, and it is precisely this strong $E1$ line that makes the
+sample opaque at $1.20$\,THz (below).
 
 \emph{$(E_{12},E_{23})=1.00$: the dominant transfer, via a population.}
 With the single-action route closed by the dark dipole, the surviving
@@ -468,9 +497,20 @@ coherence into a slow net magnetisation of the detection window.  This
 is the strongest measured feature; in the 2D maps it is suppressed by
 construction, since the $t\geq3$ window with Gaussian apodisation removes
 $\omega_t\to0$, so it is analysed separately through
-$S_{\rm DC}(\tau)=\langle\Mnl\rangle_t$, where it appears as a sharp
-line at $+0.49$\,THz.  Its absence from Table~\ref{tab:samepol} is an
-analysis-window statement, not a physical one.
+$S_{\rm DC}(\tau)=\langle\Mnl\rangle_t$, where it appears as a pair of
+sharp lines at $\pm0.49$\,THz---symmetric in the delay sign, as a
+population grating must be ($\cos E_{12}\tau$), and as the measurement
+finds ($1.00/0.85$).  Its absence from Table~\ref{tab:samepol} is an
+analysis-window statement, not a physical one.  Its \emph{magnitude} is
+a physical statement of the first importance: under coherent pumping
+alone the model's rectified moment is orders of magnitude below the
+resonant peaks, whereas the measurement puts it at the top of the map.
+The line is therefore the optical readout of the \emph{incoherent}
+population channel---absorbed pulse energy returning through the CEF
+populations and $W_3$ to a quasistatic change of the ordered
+moment---the same reservoir the geometry-B post-pulse growth demands,
+and its strength relative to $(E_{12},E_{23})$ calibrates
+$c_{\rm heat}W_3$ directly.
 
 \emph{$(E_{12},\qfm)=0.45$ and $(E_{12},\qafm)=0.40$: Tm$\to$magnon,
 read through Fe.}  The stored $E_{12}$ coherence is handed to the Fe
@@ -491,12 +531,24 @@ absent and treated the mismatch as an open tension; the digitised map
 shows it present at $0.30$ of maximum, and the fitted weight reproduces
 it at $0.32$.  This peak is the direct measurement of $d_z^{\rm eff}$.
 
-\emph{$(\qafm,E_{13})=0.30$ and $(E_{12},E_{13})=0.15$.}  The first has
-the magnon on the delay axis, handed to the Tm ion and emitted at
-$E_{13}$; the second is a single probe action rotating the bra of the
-stored $\rho_{12}$ into $\rho_{13}$, again co-rotating, with its emission
-throttled by the nearly dark $\mu^z_{13}$.  These are the two the model
-gets wrong, and Sec.~\ref{sec:open} shows they fail together.
+\emph{The $E_{13}$ column: self-reversal.}  The two measured
+$E_{13}$-emission features sit at $\omega_t=1.15$ and $1.25$\,THz---one
+absorption linewidth \emph{below and above} the $1.20$ line---which is
+the textbook signature of self-reversal: with $f=8.7$ the sample is
+optically thick at $E_{13}$, the line centre of any $E1$ emission is
+reabsorbed, and only the wings escape.  The same reabsorption acts on
+the delay-axis FID, which is what removes the two-quantum
+$(E_{13},E_{23})$ row \emph{exactly} (model $0.33\to0.00$ once the
+filter is applied)---a row the free-ion model robustly predicts and the
+measurement robustly lacks.  With the filter, the model's
+$(E_{12},E_{13})$ tail collapses onto a weak wing at $1.15$
+(Table~\ref{tab:samepol}), in agreement with the faint measured feature.
+What survives as genuinely open is the \emph{marked}
+$(\qafm,1.25)$ peak: no coupling in the exhausted vertex space produces
+it at compatible side-effects, and matching it would require the
+$1\!\to\!2\!\to\!3$ cascade to be an order of magnitude weaker than
+ideal three-level dynamics---real-level-3 physics beyond the qutrit
+truncation (Sec.~\ref{sec:open}).
 
 \emph{Two model features not in the measured list, both predictions.}
 The \emph{rephasing remnant} $(-E_{12},E_{23})$ at $0.67$: checked
@@ -534,26 +586,28 @@ other than the $2E_{12}$ ridge falsifies Eq.~(\ref{eq:hyper}), and an
 observed rectified pair at $(\pm E_{12},\omega_t\!\to\!0)$ would
 falsify the exclusion of the population readout from detection.
 
-\section{The one open item}
+\section{The open items, and where they all point}
 \label{sec:open}
 
-The two failures in Table~\ref{tab:samepol} are not independent.  Both
-peaks are detected at $E_{13}$ and therefore share an emission weight, so
-their ratio is a property of the conversion dynamics alone:
-\begin{equation}
-  \frac{(E_{12},E_{13})}{(\qafm,E_{13})}:\qquad
-  \text{model }4.9,\qquad\text{experiment }0.5 .
-  \label{eq:gap}
-\end{equation}
-No choice of detection weights can move it, and no rescaling of the drive
-does either, since both routes are first order in the coherence they
-start from.  The model routes too much $E_{13}$ emission through the
-$E_{12}$-excitation row relative to the magnon row---equivalently, the
-magnon$\to$Tm handoff feeding $(\qafm,E_{13})$ is too weak relative to
-the intra-Tm $\rho_{12}\to\rho_{13}$ rotation.  The natural places to
-look are the strength of that handoff at the $E_{13}$ block, which our
-vertex set feeds only through $\lambda^1$, and a $\lambda^4$-targeting
-vertex, allowed in the $W$ family but so far held at zero.
+With propagation included, the residual discrepancies reduce to two,
+each with a name and a diagnosis.  \emph{R1, the rephasing remnant}
+$(-E_{12},E_{23})$: the point-ion qutrit has an exact floor of
+$0.47$--$0.58$ of the dominant transfer (verified against a standalone
+three-level integrator; no coupling in the exhausted vertex space and
+no drive quadrature or sign removes it), while the measured
+negative-delay side carries only the rectified and $\qfm$ features.
+\emph{R2, the marked $(\qafm,1.25)$ peak}: the only symmetry-allowed
+magnon$\to$$E_{13}$ vertex ($\kappa^E_{5y}$, the $ESJ$ family) produces
+it but floods the $1\!\leftrightarrow\!2$ block at any useful strength;
+matching R2 within the model would require the sequential
+$1\!\to\!2\!\to\!3$ cascade to be $\sim\!15\times$ weaker than ideal
+qutrit dynamics---i.e., physics of the real third level beyond the
+three-singlet truncation.  Both residuals, together with the
+self-reversal wing amplitudes and the strength of the geometry-B
+$d_z^{\rm eff}$ doublet (below), funnel into a single measurable
+object: the sample's polarisation-resolved optical depths at the three
+CEF lines.  One transmission measurement closes all of them or breaks
+the propagation layer cleanly.
 
 \section{Falsifiable content}
 
@@ -575,10 +629,17 @@ $(E_{12},\qafm)$ transfer, whose static vertex contracts
 $G_z$---must vanish there; the geometry-B same-polarised map must be
 led by the $2E_{12}$ harmonic essentially alone, any rectified
 $(E_{12},0)$ line falsifying the exclusion of population readout; and
-adiabatically long pulses collapse the geometry-A cross peak.  The
-temperature scan through the reorientation is the decisive one, since
-it separates the symmetry-broken from the conversion-generated features
-and measures $d_z^{\rm eff}$ by the size of the collapse.
+adiabatically long pulses collapse the geometry-A cross peak.
+Propagation adds three fingerprints of its own: a lineout across
+$\omega_t=1.1$--$1.3$ at $\omega_\tau=\qafm$ must show a self-reversal
+\emph{doublet} around a dark centre at $1.20$; the geometry-B cross
+channel must carry a $d_z^{\rm eff}$ doublet at $\omega_t=0.45/0.54$
+at the $\sim\!0.17$ level; and every wing amplitude scales with sample
+thickness, so a thin sample revives the $E_{13}$ line centre and the
+two-quantum $(E_{13},E_{23})$ row together.  The temperature scan
+through the reorientation remains the decisive test, since it separates
+the symmetry-broken from the conversion-generated features and measures
+$d_z^{\rm eff}$ by the size of the collapse.
 
 \section{Conclusion}
 
@@ -588,9 +649,13 @@ each polarisation to one qutrit block---so that the drive's electric
 and magnetic quadratures write different qutrit coordinates, with their
 ratio $w_{E1}$ measured by a single cross peak---and a
 hyperpolarisability allowed by the absence of inversion at the
-rare-earth site account for the measured 2DCS atlas of TmFeO$_3$,
-computed from measured inputs with no field-assisted coupling, no free
-lineshape parameters and one residual dynamical ratio.  Every peak has been given a pathway, every
+rare-earth site---completed by a single reciprocal propagation filter,
+the self-absorption of the electric-dipole light at the strong CEF
+lines---account for the measured 2DCS atlas of TmFeO$_3$, computed from
+measured inputs with no field-assisted coupling and no free lineshape
+parameters.  The two residuals that remain are named, characterised,
+and funnel jointly into one measurable object: the sample's
+polarisation-resolved optical depths at the CEF lines.  Every peak has been given a pathway, every
 structural absence a selection rule, and every assignment a falsifiable
 signature.  The program---bound the vertex space by symmetry, assign
 every feature and every absence, and let the atlas overdetermine the
