@@ -341,18 +341,19 @@ linewidth; and it is independent of $W^{xz}_1$ and of the Zeeman drive.
 
 \emph{$(\qafm,\qafm)=0.28$: the magnon diagonal, seen through the Tm
 ion.}  Since $F_z\equiv0$ the magnon cannot radiate here at all.  What
-radiates is the Tm dipole, which carries a component at the magnon
-frequency: in $\Gamma_2$ the static vertex $W^{xz}_1S_xS_z\lambda^1$
-contains $G_z\,\delta S_x\,\lambda^1$, a term \emph{linear} in the magnon
-fluctuation, which shakes the $E_{12}$ oscillator at $0.90$\,THz.  A
-driven oscillator responds at the driving frequency, not its own.  This
-is verified in detail: the sideband sits at $0.8999$\,THz---the magnon,
-not the $\qfm+E_{12}=0.876$ combination; its amplitude is \emph{linear}
-in the Zeeman drive whereas a harmonic would be quadratic; the transfer
-coefficient $|\lambda^2|_{0.90}/|m_x|_{0.90}=0.142$--$0.155$ is
-drive-independent over a $20\times$ range, the hallmark of a linear
-susceptibility evaluated off resonance; and the admixture grows linearly
-with $W^{xz}_1$.
+radiates is the Tm dipole, forced at the magnon frequency by the
+static family: $W^{xz}_1$ contributes $G_z\,\delta S_x\,\lambda^1$,
+linear in the magnon fluctuation, and $W^{yy}_1$ contributes the
+pump-magnon$\times$probe-magnon cross term---the leave-one-out runs
+apportion the peak between them ($W^{yy}_1$-dominant at the operating
+point: removing it leaves $0.43$, removing $W^{xz}_1$ leaves
+$0.64$).  Either way a driven oscillator responds at the driving
+frequency, not its own, and the identification is verified in the
+line itself: the sideband sits at $0.8999$\,THz---the magnon, not the
+$\qfm+E_{12}=0.876$ combination---and the transfer coefficient
+$|\lambda^2|_{0.90}/|m_x|_{0.90}=0.142$--$0.155$ is drive-independent
+over a $20\times$ range, the hallmark of a forced linear response
+evaluated off resonance.
 
 \emph{$(\qafm,2\qafm)=0.39$: prediction.}  The same quadratic term must
 double \emph{any} frequency present in the Tm dipole, so the
@@ -402,9 +403,15 @@ row at the \emph{unshifted} line position with strays below $0.17$.
 Second, the interference of the two drive quadratures places the row:
 with $\mathrm{sign}(d_x\mu_z)<0$ it sits at $\omega_\tau=0.52$, exactly
 where it is measured---the relative sign is thereby a prediction for
-the crystal-field wavefunctions.  Third, the amplitude is linear in
+the crystal-field wavefunctions.  Third, the electric component's amplitude is linear in
 $w_{E1}$, and matching the measured $0.43$--$0.46$ returns
-$w_{E1}=0.54$: the $E1/M1$ balance is measured, not assumed.  A static
+$w_{E1}=0.54$: the $E1/M1$ balance is measured, not assumed.  The
+leave-one-out runs quantify the pathway shares: removing the $d_x$
+writing halves the transfer and removing $W^{xz}_1$ costs a quarter,
+the remainder flowing through the magnetically written quadrature and
+the $W^{yy}_1$ mixing route ($\qfm{+}E_{12}=0.88$, unresolved from
+$\qafm$)---the electric leg is the largest single element, and it is
+the $w_{E1}$-bearing one.  A static
 vertex strong enough to make this peak \emph{without} the electric
 quadrature is a mixer: it drags the $E_{12}$ line with it (level
 repulsion) and is excluded by 1D absorption at every coupling
@@ -472,8 +479,8 @@ peak & exp. & model & pathway\\
 \hline
 $(E_{12},0)$ & $1.00$ & --- & rectified storage (see text)\\
 $(E_{12},E_{23})$ & $1.00$ & $1.00$ & coherence$\to$pop.$\to\rho_{23}$\\
-$(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$ sideband on $\lambda^6$\\
-$(E_{12},\qafm)$ & $0.40$ & $0.43$ & Tm$\to$magnon, $\qafm$ sideband on $\lambda^6$\\
+$(E_{12},0.40)$ & $0.45$ & $0.40$ & cascade tone $2(E_{23}{-}E_{12})$, adjacent to $\qfm$\\
+$(E_{12},0.90)$ & $0.40$ & $0.43$ & cascade tone $2E_{23}{-}E_{12}$, degenerate with $\qafm$\\
 $(0,E_{12})$ & $0.40$ & --- & pump--probe row\\
 $(\qafm,E_{12})$ & $0.30$ & $0.38$ & magnon$\to$Tm via $d_z^{\rm eff}$\\
 $(\qafm,\qafm)$ & absent & $0.13$ & magnon diagonal; absence bounds $c_{\rm Fe}$\\
@@ -532,19 +539,23 @@ moment---the same reservoir the geometry-B post-pulse growth demands,
 and its strength relative to $(E_{12},E_{23})$ calibrates
 $c_{\rm heat}W_3$ directly.
 
-\emph{$(E_{12},\qfm)=0.45$ and $(E_{12},\qafm)=0.40$: Tm$\to$magnon,
-read back through the Tm ion itself.}  The stored $E_{12}$ coherence is
-handed to the Fe sublattice by the static couplings; the launched
-magnon then modulates the Tm crystal field in turn, imprinting the
-magnon frequencies as sidebands on the strong $\lambda^6$ ($d_z$) line.
-The emission is therefore \emph{electric and rare-earth}, not magnetic
-and iron: decomposing the model composite shows both features carried
-almost entirely by $\lambda^6$, insensitive to the Fe weight
-($0.46\to0.43$ when $c_{\rm Fe}$ is reduced fourfold).  These are the
-reverse of the geometry-A cross peak---there the magnon feeds the Tm
-dipole, here the Tm coherence feeds the magnon---so the static $W$
-family is read in both directions, and in both directions it is the Tm
-dipole that does the radiating.
+\emph{$(E_{12},0.40)=0.45$ and $(E_{12},0.90)=0.40$: cascade tones of
+the driven qutrit, masquerading at the magnon frequencies.}  The
+necessity audit (removing the Fe Zeeman leg entirely and re-running)
+leaves both features at $0.89$--$0.97$ of their baseline: they are
+not magnon features at all but intrinsic tones of the three-level
+cascade, $2(E_{23}{-}E_{12})=0.40$ and $2E_{23}{-}E_{12}=0.90$\,THz,
+radiated on the $\lambda^6$ ($d_z$) line and numerically coincident
+with $\qfm=0.38$ and $\qafm=0.90$.  Both die without the $\lambda^7$
+drive leg ($0.05$--$0.08$), confirming the double-$\rho_{23}$
+pathway; the genuine Tm$\to$magnon transfer is the
+$\lesssim\!10\%$ Zeeman-sensitive remainder.  The measurement can
+separate the hypotheses directly: the low tone sits at $0.40$, more
+than a linewidth above $\qfm=0.38$, and a cascade tone survives the
+spin reorientation with CEF width while a magnon sideband would
+soften and sharpen.  The emission is in either case electric and
+rare-earth, insensitive to the Fe weight ($0.46\to0.43$ when
+$c_{\rm Fe}$ is reduced fourfold).
 
 \emph{$(\qafm,\qafm)$: absent---and the absence is a measurement.}
 The magnon diagonal is the one feature of this channel that genuinely
@@ -717,12 +728,15 @@ channel must carry a $d_z^{\rm eff}$ doublet at $\omega_t=0.45/0.54$
 at the $\sim\!0.17$ level; and every wing amplitude scales with sample
 thickness, so a thin sample revives the $E_{13}$ line centre and the
 two-quantum $(E_{13},E_{23})$ row together.  The emission assignments
-carry linewidth fingerprints: the same-polarised magnon-frequency
-features, being sidebands on the Tm $d_z$ line, must show the CEF
-linewidth along $\omega_t$, while the geometry-B magnon emission shows
-the $15\times$ sharper magnon linewidth---and any recovered
-$(\qafm,\qafm)$ diagonal in the same-polarised channel would raise the
-$c_{\rm Fe}$ bound and must then appear with the \emph{magnon} width.
+carry lineshape and position fingerprints: the same-polarised
+$E_{12}$-row tones, being qutrit cascade tones, must sit at
+$2(E_{23}{-}E_{12})=0.40$ and $2E_{23}{-}E_{12}=0.90$ with CEF width
+and survive the spin reorientation---at the low tone a full linewidth
+above $\qfm=0.38$, a direct positional test against the magnon
+reading---while the geometry-B magnon emission shows the $15\times$
+sharper magnon linewidth, and any recovered $(\qafm,\qafm)$ diagonal
+in the same-polarised channel would raise the $c_{\rm Fe}$ bound and
+must then appear with the \emph{magnon} width.
 The dynamical $d_z^{\rm eff}$ triplet is over-constrained: all three
 tones come from one product, so their ratios are locked, the sum tone
 must sit at $\qafm{+}E_{12}$ \emph{exactly} (at $1.20$ it would be a
@@ -754,7 +768,13 @@ identify---completed by a single reciprocal propagation filter,
 the self-absorption of the electric-dipole light at the strong CEF
 lines---account for the measured 2DCS atlas of TmFeO$_3$, computed from
 measured inputs with no field-assisted coupling and no free lineshape
-parameters.  The absences do quantitative work alongside the peaks:
+parameters.  Every component of the construction passed a
+leave-one-out necessity audit---each drive leg, conversion vertex,
+detection term and propagation filter is required by a named measured
+feature, the only survivors of removal being the symmetry-mandated
+spectators ($F_z$, the near-dark $\lambda^4$, and the exactly inert
+field-assisted gate) [SM; long-form note].  The absences do
+quantitative work alongside the peaks:
 the missing $E_{13}$ delay row measures the fully dark $1\!\to\!3$
 dipole, the missing magnon diagonal bounds the Fe emission weight, and
 the missing $(E_{12},1.20)$ sum-frequency partner excludes every

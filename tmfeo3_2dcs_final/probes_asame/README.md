@@ -98,3 +98,25 @@ and tmfeo3_foundation.tex. R2 -> RESOLVED (reassigned: not an E13 emission;
 the qAFM+E12 sum tone of the dynamical d_z^eff). R1 is the sole open residual.
 Atlas census: (0.90,1.41)=0.30, (0.51,1.41)=0.41, (0.90,0.40)=0.42,
 (0.90,0.50)=0.38, diagonal 0.13 (sub-threshold).
+
+## 2026-08-08: NECESSITY AUDIT (leave-one-out, all components)
+Solver-side: 8 ablation runs (gs1; scratchpad/audit): A without {l2-drive,
+l7-drive, Fe-Zeeman, W1yy, W1xz, kappaB}; B without {l1-drive, W1xz}.
+Detection-side: composite term drops (no reruns).
+CONFIRMED: A-cross anchor needs Zeeman+W1yy (0.02-0.03); SHG needs only
+stored E12 (dies 0.005 without l2-drive, survives all else); A-same anchor
+needs both Tm drive legs (0.005/0.024); (qAFM,E12)+SFG/DFG tones need the
+Zeeman magnon (0.03); tones survive both W ablations (0.95-1.02) = the
+no-conversion-vertex claim; kappaB bitwise inert (params zeroed, runs valid);
+l6 required (anchor 0.06 without); beta required (SHG 0.01 without); both
+T13 filters required (0.67 line-centre peak / 0.32 2Q row return);
+l4 marginal; l1<->l2 and l6<->l7 quadrature-equivalent.
+CORRECTED: (1) A-same (E12,0.40) & (E12,0.90) survive the NO-MAGNON run at
+0.89-0.97 -> they are DRIVEN-QUTRIT CASCADE TONES 2(E23-E12)=0.40 and
+2E23-E12=0.90, numerically degenerate with qFM/qAFM; both die without the
+l7 drive (0.05/0.08); Tm->magnon transfer is the <=10% remainder.
+Positional falsifiable: 0.40 vs qFM=0.38.  (2) A-cross (qAFM,qAFM) sideband
+is W1yy-dominant (0.43 without) with W1xz secondary (0.64), not W1xz-only.
+(3) B transfer is multi-path: no-d_x halves it (0.49), no-W1xz costs a
+quarter (0.76); electric leg = largest single element, the w_E1-bearing one.
+All folded into main.tex + foundation (new subsection "The necessity audit").

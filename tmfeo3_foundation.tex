@@ -1909,7 +1909,7 @@ uncertainty), and the Fe:Tm emission efficiency $c_{\rm Fe}$,
 bounded from \emph{above} by the non-observation of the
 $(\qafm,\qafm)$ magnon diagonal (the atlas uses $c_{\rm Fe}=0$, at
 which the diagonal sits at $0.13$, below the digitisation threshold,
-while the $\lambda^6$-carried $(E_{12},\qafm)$ transfer is untouched).
+while the $\lambda^6$-carried $(E_{12},0.90)$ feature is untouched).
 The $g_d(\langle F_x\rangle+\delta F_x)\lambda^2$ member is the $ESJ$
 vertex $E_z\,(F_x\lambda^2)$: condensing the spin leg on
 $\langle F_x\rangle$ gives the static avatars (the one legal way an
@@ -2030,7 +2030,14 @@ $W^{xz}_1=0.01$ then adds the transfer row at the unshifted line
 position ($\omega_\tau=0.52$, set by the interference of the two drive
 quadratures with $\mathrm{sign}(d_x\mu_z)<0$), at the measured ratio for
 $w_{E1}=0.54$, with geometry A untouched because the $d_x$ drive does
-not exist in that polarisation.
+not exist in that polarisation.  The necessity audit
+(\cref{sec:audit}) quantifies the pathway shares at the operating
+point: removing the electric writing halves the transfer, removing
+$W^{xz}_1$ costs a quarter, and the remainder flows through the
+magnetically written quadrature and the $W^{yy}_1$ mixing route
+($\qfm{+}E_{12}=0.88$, unresolved from $\qafm$)---the electric
+component is the largest single leg, and it is the leg whose
+amplitude is linear in $w_{E1}$.
 
 \subsection{Result: the same-polarised channel}
 \label{sec:samepolfit}
@@ -2053,10 +2060,12 @@ peak & experiment & model & mechanism\\
 \midrule
 $(E_{12},E_{23})$ & $1.00$ & $1.00$ &
   coherence$\to$population$\to\rho_{23}$, non-rephasing\\
-$(E_{12},\qfm)$ & $0.45$ & $0.40$ & Tm$\to$magnon, $\qfm$ sideband on
-  the $\lambda^6$ ($d_z$) line\\
-$(E_{12},\qafm)$ & $0.40$ & $0.43$ & Tm$\to$magnon, carried as the
-  magnon sideband on the $\lambda^6$ ($d_z$) line\\
+$(E_{12},0.40)$ & $0.45$ & $0.40$ & qutrit cascade tone
+  $2(E_{23}{-}E_{12})=0.40$, adjacent to $\qfm=0.38$ (audit,
+  \cref{sec:audit})\\
+$(E_{12},0.90)$ & $0.40$ & $0.43$ & qutrit cascade tone
+  $2E_{23}{-}E_{12}=0.90$, degenerate with $\qafm$; Tm$\to$magnon
+  transfer is the $\lesssim10\%$ remainder\\
 $(\qafm,E_{12})$ & $0.30$ & $0.38$ &
   magnon$\to$Tm, read through $d_z^{\rm eff}$ (reciprocity partner)\\
 $(\qafm,\qafm)$ & absent & $0.13$ & magnon diagonal (Fe $F_x$, M1);
@@ -2075,10 +2084,16 @@ $(-E_{12},E_{23})$ & $<0.15$ & $\sim0.7$ & \textbf{open}: residual R1, point-ion
 The emission accounting deserves one explicit paragraph, because it
 inverts the naive reading of an ``$m_x$ channel''.  Decomposing the
 model composite shows that every magnon-\emph{frequency} feature in
-this channel except the diagonal is carried by the Tm electric dipole:
-the launched magnon modulates the crystal field and rides out as a
-sideband on the strong $\lambda^6$ ($d_z$) line, so reducing the Fe
-weight fourfold moves $(E_{12},\qafm)$ only from $0.46$ to $0.43$.
+this channel except the diagonal is carried by the Tm electric
+dipole---and the necessity audit (\cref{sec:audit}) goes further: the
+two $E_{12}$-row features at $0.40$ and $0.90$ survive the no-magnon
+ablation at $0.89$--$0.97$, so they are predominantly cascade tones
+of the driven qutrit itself ($2(E_{23}{-}E_{12})$ and
+$2E_{23}{-}E_{12}$), numerically coincident with the magnon
+frequencies, with the genuine Tm$\to$magnon transfer the
+$\lesssim10\%$ Zeeman-sensitive remainder.  Consistently, reducing
+the Fe weight fourfold moves $(E_{12},0.90)$ only from $0.46$ to
+$0.43$.
 The magnon \emph{diagonal} $(\qafm,\qafm)$ is the one feature that
 genuinely requires Fe $F_x$ emission---a magnon re-emitting at its own
 frequency with no Tm conversion---and the measurement does not contain
@@ -2137,6 +2152,81 @@ change)---the same reservoir the geometry-B post-pulse growth demands,
 and the line's strength relative to $(E_{12},E_{23})$ calibrates
 $c_{\rm heat}W_3$.
 
+\subsection{The necessity audit}
+\label{sec:audit}
+
+Every component of the final model was subjected to a leave-one-out
+test: the drive legs and Hamiltonian vertices by re-running the solver
+with one term removed (single ground-state seed; ratios of feature
+amplitudes to the baseline run), the detection terms and propagation
+filters by dropping one term of the composite (no re-run needed).
+The verdicts:
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
+\toprule
+component removed & what dies (ratio to baseline) & verdict\\
+\midrule
+Fe Zeeman leg & A-cross anchor $0.02$; $(\qafm,E_{12})$ $0.03$;
+  SFG/DFG tones $0.03$ & required\\
+$d_z^{\rm eff}$ drive ($\lambda^2$) & $(E_{12},E_{23})$ $0.005$;
+  $2E_{12}$ harmonic $0.005$; tones $0.08$--$0.13$ & required\\
+$\mu_x$ drive ($\lambda^7$) & $(E_{12},E_{23})$ $0.02$; the
+  $E_{12}$-row cascade tones $0.05$--$0.08$ & required\\
+$W^{yy}_1$ & A-cross anchor $0.03$; magnon-forced $\lambda^2$
+  ($\to0.43$--$0.62$) & required\\
+$W^{xz}_1$ & A-cross magnon sideband $\to0.64$; B transfer
+  $\to0.76$ & required (shared load)\\
+$\kappa^B_{1y}$ & nothing: trajectories bitwise identical & inert
+  (exact); params now carry $0$\\
+$d_x$ drive, geom.\ B & transfer $\to0.49$ & dominant single
+  element\\
+$\beta\lambda^1\lambda^2$ (detect) & $(E_{12},2E_{12})$
+  $0.95\to0.01$ & required\\
+$\lambda^6$ (detect) & same-pol anchor $1.00\to0.06$ & required\\
+$\delta F_x\lambda^2$ (detect) & the tone triplet $\to0.02$--$0.05$
+  & required\\
+$\langle F_x\rangle\lambda^2$ (detect) & $(\qafm,E_{12})$ blob
+  re-centres at $0.40$ & required (position)\\
+$T_{13}$ column filter & a $0.67$ peak appears at the $E_{13}$
+  line centre & required\\
+$T_{13}$ delay-row filter & the 2Q $(E_{13},E_{23})$ row returns at
+  $0.32$ & required\\
+$\lambda^4$ (detect) & only the $1.15$ wing moves ($0.03\to0.02$) &
+  marginal (bounded small)\\
+$F_z$ (detect) & nothing in A-cross ($F_z\equiv0$) &
+  symmetry-required, data-inert\\
+$\lambda^1\!\leftrightarrow\!\lambda^2$, $\lambda^6\!\leftrightarrow\!
+\lambda^7$ swaps & maps agree to $8$--$11\%$ & quadrature-equivalent\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The audit also \emph{corrected} two assignments.  First, the
+same-polarised $E_{12}$-row features at $\omega_t\simeq0.40$ and
+$0.90$ survive the \emph{no-magnon} run at $0.89$--$0.97$: they are
+not Tm$\to$magnon transfers but \textbf{cascade tones of the driven
+qutrit}, $2(E_{23}{-}E_{12})=0.40$ and $2E_{23}{-}E_{12}=0.90$,
+numerically degenerate with $\qfm=0.38$ and $\qafm=0.90$; both die
+without the $\lambda^7$ drive ($0.05/0.08$), confirming the
+double-$\rho_{23}$ pathway, and the genuine Tm$\to$magnon transfer is
+the $\lesssim10\%$ Zeeman-sensitive remainder.  The experimental
+discriminators are sharp: a cascade tone sits at $2E_{23}-E_{12}$
+with CEF linewidth and survives the spin reorientation, while a
+magnon sideband sits at $\qafm$ exactly, carries composite width, and
+its position tracks the softening magnon; at $0.40$ against
+$\qfm=0.38$ the two are separated by more than a linewidth.  Second,
+the A-cross magnon sideband $(\qafm,\qafm)$ is fed by \emph{both}
+static components---$W^{yy}_1$-dominant (ratio $0.43$ without it)
+with $W^{xz}_1$ secondary ($0.64$)---and the geometry-B transfer is
+correspondingly multi-path: removing the electric writing halves it,
+removing $W^{xz}_1$ costs a quarter, the remainder flowing through
+the magnetically written quadrature and the $W^{yy}_1$ mixing route
+($\qfm+E_{12}=0.88$, unresolved from $\qafm$).  The transfer is a
+property of the full two-quadrature drive acting through the full
+static family, with the electric component its largest single leg.
+
 \subsection{The open items, and where they all point}
 \label{sec:openitem}
 
@@ -2182,14 +2272,19 @@ sample's polarisation-resolved optical depths at the three CEF lines.
 \label{sec:predictions2}
 
 \begin{enumerate}
-\item \textbf{Emission fingerprint and linewidth.}  The linewidth
-  along $\omega_t$ names the emitter.  Geometry-B magnon emission (Fe
-  $m_x$, M1) carries the magnon linewidth, $15\times$ sharper than a
-  CEF line.  The geometry-A same-polarised magnon-frequency features,
-  being sidebands on the Tm $d_z$ line, must instead carry the
-  \emph{CEF} linewidth---and any recovered $(\qafm,\qafm)$ diagonal in
-  that channel would raise the $c_{\rm Fe}$ bound and must then appear
-  with the magnon width.
+\item \textbf{Emission fingerprint, linewidth and position.}  The
+  $\omega_t$ lineshape names the emitter.  Geometry-B magnon emission
+  (Fe $m_x$, M1) carries the magnon linewidth, $15\times$ sharper than
+  a CEF line.  The geometry-A same-polarised $E_{12}$-row features,
+  being cascade tones of the driven qutrit, must sit at
+  $2(E_{23}{-}E_{12})=0.40$ and $2E_{23}{-}E_{12}=0.90$ with CEF
+  width and survive the spin reorientation; a genuine Tm$\to$magnon
+  sideband would instead sit at $\qfm=0.38$/$\qafm=0.90$ and track
+  the softening magnon.  At the low tone the two hypotheses are
+  separated by more than a linewidth ($0.40$ against $0.38$)---a
+  direct positional test.  Any recovered $(\qafm,\qafm)$ diagonal
+  would raise the $c_{\rm Fe}$ bound and must appear with the magnon
+  width.
 \item \textbf{Thermal trends.}  $(\qfm,\qafm)$ is temperature-flat;
   $(E_{12},\qafm)$ falls as $n_1-n_2$; the cascade member
   $(\qafm,E_{23})$ grows with the level-2 population.
