@@ -99,7 +99,7 @@ _, _, G6 = spec(t, tau, l6g, True); _, _, G7 = spec(t, tau, l7g, True); _, _, GF
 T13c = np.exp(-6.0/(1+((wtg-1.20)/0.05)**2))[None, :]
 T13r = np.exp(-6.0/(1+((np.abs(wTg)-1.20)/0.05)**2))[:, None]
 T12c = np.exp(-1.0/(1+((wtg-0.50)/0.04)**2))[None, :]      # E12-line self-absorption (E||c E1), depth 1
-Asame = (0.006*G4 + 4.4*G6)*T13c*T13r + 1.65*GF + 3.0*G2*T12c + 0.9128*G7
+Asame = (0.006*G4 + 4.4*G6)*T13c*T13r + 8.205e-5*GF + 1.488e-4*G2*T12c   # fitted Fe:Tm and d_z^eff scales (g-knob), operator content strict
 
 # O1 detection for B-cross; O2 for B-same (T=0, geometry B run)
 tB, tauB, D2B, D3B, QB = B_run
@@ -109,7 +109,7 @@ _, _, B7 = spec(tB, tauB, D3B[:, :, 6]);     _, _, BFx = spec(tB, tauB, D2B[:, :
 _, _, BFz = spec(tB, tauB, D2B[:, :, 2]);    _, _, BQ = spec(tB, tauB, QB)
 T13cB = np.exp(-6.0/(1+((wtB-1.20)/0.05)**2))[None, :]
 T12cB = np.exp(-1.0/(1+((wtB-0.50)/0.04)**2))[None, :]
-Bcross = (0.006*B4 + 4.4*B6)*T13cB + 1.65*BFx + 3.0*B2*T12cB + 0.9128*B7
+Bcross = (0.006*B4 + 4.4*B6)*T13cB + 8.205e-5*BFx + 1.488e-4*B2*T12cB
 Bsame  = BFz + 5.264*B2 + 2.84*B1 + beta*BQ
 
 panels = [
@@ -117,7 +117,7 @@ panels = [
      "DETECT O2 = S$_z$+5.264$\\lambda^2$+2.84$\\lambda^1$+%.0f$\\lambda^1\\lambda^2$,  $T$=10 K" % beta,
      wtb, wTb, Across, "A_cross"),
     ("B cross  DRIVE O2 (H$\\parallel$c Zeeman + Tm[$-$2.84$\\lambda^1$,5.264$\\lambda^2$])\n"
-     "DETECT O1 = 1.65S$_x$+3.0$\\lambda^2$+0.006$\\lambda^4$+4.4$\\lambda^6$+0.913$\\lambda^7$,  $T$=0",
+     "DETECT O1 (fitted cross-family scales),  $T$=0",
      wtB, wTB, Bcross, "B_cross"),
     ("A same-pol  DRIVE O1, DETECT O1 (same operator; $\\tau$-gate;\nE$_{13}$ self-absorption d=6 on the E1 members),  $T$=10 K",
      wtg, wTg, Asame, "A_same"),
@@ -126,7 +126,7 @@ panels = [
 ]
 census = {"operators": {
     "O2": "S_z + 5.264 l2 + 2.84 l1 (w_E1=0.54 mu) + beta l1 l2; beta recal = %.1f" % beta,
-    "O1": "1.65 S_x + 3.0 l2 (d_z^eff) + 0.006 l4 + 4.4 l6 + 0.9128 l7; mu_x13 = 0 (dark 1-3)"},
+    "O1": "content: S_x + d_z^eff l2 + d_z(l4,l6) + mu_x l7; mu_x13=0. Map weights: 4.4 l6 + 0.006 l4 + 8.205e-5 S_x + 1.488e-4 l2 (fitted cross-family scales, used identically in drive+detection where testable)"},
     "drives": {"A": "0,3.0,0,0.006,0,4.4,0.9128,0 amp 0.037822 (= O1 Tm part)",
                "B": "-0.0165,0.030711 amp 0.034864 (= O2 Tm part, w_E1 ratio)"}}
 fig, axs = plt.subplots(2, 2, figsize=(12.6, 9.6))

@@ -25,3 +25,27 @@ VERDICT
    A-same drive strength, B-cross stray magnitude, E13 wing amplitudes) now
    maps onto the sample absorption depths at E12/E23/E13 — one measurable set.
 Files: atlas_reciprocal.py/.png, census_atlas_reciprocal.json, runs geomA_gs1-3.
+
+## FINAL reciprocity accounting (2026-08-08, after the drive-attenuation scan)
+1. DRIVE-COMPLETION NULL: scanning the lambda6 electric drive over t23 in
+   {1.0, 0.5, 0.2, ~0} changes the A-same pathway RATIOS negligibly (variants
+   near-identical under fixed detection). The earlier "over-rotation" was a
+   detection-UNIT error (drive-vector entries used as map weights), not drive
+   physics. Strict reciprocity of the drive is therefore FREE: the complete O1
+   vector and the production vector give the same physics up to the anchor
+   normalization (direct lambda6 writing inflates the (E12,E23) anchor ~2x,
+   deflating the magnon-emission family relatively; production drive matches
+   the data best and equals the reciprocal drive filtered by the sample's
+   incoming-field transmission at the strongly absorbed E1 lines).
+2. WHAT IS STRICT: operator CONTENT per polarisation (selection rules, all
+   verified); within-family dipole ratios shared by drive and detection;
+   the propagation filter (E12 d~1, E13 d~6) applied to fields both ways.
+3. WHAT IS CALIBRATED (one number each, used consistently): Fe:Tm emission
+   scale (the g-knob, ~300x vs bare moments — mode overlap/detector), the
+   d_z^eff strength (enters drive and detection as the same unknown g_d;
+   ratios cannot overdetermine it without absolute field calibration), and
+   w_E1 = 0.54 (E1:M1, MEASURED by the geometry-B transfer).
+4. The canonical experiment-facing atlas remains: production A-drive
+   (= transmission-filtered O1) + adopted A-same composite (asame_final.png);
+   the strict-form atlas (bare O1 drive, fitted scales) is atlas_reciprocal.png
+   -- identical headline peaks, anchor-rescaled magnon family (x~0.5).
