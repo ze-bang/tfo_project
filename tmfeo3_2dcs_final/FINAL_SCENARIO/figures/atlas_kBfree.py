@@ -1,6 +1,7 @@
 import numpy as np, h5py, json
 from scipy.ndimage import gaussian_filter, maximum_filter, median_filter
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
+from matplotlib.colors import PowerNorm
 SCALE=2*np.pi/4.135667696
 BASE="tfo_project/tmfeo3_2dcs_final"; OUT="tfo_project/paper/data"
 E=[0.0,2.067834,4.9628]
@@ -96,11 +97,15 @@ panels.append(("A cross   DRIVE: B$\\parallel$a$\\,f(t)$ Zeeman on Fe (0.12) + T
 # 2. B cross: detect m_x = Fe Sx
 wtb,wTb,e=mix(B,"SU2",0,0)
 panels.append(("B cross   DRIVE: B$\\parallel$c$\\,f(t)$ Zeeman on Fe (0.10) + Tm: B$\\parallel$c $\\mu_z$0.0307$\\lambda^2$, E$\\parallel$a d$_x$($-$0.0165)$\\lambda^1$ [w$_{E1}$=0.54]\nDETECT (E$\\parallel$c,H$\\parallel$a) out: $m_x$ = Fe S$_x$ (M1); Tm $\\lambda^{5,7}{\\equiv}$0 (closure), $\\kappa^B$=0,  $T$=0",wtb,wTb,e,"B_cross"))
-# 3. A same-pol: detect E||c -> CEF composite
+# 3. A same-pol: full adopted O1 operator + propagation layer (E13 d=6 both axes; fitted cross-family scales)
 wtb,wTb,f4=mix(S,"SU3",3,10,True); _,_,f6=mix(S,"SU3",5,10,True)
+_,_,fF=mix(S,"SU2",0,10,True);     _,_,f2=mix(S,"SU3",1,10,True)
+T13c=np.exp(-6.0/(1+((wtb-1.20)/0.05)**2))[None,:]
+T13r=np.exp(-6.0/(1+((np.abs(wTb)-1.20)/0.05)**2))[:,None]
+Asame_full=(0.006*f4+4.4*f6)*T13c*T13r + 8.205e-5*fF + 1.488e-4*f2
 panels.append(("A same-pol   DRIVE: same single geometry-A pulse as A cross (second analyser on one experiment)\n"
-               "DETECT (E$\\parallel$c,H$\\parallel$a) out, plotted: d$_z$ CEF 0.006$\\lambda^4$+4.4$\\lambda^6$ (F$_x$+$\\lambda^{5,7}$ m$_x$ part omitted);  no $\\lambda^{3,8}$ (mirror-odd),  $T$=10 K",
-               wtb,wTb,0.006*f4+4.4*f6,"A_same"))
+               "DETECT (E$\\parallel$c,H$\\parallel$a) out: (0.006$\\lambda^4$+4.4$\\lambda^6$)$\\times$T$_{13}$ + c$_{Fe}$F$_x$ + c$_{E12}\\lambda^2$(d$_z^{eff}$);  E$_{13}$ self-absorbed (d=6),  $T$=10 K",
+               wtb,wTb,Asame_full,"A_same"))
 # 4. B same-pol PREDICTION: SAME operator as A cross -- both analyse (E||a,H||c)
 wtb,wTb,g_=mix(B,"SU2",2,0); _,_,bl2=mix(B,"SU3",1,0); _,_,bq=quad(B,0)
 _,_,bl1=mix(B,"SU3",0,0); _,_,bl3=mix(B,"SU3",2,0)
@@ -119,7 +124,7 @@ for ax,(ttl,wtb,wTb,A,key) in zip(axs.ravel(),panels):
     print(f"\n=== {key} ===")
     for a_,p,yy,xx in pk: print(f"   {a_:5.2f} x{p:4.1f}  ({yy:+.2f}, {xx:.2f})")
     Z=A.copy(); Z[np.abs(wTb)<0.18,:]=0
-    ax.pcolormesh(wtb,wTb,Z/Z.max(),shading="auto",cmap="inferno",vmin=0,vmax=1,rasterized=True)
+    ax.pcolormesh(wtb,wTb,Z/Z.max(),shading="auto",cmap="inferno",norm=PowerNorm(gamma=0.45,vmin=0,vmax=1),rasterized=True)
     for nm,v in MODES:
         ax.axvline(v,color="w",ls="--",lw=0.7,alpha=0.32)
         ax.axhline(v,color="w",ls="--",lw=0.7,alpha=0.32); ax.axhline(-v,color="w",ls="--",lw=0.7,alpha=0.32)
@@ -133,7 +138,7 @@ for ax,(ttl,wtb,wTb,A,key) in zip(axs.ravel(),panels):
     ax.set_xlabel("$\\omega_t$ (THz)"); ax.set_ylabel("physical $\\omega_T$ (THz)")
     ax.set_title(ttl,fontsize=8.2)
 fig.suptitle("The TmFeO$_3$ 2DCS atlas — $\\kappa^B$-FREE scenario: one Hamiltonian (all-static Fe-Tm vertices), one physical pulse per geometry\n"
-             "(geometry-B coherence written electrically via d$_x$, converted by master W$_1^{xz}$; $\\omega_\\tau$=0 row removed; blind census)",fontsize=11)
+             "(geometry-B coherence written electrically via d$_x$, converted by master W$_1^{xz}$; $\\omega_\\tau$=0 row removed; blind census; amplitude$^{0.45}$ colour scale)",fontsize=11)
 fig.tight_layout(); fig.savefig("tfo_project/tmfeo3_2dcs_final/FINAL_SCENARIO/figures/atlas_kBfree.png",dpi=118)
 json.dump(census,open("tfo_project/tmfeo3_2dcs_final/FINAL_SCENARIO/figures/census_atlas_kBfree.json","w"),indent=1)
 print("\nsaved w3_isolation/atlas_kBfree.png + census_atlas_kBfree.json")
