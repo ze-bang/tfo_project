@@ -21,9 +21,8 @@
 
 \begin{document}
 
-\title{Two faces of the rare-earth--iron exchange:\\
-two-dimensional terahertz spectroscopy of TmFeO$_3$ as vertex
-spectroscopy of a dressed singlet ion}
+\title{Nonlinear coupling of crystal-field excitations and spin waves
+in a rare-earth orthoferrite}
 
 \author{Working draft}
 \affiliation{---}
@@ -31,187 +30,230 @@ spectroscopy of a dressed singlet ion}
 \date{\today}
 
 \begin{abstract}
-One-dimensional spectroscopy measures the \emph{spectrum} of a
-Hamiltonian; two-dimensional coherent spectroscopy (2DCS) measures its
-\emph{vertices}---the individual nonlinear terms that convert one
-coherence into another.  We show that in TmFeO$_3$ this correspondence
-closes completely, because a single symmetry principle organises the
-entire coupling space.  The Tm$^{3+}$ crystal-field levels are
-non-Kramers singlets: in a real singlet basis time reversal makes every
-angular-momentum matrix element imaginary, so the iron exchange field,
-acting \emph{linearly}, reaches only the time-odd quadratures of the
-crystal-field coherences---and that coupling fails on the data
-threefold.  First-order exchange coupling to the crystal-field spectrum
-is symmetry-blocked, and everything measured across the two subsystems
-is a \emph{second-order dressing} with exactly two faces: the exchange
-field squared, which modulates the crystal-field energy (a single
-tensor $W$ that performs every coherence conversion but never
-radiates), and the exchange field paired with the light field, which
-builds an order-induced electric dipole
-$g_d(\langle F_x\rangle{+}\delta F_x)\lambda^2$ (a single constant
-that drives, radiates, and emits internal magnon--crystal-field sum-
-and difference-frequency tones).  Driven by the measured pulse with
-measured linewidths and dipole weights, these two objects plus the
-bare subsystems and one self-absorption filter reproduce the
-polarisation-resolved 2DCS atlas, with every peak assigned, every
-structural absence a measurement, and every component validated by a
-leave-one-out necessity audit.  Because $\partial^2E_{\rm
-CEF}/\partial S\,\partial S$ is the same coupling surface whose
-thermal average drives the spin-reorientation transition, the atlas
-constitutes a coherent, mode-resolved, real-time measurement of the
-reorientation mechanism itself, and the entire dressed sector must
-collapse together at the transition.
+Rare-earth magnets host two species of elementary excitation---the
+collective spin waves of the transition-metal sublattice and the
+single-ion crystal-field (CEF) transitions of the rare earth---and
+their interaction underlies spin-reorientation transitions,
+magnetisation anomalies, and ultrafast optical control.  Yet that
+interaction has essentially only ever been characterised
+thermodynamically, as a free-energy surface.  Here we determine its
+operator content.  For a non-Kramers ion such as Tm$^{3+}$ in
+TmFeO$_3$, time reversal blocks the iron exchange field from coupling
+to the CEF coherences at first order: the interaction is
+intrinsically \emph{nonlinear}, beginning at second order in the
+environment, and symmetry admits exactly two objects---an
+\emph{energy face}, the exchange-modulated crystal field
+$W\,SS\,\lambda^1$, which converts magnon and CEF coherences into one
+another but never radiates, and a \emph{moment face}, the
+order-induced electric dipole
+$g_d(\langle F_x\rangle{+}\delta F_x)\lambda^2$, which couples the
+CEF transition to light and, through its fluctuating part, radiates
+internal magnon--CEF sum- and difference-frequency tones.
+Two-dimensional terahertz spectroscopy resolves this structure term
+by term, because each cross peak certifies one conversion pathway.
+One Hamiltonian built from the two faces, the bare subsystems, one
+on-site hyperpolarisability and one self-absorption filter reproduces
+the polarisation-resolved 2D atlas from measured inputs; every
+assignment is verified by switching off individual terms in the
+simulation, and the structural absences of the atlas act as
+measurements---of a fully dark $1\!\to\!3$ dipole, of the iron
+emission weight, and of the remaining quadratic moments.  Because the
+energy face is the same coupling surface whose thermal average drives
+spin reorientation, the atlas constitutes a coherent, mode-resolved
+measurement of that mechanism, and the entire dressed sector is
+predicted to collapse together at the transition while the bare
+sector survives.
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
 
-Linear response cannot distinguish two Hamiltonians with the same normal
-modes: absorption measures pole positions and dipole weights, and any
-coupling that merely hybridises modes is absorbed into the mode basis.
-What it can never see is a \emph{conversion}: a coherence prepared on one
+Magnetic insulators containing both transition-metal and rare-earth
+ions are governed by a conversation between two very different
+subsystems.  The transition-metal sublattice orders and carries
+collective spin waves---SU(2) precessional dynamics, delocalised and
+sharp.  The rare-earth ion contributes localised crystal-field (CEF)
+transitions---an atomic few-level ladder, in the language of an
+SU($N$) generalised spin.  In the rare-earth orthoferrites
+$R$FeO$_3$ this conversation is not a spectroscopic detail but the
+engine of the family's signature phenomena: the temperature-dependent
+occupation of the $R$ levels rotates the Fe anisotropy and drives the
+spin-reorientation transition~\cite{Yamaguchi,Kimel2004,Zhang2016},
+and intense terahertz pulses steer the Fe order through the same
+rare-earth channel on picosecond
+timescales~\cite{Baierl2016,Schlauderer2019}.  Yet in nearly all of
+this physics the $R$--Fe interaction appears only through its
+\emph{thermal average}---an anisotropy surface, a free energy.  Which
+operators actually couple a crystal-field coherence to a magnon, with
+what symmetry, and at what order, has remained an open question, in
+TmFeO$_3$ and in the family at large.
+
+Linear spectroscopy cannot answer it.  Absorption measures pole
+positions and dipole weights, and any coupling that merely hybridises
+modes is absorbed into the mode basis.  What linear response can
+never certify is a \emph{conversion}: a coherence prepared on one
 transition and re-emitted on another.  That is precisely what a cross
-peak in 2DCS certifies~\cite{Lu2017,Mukamel}, and a conversion requires a
-specific anharmonic vertex.  A cross peak at $(\omega_\tau,\omega_t)$ is
-therefore not a feature to be fitted but a \emph{measurement of one
-coupling term}: the delay axis names the stored coherence, the detection
-axis the emitter, and the signed side constrains the pathway order.  If
-symmetry makes the space of candidate vertices finite---and in a crystal
-it does---a polarisation-resolved 2D atlas can be read as the Hamiltonian
-itself.
+peak in two-dimensional coherent spectroscopy (2DCS)
+measures~\cite{Lu2017,Mukamel}, and a conversion requires a specific
+anharmonic vertex.  A cross peak at $(\omega_\tau,\omega_t)$ is
+therefore a measurement of one coupling term: the delay axis names
+the stored coherence, the detection axis the emitter, and the signed
+side constrains the pathway order.  If symmetry makes the space of
+candidate vertices finite---and in a crystal it does---a
+polarisation-resolved 2D atlas can be read as the interaction
+Hamiltonian itself.
 
-The rare-earth orthoferrites are the natural target for this program.
-Two qualitatively different subsystems share one THz octave: below the
-spin reorientation the Fe sublattice of TmFeO$_3$ orders in $\Gamma_2$
-$(F_x,C_y,G_z)$~\cite{Yamaguchi,Kimel2004,Zhang2016}, with
-quasi-ferromagnetic and quasi-antiferromagnetic magnons at $\qfm=0.38$
-and $\qafm=0.90$\,THz, while the three lowest Tm$^{3+}$ crystal-field
-(CEF) singlets form a qutrit with $E_{12}=0.50$, $E_{23}=0.70$,
-$E_{13}=1.20$\,THz.  The rare-earth--iron coupling in this family is
-not a spectroscopic curiosity: it is the engine of the
-spin-reorientation transition, in which the temperature-dependent
-occupation of the rare-earth levels rotates the Fe anisotropy, and it
-is the handle by which THz pulses have been used to steer the Fe order
-coherently~\cite{Baierl2016,Schlauderer2019}.  Yet that coupling has
-essentially always been treated thermodynamically---as a free-energy
-surface---or as an empirical anisotropy modulation.  A single-cycle THz
-pulse covers all five modes of both subsystems at once, and
-measurements in the cross- and same-polarised channels of two field
-geometries return distinct, reproducible peak inventories.  This paper
-shows that the inventories can be read, term by term, as the coherent,
-mode-resolved anatomy of the rare-earth--iron exchange---and that one
-symmetry principle fixes what can appear.
+TmFeO$_3$ turns out to be the ideal system for this program, for a
+reason deeper than convenient level spacing.  A single-cycle THz
+pulse spans all five modes of both subsystems---the
+quasi-ferromagnetic and quasi-antiferromagnetic magnons at
+$\qfm=0.38$ and $\qafm=0.90$\,THz of the $\Gamma_2$-ordered
+$(F_x,C_y,G_z)$ Fe sublattice, and the three-singlet Tm$^{3+}$ qutrit
+with $E_{12}=0.50$, $E_{23}=0.70$, $E_{13}=1.20$\,THz.  But the
+decisive property is that the Tm levels are \emph{non-Kramers
+singlets}.  As we show next, this makes the magnon--CEF interaction
+intrinsically nonlinear---forbidden at first order, and organised at
+second order into exactly two symmetry-allowed objects.  That
+structure is what a 2D atlas can confirm or destroy, peak by peak.
 
-\section{The dressing principle}
+\section{The interaction algebra of a singlet ion}
 \label{sec:principle}
 
-The organising fact is that the Tm$^{3+}$ CEF levels are nondegenerate
-singlets of a non-Kramers ion.  Nondegenerate eigenstates of a real
+Write the Tm qutrit in Gell-Mann coordinates
+$\lambda^a=\langle\Lambda^a\rangle$, $a=1\ldots8$: three coherences
+(each with a real and an imaginary quadrature), two populations.  The
+question is which products of Fe-spin operators $\ve S$, light fields
+$\ve E,\ve B$, and $\lambda^a$ can appear in the Hamiltonian and in
+the radiating moments.  For a non-Kramers singlet ion the answer is
+strongly constrained by a single theorem.
+
+\emph{Time reversal.}  Nondegenerate eigenstates of a real
 crystal-field Hamiltonian may be chosen real; in that basis every
-matrix element of the angular momentum $\ve J$ is purely imaginary and
-antisymmetric.  Projected onto the qutrit, $\ve J$ therefore has
-support \emph{only} on the three time-odd Gell-Mann coordinates
-$\lambda^{2,5,7}$---the imaginary parts of the three coherences---and
-the ion has rigorously no permanent moment.  Two consequences follow
-immediately.
+matrix element of the angular momentum $\ve J$ is purely imaginary
+and antisymmetric.  Projected onto the qutrit, $\ve J$ has support
+\emph{only} on the three time-odd quadratures $\lambda^{2,5,7}$, and
+the ion has rigorously no permanent moment.  The iron exchange field
+$\ve h_{\rm ex}(\ve S)$, acting linearly on the ion, therefore
+produces only the bilinear $K^-\,\ve S\cdot(P\ve JP)$, confined to
+$\lambda^{2,5,7}$---and this coupling fails on three independent
+grounds.  Dynamically, a term linear in both $\ve S$ and $\lambda$
+hybridises the modes but cannot convert a stored coherence (no cross
+peak); structurally, its channels cancel over the four-sublattice
+orbit in the ordered state to machine precision; and statically, its
+one surviving component reorients the ground state.  Its
+spectroscopic fingerprint is a hybridisation shift of the CEF lines,
+and the measured 2D transfer rows sit at the 1D absorption
+frequencies \emph{exactly}---the mixer class is excluded at every
+coupling strength once the bare splitting is recalibrated to hold the
+dressed line fixed.  The conclusion is a protection statement:
+\emph{a singlet rare earth is invisible to its magnetic environment
+at first order}.  The same property that makes non-Kramers ions
+robust against magnetic noise makes their interaction with a magnet
+begin at second order---intrinsically nonlinear.
 
-\emph{First-order exchange is blocked.}  The Fe sublattice exerts an
-exchange field $\ve h_{\rm ex}(\ve S)$ on the ion; acting linearly it
-produces the bilinear $K^-\,\ve S\cdot(\text{projected }\ve J)$, which
-can only touch $\lambda^{2,5,7}$.  The data exclude this coupling
-threefold: linear in $\ve S$ it hybridises modes but cannot convert
-(no cross peak), its channels cancel over the four-sublattice orbit in
-$\Gamma_1$ combinations to machine precision, and its one allowed
-component reorients the ground state.  Its most direct fingerprint is
-negative: a static mixer drags the dressed $E_{12}$ line with it, and
-the measured 2D transfer row sits at the 1D absorption frequency
-\emph{exactly}, at every tested coupling strength (with the bare
-splitting recalibrated at each strength so the comparison is fair).
-The singlet ion is protected from its magnetic environment at first
-order---the same protection that makes non-Kramers ions poor qubits
-makes them clean spectroscopic reporters.
-
-\emph{Everything measured is second-order dressing, and there are
-exactly two faces.}  If the environment cannot enter linearly, the
-leading surviving objects are quadratic, and the qutrit's two
-$1\!\leftrightarrow\!2$ quadratures each admit exactly one:
+\emph{The two faces of second-order exchange.}  At second order the
+environment enters as a pair, and the algebra of the qutrit fixes
+where each pair can land.  The $1\!\leftrightarrow\!2$ coherence has
+a $\mathcal T$-even quadrature $\lambda^1$ and a $\mathcal T$-odd
+quadrature $\lambda^2$, and each admits exactly one two-leg dressing:
 \begin{align}
   H_{W}&=\ve S^{T}W\,\ve S\;\lambda^1,
   &
   H_{g}&=-\,g_d\,E_z\,(F_x\,\lambda^2).
   \label{eq:faces}
 \end{align}
-The spin pair $SS$ is $\mathcal T$-even and lands on the
-$\mathcal T$-even quadrature $\lambda^1$: this is the
-\emph{energy face}---the exchange modulation of the crystal field,
-$W\sim\partial^2 E_{\rm CEF}/\partial S\,\partial S$.  In $\Gamma_2$
-symmetry leaves two components, $W^{yy}_1 S_y^2\lambda^1$ and
-$W^{xz}_1 S_xS_z\lambda^1$, and the data are consistent with a single
-scale $W^{yy}_1=W^{xz}_1=W$; the leave-one-out runs below show the two
-components sharing every conversion task rather than owning separate
-peaks---one tensor, not two mechanisms.  Having no field leg, the
-energy face never radiates: it is the converter.  The light--spin pair
-$E_zS$ is the \emph{moment face}: with the spin leg condensed on the
-$\Gamma_2$ order parameter it is an order-induced electric dipole of
-the $1\!\leftrightarrow\!2$ transition,
-$d_z^{\rm eff}=g_d(\langle F_x\rangle+\delta F_x)\lambda^2$, reaching
-the $\mathcal T$-odd quadrature through the $\mathcal T$-odd condensed
-spin.  It is the one legal way an electric field talks to $\lambda^2$,
-and one constant serves three ways: it \emph{drives} (the
-$E\!\parallel\!c$ writing of the $E_{12}$ coherence), it
-\emph{radiates linearly} (the $(\qafm,E_{12})$ readout), and its
-retained fluctuation $g_d\,\delta F_x\lambda^2$ is a bilinear emitter
-that radiates internal sum- and difference-frequency tones at
-$\qafm\pm E_{12}$---magnon--crystal-field SFG and DFG, the
-non-degenerate siblings of on-site second-harmonic generation.
+The spin pair $SS$ is $\mathcal T$-even and lands on $\lambda^1$:
+this is the \emph{energy face}, the exchange modulation of the
+crystal field, $W\sim\partial^2E_{\rm CEF}/\partial S\,\partial S$.
+In $\Gamma_2$ symmetry leaves two components, $S_y^2\lambda^1$ and
+$S_xS_z\lambda^1$, carried at a single scale $W$: one tensor, whose
+components share the conversion tasks.  Having no field leg, the
+energy face never radiates---it is the pure converter, and every
+cross-subsystem transfer must flow through it.  The light--spin pair
+$E_zS$ is the \emph{moment face}: an electric field cannot reach the
+$\mathcal T$-odd $\lambda^2$ on its own, but paired with the
+$\mathcal T$-odd, mirror-breaking order parameter $\langle F_x\rangle$
+it can---$H_g$ is an order-induced electric dipole of the
+$1\!\leftrightarrow\!2$ transition,
+$d_z^{\rm eff}=g_d(\langle F_x\rangle+\delta F_x)\lambda^2$.  One
+constant serves three ways: the condensed part \emph{drives} (an
+$E\!\parallel\!c$ field writes the $E_{12}$ coherence) and
+\emph{radiates linearly} (the magnon-to-CEF readout), while the
+fluctuating part $g_d\,\delta F_x\lambda^2$ is a bilinear emitter,
+radiating \emph{internal sum- and difference-frequency tones} at
+$\qafm\pm E_{12}$---magnon--CEF SFG and DFG, in which the mixing
+element is a bilinear term of the material's transition moment rather
+than a crystal-optical $\chi^{(2)}$ acting on light.  These sidebands
+are not optional: if a transition moment exists only because an order
+parameter condensed, the same coupling constant necessarily radiates
+the order parameter's fluctuations, with amplitudes locked to the
+condensed line.
 
-This is the entire cross-subsystem sector.  Everything else in the
-atlas is bare structure: the Fe magnon pair coupling (anisotropy plus
-Dzyaloshinskii--Moriya, entirely within the Fe sector), the bare
-driven qutrit with its measured dipoles and its on-site
-hyperpolarisability $\beta\lambda^1\lambda^2$ (the SHG member of the
-same quadratic-moment family, permitted because the Tm $4c$ site lacks
-inversion; Fe at centrosymmetric $4b$ is excluded from the whole
-family), and one propagation filter.  And the energy face is not a new
-object in orthoferrite physics: $\partial^2E_{\rm CEF}/\partial
-S\,\partial S$ is the coupling surface whose thermal average---through
-the temperature-dependent rare-earth level occupations---rotates the
-Fe anisotropy and drives the spin-reorientation
-transition~\cite{Yamaguchi,Kimel2004,Schlauderer2019}.  The 2DCS atlas
-measures the same surface coherently: mode-resolved, phase-resolved,
-in both directions, on picosecond timescales.
+Two further objects complete the taxonomy, both bounded rather than
+active.  The field-assisted family $B\,S\,\lambda$ passes every
+symmetry test but is \emph{exactly} inert in the polarisation
+geometries used here---its gating field component is never
+driven---and the population channel $S S\lambda^3$ feeds only
+incoherent observables (a rectified line and a slow buildup), leaving
+every coherent feature untouched.  What remains is bare structure:
+the Fe magnon pair coupling (anisotropy plus Dzyaloshinskii--Moriya,
+entirely within the Fe sector), the bare driven qutrit with its
+dipoles, and---because the Tm $4c$ site lacks inversion while Fe at
+$4b$ does not---the on-site quadratic moment
+$m_z=\mu\lambda^2+\beta\lambda^1\lambda^2$, the SHG member of the
+same quadratic-moment family whose SFG/DFG members are supplied by
+$\delta F_x\lambda^2$.
 
-\section{Model, and where it is exact}
+The physical identity of the energy face deserves emphasis before any
+data.  $\partial^2E_{\rm CEF}/\partial S\,\partial S$ is precisely
+the coupling surface whose thermal average---through the
+temperature-dependent rare-earth level occupations---rotates the Fe
+anisotropy and drives the spin-reorientation
+transition~\cite{Yamaguchi,Schlauderer2019}.  Equation
+(\ref{eq:faces}) is that surface promoted from thermodynamics to
+operators.  A 2D atlas that resolves $H_W$ term by term is therefore
+a coherent, mode-resolved, real-time measurement of the reorientation
+mechanism itself---and the structure makes a collective prediction:
+every feature carrying a factor of the order parameter (all of
+$H_g$'s children, and the transfers whose static vertex contracts
+$G_z$) must collapse \emph{together} at the transition, while the
+bare-structure features survive it.
 
-The Fe$^{3+}$ ($S=5/2$) sublattice is classical, with the calibrated
-orthoferrite Hamiltonian (exchange, single-ion anisotropy,
-Dzyaloshinskii--Moriya) reproducing $\qfm$, $\qafm$ and $\Gamma_2$.  Each
-Tm$^{3+}$ is truncated to its three lowest singlets and carried as the
-Gell-Mann vector $\lambda^a=\langle\Lambda^a\rangle$.  Because every
-single-ion term is linear in the $\Lambda^a$, the classical
-$\vec\lambda$ equation of motion \emph{is} the exact von Neumann
-equation of the driven, damped qutrit, and a Boltzmann ensemble over
-level seeds is the exact thermal density matrix [SM, Sec.~S1].  The
-Fe--Tm sector is built by projecting $\ve S^{T}\!A\,\ve J$ into the
-qutrit in a transported gauge over the four Tm sublattices [SM,
-Secs.~S2--S3]; the vertex catalogue and the exclusions behind
-Eq.~(\ref{eq:faces}) are exhaustive over that space [SM, Sec.~S4].
-All spectra use the measured pump (spectrum peaked at $0.53$\,THz, no
-DC), measured linewidths as damping rates, and measured oscillator
-strengths as emission weights.  Peaks are identified blindly as 2D
-local maxima with prominence $\geq1.5$.
+\section{From Hamiltonian to atlas}
 
-\section{Symmetry assigns each polarisation one block}
-\label{sec:blocks}
+The calculation keeps both subsystems at their natural level of
+description.  The Fe$^{3+}$ ($S=5/2$) sublattice is classical, with
+the calibrated orthoferrite Hamiltonian (exchange, single-ion
+anisotropy, Dzyaloshinskii--Moriya) reproducing $\qfm$, $\qafm$ and
+$\Gamma_2$.  Each Tm$^{3+}$ is truncated to its three lowest singlets
+and carried as the vector $\lambda^a$.  Because every single-ion term
+is linear in the $\Lambda^a$, the classical $\vec\lambda$ equation of
+motion \emph{is} the exact von Neumann equation of the driven, damped
+qutrit, and a Boltzmann ensemble over level seeds is the exact
+thermal density matrix [SM, Sec.~S1]: the SU(3)$\,\otimes\,$SU(2)
+dynamics is exact at the single-ion level, and approximate only in
+treating the spin bath classically.  The Fe--Tm sector is built by
+projecting $\ve S^{T}\!A\,\ve J$ into the qutrit in a transported
+gauge over the four Tm sublattices, and the taxonomy of
+Sec.~\ref{sec:principle} is exhaustive over that space [SM,
+Secs.~S2--S4].  All spectra use the measured pump (spectrum peaked at
+$0.53$\,THz, no DC), measured linewidths as damping rates, and
+measured oscillator strengths as emission weights; peaks are
+identified blindly as 2D local maxima with prominence $\geq1.5$.  A
+decisive advantage of this construction is that every term of
+Eq.~(\ref{eq:faces})---every drive leg, vertex, detection term and
+filter---can be switched off individually; each assignment below is
+verified this way, and the verification ratios are quoted with the
+peaks.
 
-The Tm $4c$ site carries the mirror $m$ ($z\to-z$), under which
-$d_{x,y}$ are even and $d_z$ odd, while $m_z$ is even and $m_{x,y}$ odd.
-Together with the time-reversal statement of Sec.~\ref{sec:principle}
-this fixes the entire optical interface.  The projected moment matrix
----an output of the $PJP$ construction, not an input---has $\lambda^2$
-carrying only $\mu_z$ and $\lambda^{5,7}$ only $\mu_{x,y}$, which
-forces $\ket1,\ket2$ to share a parity and $\ket3$ to be opposite:
+\emph{Polarisation blocks.}  The Tm $4c$ site carries the mirror $m$
+($z\to-z$), under which $d_{x,y}$ are even and $d_z$ odd, while $m_z$
+is even and $m_{x,y}$ odd.  Combined with the time-reversal statement
+this fixes the entire optical interface: the projected moment matrix
+has $\lambda^2$ carrying only $\mu_z$ and $\lambda^{5,7}$ only
+$\mu_{x,y}$, forcing $\ket1,\ket2$ to share a mirror parity and
+$\ket3$ to be opposite:
 \begin{center}\small
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{lccl}
@@ -227,36 +269,30 @@ $2\!\leftrightarrow\!3$ & $m_{x}$ ($\lambda^7$) & $d_z$ ($\lambda^6$) &
 \hline
 \end{tabular}
 \end{center}
-Mirror parity would additionally permit the mirror-even $d_x$ a
-diagonal (permanent) part on $\lambda^{3,8}$; a permanent moment does
-not radiate at any transition frequency, and the detection operators
-exclude the population generators throughout (a measured rectified
-line at $\omega_t\!\to\!0$ in an $(E\!\parallel\!a,H\!\parallel\!c)$
-channel would falsify this exclusion).  An analyser selects a
-polarisation \emph{state}, hence both the magnetic and the electric
-dipole radiating into it; there are only \emph{two} detection
-operators in the atlas, and the two channels sharing one are
-constrained to share it exactly (Table~\ref{tab:channels}).
-Reciprocity---one operator per polarisation, driving and radiating
-alike---then implies that \emph{cross-polarised detection reads
-exactly the block the pulse did not drive}.  This is the structural
-reason cross-polarisation isolates conversion, and it carries two
-independent checks: the geometry-B subalgebra closure, where the
-$c$-directed drive touches only $\mu^z_{12}$ so that
-$\lambda^{4\text{--}7}$ vanish identically (verified: exactly $0$,
-against $\lambda^{1,2,3}\sim2.6\times10^{-2}$); and in geometry A
-$F_z\equiv0$ to $10^{-15}$, so the Fe sublattice is radiatively silent
-in that cross channel and anything seen there at a magnon frequency
-must be Tm.
+Each linear polarisation owns one block of the qutrit.  An analyser
+selects a polarisation \emph{state}, hence both the magnetic and the
+electric dipole radiating into it: there are only \emph{two}
+detection operators in the atlas (Table~\ref{tab:channels}), the two
+channels sharing one are constrained to share it exactly, and the
+same operators serve as drive vertices---the construction is
+reciprocal at every level the data can test.  Cross-polarised
+detection therefore reads exactly the block the pulse did not drive:
+this is the structural reason cross-polarisation isolates conversion,
+with two exact internal checks (the geometry-B subalgebra closure
+$\lambda^{4\text{--}7}\equiv0$, verified to machine precision, and
+$F_z\equiv0$ in geometry A, so that anything seen there at a magnon
+frequency must be Tm).  Permanent (population) moments do not radiate
+at transition frequencies and are excluded from detection; a measured
+rectified line at $\omega_t\to0$ in an
+$(E\!\parallel\!a,H\!\parallel\!c)$ channel would falsify this
+exclusion.
 
 \begin{table}[b]
-\caption{What each channel detects.  An analyser setting selects a
-polarisation \emph{state}; there are therefore only two detection
-operators.  $w_{E1}=0.54$ is the $E1/M1$ balance, fixed by the
-geometry-B transfer (see text); no population generator
-($\lambda^{3},\lambda^8$) appears in either operator, and the
-$1\!\leftrightarrow\!3$ transition is fully dark
-($\mu_{13}=0$ in both polarisations, $d_z(1{\to}3)\leq0.006$).}
+\caption{The two detection operators.  $w_{E1}=0.54$ is the $E1/M1$
+balance of the $1\!\leftrightarrow\!2$ transition, fixed by the
+geometry-B transfer (see text); the $1\!\leftrightarrow\!3$
+transition is fully dark ($\mu_{13}=0$ in both polarisations,
+$d_z(1{\to}3)\leq0.006$); no population generator appears.}
 \label{tab:channels}
 \centering\small
 \renewcommand{\arraystretch}{1.3}
@@ -275,38 +311,29 @@ B same & $F_z$ alive but $50\times$ smaller than the Tm terms\\
    +w_{E1}'\lambda^6
    +g_d(\langle F_x\rangle{+}\delta F_x)\lambda^2$}\\
 \hline
-A same & CEF $\lambda^{6}$; $d_z^{\rm eff}$ (static + dynamical);
+A same & CEF $\lambda^{6}$; $d_z^{\rm eff}$ (condensed + fluctuating);
   $F_x$ bounded\\
 B cross & $F_x$; Tm part $\equiv0$ by closure\\
 \hline
 \end{tabular}
 \end{table}
 
-Because $\lambda^1$ and $\lambda^2$ are quadratures of the same
-coherence, their magnitude spectra coincide to $10\%$: in
-\emph{detection} the atlas is insensitive to the $E1/M1$ balance
-(varying $w_{E1}$ over a factor of $50$ moves every geometry-A cross
-amplitude by at most $0.04$ once $\beta$ is refitted).  It is the
-\emph{drive} that fixes it: the electrically written coherence feeds
-the geometry-B transfer linearly in $w_{E1}$, and the measured ratio
-returns $w_{E1}=0.54$ (in units of $\mu$).  The construction is
-strictly reciprocal at every level the data can test: operator
-content and within-family dipole ratios are shared exactly between
-drive and readout, as is the propagation filter below.  Three
-cross-family scales remain as single calibrated numbers used
-consistently on both sides: $w_{E1}$ (measured); $g_d$ (one parameter
-with a drive avatar, a linear-emission avatar, and a
-condensation-ratio correction $s=0.42$ on its bilinear piece, the
-trajectory value overestimating it by about two---the model's
-canting-angle uncertainty); and the Fe:Tm emission efficiency
-$c_{\rm Fe}$, bounded from \emph{above} by the non-observation of the
-$(\qafm,\qafm)$ magnon diagonal---a null measurement that is itself
-the calibration.  The last ingredient is propagation: with $f=8.7$
-the sample is optically thick at the $E_{13}$ line (depth $\simeq6$)
-and mildly at $E_{12}$ (depth $\simeq1$), and the same transmission
-filters the incoming field and the emitted $E1$ light---magnetic-dipole
-radiation passes freely.  This one filter, applied identically both
-ways, is itself reciprocal.
+Because $\lambda^1$ and $\lambda^2$ are quadratures of one coherence,
+their magnitude spectra coincide to $10\%$: in \emph{detection} the
+atlas is insensitive to the $E1/M1$ balance.  It is the \emph{drive}
+that fixes it: the electrically written coherence feeds the
+geometry-B transfer linearly in $w_{E1}$, and the measured ratio
+returns $w_{E1}=0.54$ (in units of $\mu$).  Three cross-family scales
+are calibrated once and used consistently on both sides: $w_{E1}$;
+$g_d$ (one parameter with a drive avatar, a linear-emission avatar,
+and a condensation-ratio correction $s=0.42$ on its bilinear piece);
+and the Fe:Tm emission efficiency $c_{\rm Fe}$, bounded from above by
+a null of the data (below).  The last ingredient is propagation: with
+oscillator strength $f=8.7$ the sample is optically thick at the
+$E_{13}$ line (depth $\simeq6$) and mildly at $E_{12}$ (depth
+$\simeq1$), and the same transmission filters the incoming field and
+the emitted $E1$ light---magnetic-dipole radiation passes freely.
+One filter, applied identically both ways, itself reciprocal.
 
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figs/atlas_final.png}
@@ -319,175 +346,113 @@ census.}
 \label{fig:atlas}
 \end{figure*}
 
-\section{The pathways, peak by peak}
+\section{The atlas realises the algebra}
 
-We now give every feature of Fig.~\ref{fig:atlas}: what makes it
-possible, how the excitation reaches the emitter, and what would falsify
-the assignment.  Throughout, the delay axis carries a coherence that
-\emph{never radiates}---it need only be excitable and able to store
-phase---while the detection axis is constrained by the emitting
-multipole.  That asymmetry does most of the work.
+Figure~\ref{fig:atlas} shows the four channels; we now read them
+against Sec.~\ref{sec:principle}.  Throughout, the delay axis carries
+a coherence that \emph{never radiates}---it need only be excitable
+and able to store phase---while the detection axis is constrained by
+the emitting multipole.  That asymmetry does most of the work.
 
-\subsection{Geometry A, cross-polarised}
+\subsection{The energy face, read forward}
 
-\emph{$(\qafm,E_{12})=1.00$: the energy face, read forward; measures
-$W$.}  The $H\!\parallel\!a$ Zeeman field launches the $\qafm$
-magnon, which precesses at $0.90$\,THz through the delay.  It cannot
-radiate here---it has no $c$-axis moment---but it need not: it modulates
-the Tm crystal field through $W^{yy}_1S_y^2\lambda^1$.  Each pulse
-supplies one magnon leg, so the $\Mnl$ subtraction keeps the cross term,
-which rectifies,
+\emph{Geometry A, cross-polarised: $(\qafm,E_{12})=1.00$.}  The
+$H\!\parallel\!a$ Zeeman field launches the $\qafm$ magnon, which
+precesses at $0.90$\,THz through the delay.  It cannot radiate
+here---it has no $c$-axis moment---but it need not: it modulates the
+Tm crystal field through $W S_y^2\lambda^1$.  Each pulse supplies one
+magnon leg, so the nonlinear subtraction
+$\Mnl=M_{AB}-M_A-M_B$ keeps the cross term, which rectifies,
 \begin{equation}
-  h^1_{\rm NL}=W^{yy}_1A^2\big[\cos\qafm\tau-\cos\qafm(2t+\tau)\big]
+  h^1_{\rm NL}=W A^2\big[\cos\qafm\tau-\cos\qafm(2t+\tau)\big]
   \theta(t),
 \end{equation}
-the difference piece being a step switched on at the probe that carries
-the delay phase but no $t$ dependence.  Fed into the $E_{12}$ oscillator
-it gives $\Mnl\propto\cos(\qafm\tau)[1-\cos E_{12}t]$: a factorised,
-rank-one peak.  \emph{Why it is possible at all}: an E1-dark magnon is
-made visible by borrowing the Tm dipole.  \emph{Where the energy comes
-from}: $\delta S_y^2$ contains only DC and $2\qafm$, so between free
-modes this vertex could never emit at $\omega_{12}$; the quantum is drawn
-from the pulse edge, an intra-pulse difference-frequency process.  This
-is verified rather than asserted---stretching the pulse from
-$\sigma=0.25$ to $1.0$ at fixed amplitude collapses the peak by $4.5$
-decades, while switching off the direct Tm drive changes it by
-$<10^{-4}$.  \emph{Signature}: $\propto A_{\rm Fe}^2$, temperature-flat
-below $\sim10$\,K, CEF linewidth along $\omega_t$.
+a step switched on at the probe that carries the delay phase but no
+$t$ dependence.  Fed into the $E_{12}$ oscillator it gives
+$\Mnl\propto\cos(\qafm\tau)[1-\cos E_{12}t]$: a factorised, rank-one
+peak---an E1-dark magnon made visible by borrowing the Tm dipole.
+The energy for the frequency mismatch is drawn from the pulse edge,
+an intra-pulse difference-frequency process: stretching the pulse
+from $\sigma=0.25$ to $1.0$ at fixed amplitude collapses the peak by
+$4.5$ decades, while switching off the direct Tm drive changes it by
+$<10^{-4}$.  Term ablation isolates the pathway completely: the peak
+dies with the Zeeman leg ($0.02$) and with $W^{yy}_1$ ($0.03$), and
+ignores everything else.  \emph{Signature}: $\propto A_{\rm Fe}^2$,
+temperature-flat below $\sim10$\,K, CEF linewidth along $\omega_t$.
 
-\emph{$(E_{12},2E_{12})=0.96$: second-harmonic emission; measures
-$\beta$.}  The pump stores $E_{12}$, setting the delay axis at $0.50$;
-the detection axis is its second harmonic at $2E_{12}=1.0000$\,THz.  A
-moment linear in the qutrit coordinates cannot radiate a harmonic;
-the $4c$ site's lack of inversion permits the quadratic term
-$m_z=\mu\lambda^2+\beta\lambda^1\lambda^2$, and Fe at $4b$ is excluded
-from the mechanism.  Evaluated on the trajectories the quadratic
-channel is remarkably clean, contributing essentially one peak,
-$5.8\times$ its own $(E_{12},E_{12})$ diagonal, identical in local and
-global sublattice frames.  The leave-one-out audit confirms the
-assignment surgically: the harmonic survives removal of the Zeeman
-drive and of both $W$ components at $1.00$--$1.03$, and dies to
-$0.005$ without the electric $E_{12}$ writing.  \emph{Discriminators}:
-the line sits at exactly $2E_{12}$ and \emph{tracks} $E_{12}$, so it
-does not soften at the spin reorientation as any magnon-derived
-feature would; it is one field order above the main peak; its width is
-twice the $E_{12}$ linewidth.
+\emph{The magnon, seen through the ion: $(\qafm,\qafm)=0.28$.}  With
+$F_z\equiv0$ the magnon diagonal in this channel cannot be iron
+emission.  It is the Tm dipole, forced at the magnon frequency by the
+energy face---$S_xS_z\lambda^1$ contributes $G_z\,\delta
+S_x\,\lambda^1$, linear in the magnon fluctuation, and
+$S_y^2\lambda^1$ the pump-magnon$\times$probe-magnon cross term; the
+ablation runs apportion the peak between the two components ($0.43$
+without the first, $0.64$ without the second), the signature of one
+tensor sharing a task.  A driven oscillator responds at the driving
+frequency, not its own, and the line itself certifies it: the
+sideband sits at $0.8999$\,THz---the magnon, not the
+$\qfm{+}E_{12}=0.876$ combination---and the transfer coefficient
+$|\lambda^2|_{0.90}/|m_x|_{0.90}=0.14$--$0.16$ is drive-independent
+over a $20\times$ range, a forced linear response evaluated off
+resonance.
 
-\emph{$(\qafm,\qafm)=0.28$: the magnon diagonal, seen through the Tm
-ion.}  Since $F_z\equiv0$ the magnon cannot radiate here at all.  What
-radiates is the Tm dipole, forced at the magnon frequency by the
-energy face: $W^{xz}_1$ contributes $G_z\,\delta S_x\,\lambda^1$,
-linear in the magnon fluctuation, and $W^{yy}_1$ contributes the
-pump-magnon$\times$probe-magnon cross term---the leave-one-out runs
-apportion the peak between them ($W^{yy}_1$-dominant at the operating
-point: removing it leaves $0.43$, removing $W^{xz}_1$ leaves
-$0.64$).  Either way a driven oscillator responds at the driving
-frequency, not its own, and the identification is verified in the
-line itself: the sideband sits at $0.8999$\,THz---the magnon, not the
-$\qfm+E_{12}=0.876$ combination---and the transfer coefficient
-$|\lambda^2|_{0.90}/|m_x|_{0.90}=0.142$--$0.155$ is drive-independent
-over a $20\times$ range, the hallmark of a forced linear response
-evaluated off resonance.
+\subsection{The energy face, read backward}
 
-\emph{$(\qafm,2\qafm)$: prediction.}  The same quadratic moment must
-double \emph{any} frequency present in the Tm dipole, so the
-magnon-forced component radiates its harmonic at $1.79$\,THz.  Its
-observation confirms the hyperpolarisability independently of the
-$2E_{12}$ peak; its absence with $(E_{12},2E_{12})$ present would
-falsify the assignment.
-
-\emph{$(-\qafm,E_{12})=0.50$ and $(\pm E_{12},E_{12})=0.32$.}  The first
-is not a separate mechanism: the $W$ vertex is symmetric under the two
-time orderings of the magnon coherence, so the signal appears on both
-signed sides with the non-rephasing branch stronger.  The second is the
-one-quantum diagonal, the directly driven $E_{12}$ read through the same
-dipole; its size relative to the cross peaks is a sensitive fluence
-diagnostic, falling from $1.45$ at $A_{\rm Fe}=1.2$ to $0.16$ at $0.12$,
-which is how the operating point was fixed.
-
-\subsection{Geometry B, cross-polarised}
-
-Here the analysed moment is $m_x$, which the $\qafm$ magnon carries
-directly, so both peaks emit at $0.90$\,THz through the Fe magnetic
-dipole and the Tm ion is radiatively absent (the closure above).
-
-\emph{$(\qfm,\qafm)=1.00$: magnon--magnon; measures the Fe sector
-alone.}  $H\!\parallel\!c$ launches the quasi-ferromagnetic magnon,
-which precesses at $0.38$ through the delay; single-ion anisotropy and
-the Dzyaloshinskii--Moriya interaction couple the branches, so the stored
-$\qfm$ phase is re-emitted on $\qafm$.  No Fe--Tm coupling enters at any
-vertex, which is why this peak is temperature-flat: a pure two-magnon
-process, independent of the qutrit populations.
-
-\emph{$(E_{12},\qafm)=0.42$: the energy face, read backward;
-measures $w_{E1}W$.}  $E\!\parallel\!a$ owns the
-$1\!\leftrightarrow\!2$ block, so the pulse's \emph{electric} field
-writes the $E_{12}$ coherence through $d_x\lambda^1$; the energy face
-then hands the stored coherence to the quasi-antiferromagnetic magnon,
-which radiates through the Fe $m_x$ dipole.  No field enters the
-conversion: the polarisation ownership of $d_x$ performs the geometry
-selection a field gate would otherwise be needed for---this drive
-component does not exist in geometry A, which is why the conversion
-never contaminates the clean $W^{yy}_1$ peak there.  Three facts pin
-the assignment.  First, the \emph{quadrature} matters: writing the
-same coherence magnetically (through $\mu_z\lambda^2$) converts far
-less cleanly, flooding the map with drive-squared diagonals, whereas
-the electric writing at the master $W=0.01$ adds the transfer row at
-the \emph{unshifted} line position with strays below $0.17$.  Second,
-the interference of the two drive quadratures places the row: with
+\emph{Geometry B, cross-polarised: $(E_{12},\qafm)=0.42$.}  Here the
+roles invert: a CEF coherence is stored, and a magnon radiates.
+$E\!\parallel\!a$ owns the $1\!\leftrightarrow\!2$ block, so the
+pulse's \emph{electric} field writes the $E_{12}$ coherence through
+$d_x\lambda^1$; the energy face hands the stored coherence to the
+quasi-antiferromagnetic magnon, which radiates through the Fe $m_x$
+dipole.  No field enters the conversion: the polarisation ownership
+of $d_x$ performs the geometry selection that a field-assisted vertex
+would otherwise be invoked for---this drive component does not exist
+in geometry A, which is why the backward conversion never
+contaminates the forward peak.  Three facts pin the assignment.  The
+\emph{quadrature} matters: writing the same coherence magnetically
+converts far less cleanly, flooding the map with drive-squared
+diagonals, whereas the electric writing at $W=0.01$ adds the transfer
+row at the \emph{unshifted} line position with strays below $0.17$.
+The interference of the two drive quadratures places the row: with
 $\mathrm{sign}(d_x\mu_z)<0$ it sits at $\omega_\tau=0.52$, exactly
 where it is measured---the relative sign is thereby a prediction for
-the crystal-field wavefunctions.  Third, the electric component's
-amplitude is linear in $w_{E1}$, and matching the measured
-$0.43$--$0.46$ returns $w_{E1}=0.54$.  The leave-one-out runs quantify
-the pathway shares: removing the $d_x$ writing halves the transfer and
-removing $W^{xz}_1$ costs a quarter, the remainder flowing through the
-magnetically written quadrature and the $W^{yy}_1$ mixing route
-($\qfm{+}E_{12}=0.88$, unresolved from $\qafm$; either route
+the crystal-field wavefunctions.  And the electric component's
+amplitude is linear in $w_{E1}$; the measured $0.43$--$0.46$ returns
+$w_{E1}=0.54$.  Term ablation resolves the internal anatomy: removing
+the $d_x$ writing halves the transfer, removing $S_xS_z\lambda^1$
+costs a quarter, and the remainder flows through the magnetically
+written quadrature and the $S_y^2$ mixing route---every route
 ultimately rings the real $\qafm$ mode, and the emission stays pinned
-at $0.900$ in every ablation)---the electric leg is the largest single
-element, and it is the $w_{E1}$-bearing one.
-\emph{Signature}: falls as the population difference $n_1-n_2$
-($0.46\to0.45\to0.40\to0.36$ at $0/5/8/10$\,K), the sharpest thermal
-discriminator in the atlas against the temperature-flat magnon--magnon
-peak; and, riding the order parameter through the static vertex
-($\propto G_z$), the transfer must collapse at the spin reorientation.
+at $0.900$ in all of them.  \emph{Signature}: falls as the population
+difference $n_1-n_2$ ($0.46\to0.36$ from $0$ to $10$\,K), the
+sharpest thermal discriminator against the temperature-flat
+magnon--magnon peak below; and, riding the order parameter through
+the static vertex ($\propto G_z$), the transfer must collapse at the
+spin reorientation.
 
-\emph{The post-drive buildup.}  The measured geometry-B signal continues
-to grow after the pulse.  Within the present model no channel reproduces
-growth at the peak's own scale.  Every coherent pathway inherits its
-source's lifetime---because $B\!\parallel\!c$ never drives $\qafm$
-directly, all geometry-B magnon amplitude is converted, and with
-$T_2(E_{12})=8$\,ps everything coherent is over within $\sim10$\,ps.
-The one reservoir that outlives every $T_2$---the CEF populations, fed
-incoherently by the dissipated pulse energy and acting on the magnon
-through the population channel $W_3$, the mechanism of thermally driven
-spin reorientation---does produce a persistent, drive-uncorrelated tail
-in the solver, but roughly four decades below the impulsive peak.  The
-buildup therefore stands as the one timing observable outside this
-coupling space: a confirmed growth of the transfer peak's own
-amplitude would require a reservoir this Hamiltonian does not contain.
+\emph{The Fe sector alone: $(\qfm,\qafm)=1.00$.}  $H\!\parallel\!c$
+launches the quasi-ferromagnetic magnon; single-ion anisotropy and
+the Dzyaloshinskii--Moriya interaction couple the branches, and the
+stored $\qfm$ phase is re-emitted on $\qafm$.  No Fe--Tm coupling
+enters at any vertex, which is why this peak is temperature-flat: the
+control experiment that the conversion peaks are measured against.
 
-\subsection{Geometry A, same-polarised}
+\subsection{The moment face, linear and bilinear}
 
-The analysed moment is $m_x$, and three contributions reach it, each
-required by symmetry: the Tm CEF moment (the $d_z$ line at $E_{23}$,
-which also carries the cascade tones below; the $1\!\to\!3$ member is
-bounded at $d_z\leq0.006$ by the weak $1.15$ wing and dropped from the
-minimal operator), the order-induced dipole
+\emph{Geometry A, same-polarised.}  The analysed moment is $m_x$, and
+symmetry admits three contributions: the CEF $d_z$ line
+($\lambda^6$), the order-induced dipole
 $g_d(\langle F_x\rangle+\delta F_x)\lambda^2$, and the Fe $F_x$
-itself.  The weights are fitted to the digitised measurement with the
-cross channels held fixed; the Fe emission efficiency $c_{\rm Fe}$ is
-\emph{bounded from above by a null}, the absence of the magnon
-diagonal.  The result is Table~\ref{tab:samepol}.
+itself.  Table~\ref{tab:samepol} gives the channel against the
+digitised measurement, with the cross channels held fixed.
 
 \begin{table}[b]
 \caption{Geometry-A same-polarised channel: measured amplitudes against
-the final model (overlap-gated delay apodisation; self-absorption of
-the $E1$ emission at the $E_{13}$ line, optical depth $\simeq6$ on both
-the emission column and the delay-axis FID, and depth $\simeq1$ at
-$E_{12}$).  The $\mu^z_{13}$ \emph{and} $\mu^x_{13}$ weights fit to
-zero (fully dark $1\!\to\!3$).}
+the model (overlap-gated delay apodisation; self-absorption of the
+$E1$ emission at the $E_{13}$ line, optical depth $\simeq6$ on both
+the emission column and the delay-axis FID, $\simeq1$ at $E_{12}$).
+The $\mu^z_{13}$ \emph{and} $\mu^x_{13}$ weights fit to zero (fully
+dark $1\!\to\!3$).}
 \label{tab:samepol}
 \centering\small
 \renewcommand{\arraystretch}{1.25}
@@ -500,193 +465,168 @@ $(E_{12},E_{23})$ & $1.00$ & $1.00$ & coherence$\to$pop.$\to\rho_{23}$\\
 $(E_{12},0.40)$ & $0.45$ & $0.40$ & cascade tone $2(E_{23}{-}E_{12})$, adjacent to $\qfm$\\
 $(E_{12},0.90)$ & $0.40$ & $0.43$ & cascade tone $2E_{23}{-}E_{12}$, degenerate with $\qafm$\\
 $(0,E_{12})$ & $0.40$ & --- & pump--probe row\\
-$(\qafm,E_{12})$ & $0.30$ & $0.39$ & magnon$\to$Tm via $d_z^{\rm eff}$\\
+$(\qafm,E_{12})$ & $0.30$ & $0.39$ & magnon$\to$CEF via $d_z^{\rm eff}$\\
 $(\qafm,\qafm)$ & absent & $0.13$ & magnon diagonal; absence bounds $c_{\rm Fe}$\\
 $(E_{13},E_{23})$ & $0$ & $0.00$ & 2Q row, killed by FID reabsorption\\
 $(E_{12},1.15)$ & $0.15$ & $0.02$ & $E_{13}$ wing; bounds $d_z(1\to3)\leq0.006$\\
-$(\qafm,1.41)$ & $0.30$ & $0.31$ & dynamical $d_z^{\rm eff}$: SFG tone $\qafm{+}E_{12}$\\
-$(\qafm,0.40)$ & obs. & $0.43$ & its DFG tone $\qafm{-}E_{12}$\\
-$(E_{12},1.41)$ & obs. & $0.36$ & its $E_{12}$-delay partner\\
+$(\qafm,1.41)$ & $0.30$ & $0.31$ & SFG tone $\qafm{+}E_{12}$\\
+$(\qafm,0.40)$ & obs. & $0.43$ & DFG tone $\qafm{-}E_{12}$\\
+$(E_{12},1.41)$ & obs. & $0.36$ & $E_{12}$-delay partner of the SFG\\
 $(-E_{12},E_{23})$ & $<0.15$ & $0.7$ & \textbf{open} (residual R1, point-ion floor)\\
 \hline
 \end{tabular}
 \end{table}
 
-\emph{The fully dark $1\to3$ dipole---measured, not assumed.}  The
-measured map contains delay frequencies $\omega_\tau\in\{E_{12},\qafm\}$
-only.  A bright $\mu^z_{13}$ would store an $E_{13}$ coherence at first
-order and produce an $(E_{13},E_{23})$ peak with \emph{exactly} the same
-dipole product as the observed $(E_{12},E_{23})$: the absence of the
-whole row is a selection rule.  The data force more: the analyser for
-this channel physically contains $\mu_x\lambda^5$, and at the
-crystal-field value $\mu^x_{13}=2.39$ that term would exceed the entire
-measured map by two orders of magnitude---so $\mu^x_{13}$, too, fits to
-zero.  The $1\!\to\!3$ transition is magnetically dark in \emph{every}
-polarisation; its large measured oscillator strength ($f=8.7$) is
-electric, and it is precisely this strong $E1$ line that makes the
-sample opaque at $1.20$\,THz (below).
-
-\emph{$(E_{12},E_{23})=1.00$: the dominant transfer, via a population.}
-With the single-action route closed by the dark dipole, the surviving
-pathway acts twice: one probe interaction converts the stored $E_{12}$
-coherence into a level-2 \emph{population} that still carries the
-$\omega_\tau=E_{12}$ phase, and a second converts that population into
-the emitting $E_{23}$ coherence.  Being co-rotating it lands
-non-rephasing, the observed side, and it involves $\mu_{13}$ at no
-vertex---which is why it survives while its $E_{13}$ partner is
-throttled.
-
-\emph{$(E_{12},0)=1.00$: the rectified line.}  Taken at its
-zero-frequency output the same double action rectifies the stored
-coherence into a slow net magnetisation of the detection window.  This
-is the strongest measured feature; in the 2D maps it is suppressed by
-construction, since the $t\geq3$ window with Gaussian apodisation removes
-$\omega_t\to0$, so it is analysed separately through
-$S_{\rm DC}(\tau)=\langle\Mnl\rangle_t$, where it appears as a pair of
-sharp lines at $\pm0.49$\,THz---symmetric in the delay sign, as a
-population grating must be ($\cos E_{12}\tau$), and as the measurement
-finds ($1.00/0.85$).  Its \emph{magnitude} is a physical statement of
-the first importance: under coherent pumping alone the model's
-rectified moment is orders of magnitude below the resonant peaks,
-whereas the measurement puts it at the top of the map.  The line is
-therefore the optical readout of the \emph{incoherent} population
-channel---absorbed pulse energy returning through the CEF populations
-and $W_3$ to a quasistatic change of the ordered moment---the same
-reservoir the geometry-B post-pulse growth demands, and its strength
-relative to $(E_{12},E_{23})$ calibrates $c_{\rm heat}W_3$ directly.
-
-\emph{$(E_{12},0.40)=0.45$ and $(E_{12},0.90)=0.40$: cascade tones of
-the driven qutrit, masquerading at the magnon frequencies.}  The
-necessity audit (removing the Fe Zeeman leg entirely and re-running)
-leaves both features at $0.89$--$0.97$ of their baseline: they are
-not magnon features at all but intrinsic tones of the three-level
-cascade, $2(E_{23}{-}E_{12})=0.40$ and $2E_{23}{-}E_{12}=0.90$\,THz,
-radiated on the $\lambda^6$ ($d_z$) line and numerically coincident
-with $\qfm=0.38$ and $\qafm=0.90$.  Both die without the $\lambda^7$
-drive leg ($0.05$--$0.08$), confirming the double-$\rho_{23}$
-pathway; the genuine Tm$\to$magnon transfer is the
-$\lesssim\!10\%$ Zeeman-sensitive remainder.  The measurement can
-separate the hypotheses directly: the low tone sits at $0.40$, more
-than a linewidth above $\qfm=0.38$, and a cascade tone survives the
-spin reorientation with CEF width while a magnon sideband would
-soften and sharpen.  The emission is in either case electric and
-rare-earth, insensitive to the Fe weight ($0.46\to0.43$ when
-$c_{\rm Fe}$ is reduced fourfold).
-
-\emph{$(\qafm,E_{12})=0.30$: the moment face, read linearly.}  The
-magnon occupies the delay axis and the Tm ion radiates at $E_{12}$ into
-the \emph{same}-polarised channel.  That emission is possible only
-through $d_z^{\rm eff}$---and reciprocity demands it, because the same
-$d_z^{\rm eff}$ is what lets $E\!\parallel\!c$ create the $E_{12}$
-coherence in the first place.  We had earlier reported this partner as
-absent and treated the mismatch as an open tension; the digitised map
-shows it present at $0.30$ of maximum, and the model reproduces it at
-$0.39$, fed jointly by the condensed readout and the low-frequency
-side of the SFG/DFG tones.  This peak is the direct measurement of
+\emph{The linear readout: $(\qafm,E_{12})=0.30$.}  The magnon
+occupies the delay axis and the ion radiates at $E_{12}$ into the
+same-polarised channel---possible only through $d_z^{\rm eff}$, and
+required by reciprocity, because the same $d_z^{\rm eff}$ is what
+lets $E\!\parallel\!c$ create the $E_{12}$ coherence in the first
+place.  The digitised map contains it at $0.30$; the model places it
+at $0.39$, fed jointly by the condensed readout and the low-frequency
+side of the tones below.  This peak is the direct measurement of
 $g_d\langle F_x\rangle$.
 
-\emph{The SFG/DFG triplet: $(\qafm,1.41)$, $(\qafm,0.40)$,
-$(E_{12},1.41)$---the moment face, read bilinearly.}  Condensing the
-spin leg of $H_g$ on $\langle F_x\rangle$ was a truncation: the full
-emitting moment is $g_d(\langle F_x\rangle+\delta F_x)\lambda^2$, and
-the fluctuation piece is a product emitter---the stored $\qafm$ magnon
-beating against the $E_{12}$ coherence on one dipole---radiating
-internal sum- and difference-frequency tones at
+\emph{The bilinear readout: the SFG/DFG triplet $(\qafm,1.41)$,
+$(\qafm,0.40)$, $(E_{12},1.41)$.}  The fluctuating part of the moment
+face is a product emitter---the stored $\qafm$ magnon beating against
+the $E_{12}$ coherence on one dipole---and radiates at
 $\qafm\pm E_{12}=1.40/0.40$\,THz with the magnon on the delay axis,
 plus an $E_{12}$-delay partner at $1.40$.  All three tones are
-measured.  This channel is singular in the entire coupling space: of
-some forty conversion vertices, emission moments and quadratic
-products catalogued, it is the \emph{only} one whose map is led by the
-$\qafm$-delay row rather than the $E_{12}$-delay row, because both of
-its factors are written at first order by the same pulse---the stored
-magnon pays no conversion penalty, and the audit confirms it (the
-tones survive removal of both $W$ components at $0.95$--$1.02$ and die
-only with the Zeeman or electric drive legs).  One number is fitted
-(the condensation-ratio correction $s=0.42$), after which the sum tone
-lands at the measured amplitude, the difference tone merges into the
-measured $(\qafm,E_{12})$ blob, and the partner appears at $0.36$.
-The sum tone escapes one absorption linewidth \emph{outside} the
-opaque $E_{13}$ window (transmission $0.68$ at $1.39$ against $0.002$
-at line centre), which is why it is visible while the true $E_{13}$
-line centre is dark.  Together with the on-site $\beta$ these tones
-complete the $\chi^{(2)}$-like triad of the inversion-free rare-earth
-site, \emph{in emission}: SHG ($\beta\lambda^1\lambda^2$, degenerate),
-SFG and DFG ($g_d\,\delta F_x\lambda^2$, non-degenerate,
-cross-subsystem)---the mixing element being a bilinear term of the
-material's transition moment, not a crystal-optical $\chi^{(2)}$
-acting on light.
+present in the measured map.  This channel is structurally unique in
+the entire interaction space: of the roughly forty vertices, emission
+moments and quadratic products the taxonomy admits, it is the only
+one whose 2D map is \emph{led} by the magnon-delay row, because both
+of its factors are written at first order by the same pulse---the
+stored magnon pays no conversion penalty.  Term ablation confirms
+exactly this: the tones survive removal of both $W$ components
+($0.95$--$1.02$) and die only with the Zeeman or electric drive legs.
+One number is fitted (the condensation ratio $s=0.42$), after which
+the sum tone lands at the measured amplitude, the difference tone
+merges into the measured $(\qafm,E_{12})$ blob, and the partner
+appears at $0.36$.  The sum tone escapes one absorption linewidth
+\emph{outside} the opaque $E_{13}$ window (transmission $0.68$ at
+$1.39$ against $0.002$ at line centre), which is why it is visible
+while the true $E_{13}$ line centre is dark.  Together with the
+on-site $\beta$ these tones complete the $\chi^{(2)}$-like triad of
+the inversion-free rare-earth site, \emph{in emission}: SHG
+($\beta\lambda^1\lambda^2$, degenerate), SFG and DFG
+($g_d\,\delta F_x\lambda^2$, non-degenerate, cross-subsystem).
 
-\emph{$(\qafm,\qafm)$: absent---and the absence is a measurement.}
-The magnon diagonal is the one feature of this channel that genuinely
-requires Fe emission: a $\qafm$ delay coherence re-emitting at its own
-frequency through the $F_x$ magnetic dipole, with no Tm conversion
-involved.  The measured map does not contain it.  Since every other
-magnon-frequency feature is Tm-carried, this null bounds the Fe
-emission efficiency from above ($c_{\rm Fe}$ set at the bound puts the
-diagonal at $0.13$, below the digitisation threshold, and moves
-nothing else).  The physical statement is uniform across the atlas:
-the Fe sublattice is loud in geometry B, where the magnon owns the
-analysed $m_x$ directly and is driven resonantly, and quiet in
-geometry A, where everything measured arrives through the rare-earth
-ion ($F_z\equiv0$ makes the cross channel's Fe silence exact; the
-small $c_{\rm Fe}$ makes the same-polarised channel's approximate).
+\emph{The SHG line: geometry A cross, $(E_{12},2E_{12})=0.96$.}  The
+pump stores $E_{12}$; the detection axis is its second harmonic at
+$2E_{12}=1.0000$\,THz.  A moment linear in the qutrit coordinates
+cannot radiate a harmonic; the quadratic term does, cleanly---one
+peak, $5.8\times$ its own diagonal.  The assignment is surgical under
+ablation: the harmonic survives removal of the Zeeman drive and of
+both $W$ components at $1.00$--$1.03$ and dies to $0.005$ without the
+electric $E_{12}$ writing.  \emph{Discriminators}: the line sits at
+exactly $2E_{12}$ and \emph{tracks} $E_{12}$, so it does not soften
+at the spin reorientation as any magnon-derived feature would; its
+width is twice the $E_{12}$ linewidth; and the same moment must
+double the magnon-forced component of the dipole, predicting a
+$(\qafm,2\qafm)$ line at $1.79$\,THz.
 
-\emph{The $E_{13}$ column: self-reversal.}  The two measured
-$E_{13}$-emission features sit at $\omega_t=1.15$ and $1.25$\,THz---one
-absorption linewidth \emph{below and above} the $1.20$ line---which is
-the textbook signature of self-reversal: with $f=8.7$ the sample is
-optically thick at $E_{13}$, the line centre of any $E1$ emission is
-reabsorbed, and only the wings escape.  The same reabsorption acts on
-the delay-axis FID, which is what removes the two-quantum
-$(E_{13},E_{23})$ row \emph{exactly} (model $0.33\to0.00$ once the
-filter is applied)---a row the free-ion model robustly predicts and the
-measurement robustly lacks.
+\subsection{The bare qutrit, and what is absent}
 
-\subsection{Geometry B, same-polarised: a one-line prediction}
+\emph{The dominant transfer: $(E_{12},E_{23})=1.00$, via a
+population.}  With the single-action route closed by the dark
+$1\!\to\!3$ dipole (below), the surviving pathway acts twice: one
+probe interaction converts the stored $E_{12}$ coherence into a
+level-2 population that still carries the $\omega_\tau=E_{12}$ phase,
+and a second converts that population into the emitting $E_{23}$
+coherence.  Co-rotating, it lands non-rephasing---the observed
+side---and involves $\mu_{13}$ at no vertex, which is why it survives
+while its $E_{13}$ partner is throttled.
 
-This channel is analysed with the \emph{same} operator as geometry-A
-cross, so it is a prediction with no freedom left.  With the population
-generators excluded from detection, three terms survive: $F_z$ (alive
-here, but $\sim\!50\times$ below the Tm terms), the coherence readouts
-$\mu\lambda^2$ and $w_{E1}\lambda^1$, and the hyperpolarisability
-$\beta\lambda^1\lambda^2$.  The linear readouts are suppressed in
-$\Mnl$---they carry the directly driven coherence, which the
-subtraction removes at first order---so the channel collapses onto its
-quadratic term.  The prediction is a \emph{single} broad feature: the
-second harmonic $(E_{12},2E_{12})=1.00$, with everything else below
-$0.07$---magnon features at the $10^{-2}$ level of $F_z$, and no
-$E_{13}$ or $E_{23}$ emission by the subalgebra closure
-$\lambda^{4\text{--}7}\equiv0$.  Because $\beta$ is already fixed by
-the geometry-A cross parity, the channel is a zero-parameter test of
-the hyperpolarisability: a map led by anything other than the
-$2E_{12}$ ridge falsifies the quadratic moment, and an observed
-rectified pair at $(\pm E_{12},\omega_t\!\to\!0)$ would falsify the
-exclusion of the population readout from detection.
+\emph{Cascade tones at the magnon frequencies.}  The same driven
+three-level cascade radiates intrinsic tones at
+$2(E_{23}{-}E_{12})=0.40$ and $2E_{23}{-}E_{12}=0.90$\,THz on the
+$\lambda^6$ line---numerically coincident with $\qfm=0.38$ and
+$\qafm=0.90$, but pure qutrit dynamics: in the simulation they
+persist at $0.89$--$0.97$ with the Fe drive removed entirely, and die
+without the $2\!\leftrightarrow\!3$ drive leg ($0.05$--$0.08$),
+confirming the double-$\rho_{23}$ pathway.  The level scheme of
+TmFeO$_3$ is genuinely conspiratorial here---three separate
+near-degeneracies between cascade combinations and magnon
+frequencies---and only term-resolved calculation separates the two
+readings.  The experiment can too: the low tone sits at $0.40$, more
+than a linewidth above $\qfm=0.38$, and a cascade tone survives the
+spin reorientation with CEF width, while a magnon sideband would
+soften and sharpen.
 
-\section{The necessity audit}
+\emph{The rectified line: $(E_{12},0)=1.00$, the strongest measured
+feature.}  The same double action, taken at zero output frequency,
+rectifies the stored coherence into a slow magnetisation; analysed
+through $S_{\rm DC}(\tau)$ it appears as a pair of sharp lines at
+$\pm0.49$\,THz, symmetric in delay sign as a population grating must
+be ($1.00/0.85$ measured).  Its \emph{magnitude} carries separate
+physics: under coherent pumping alone the rectified moment is orders
+of magnitude below the resonant peaks, so the measured dominance of
+this line is the optical readout of the \emph{incoherent} population
+channel---absorbed pulse energy returning through the CEF populations
+to a quasistatic change of the ordered moment, the same reservoir
+that the measured post-pulse growth of the geometry-B signal demands
+and that no coherent pathway in this space can supply (every coherent
+channel inherits its source's $T_2\lesssim8$\,ps).  Both observables
+belong to the population face $SS\lambda^3$, cleanly separated from
+the coherent atlas.
+
+\emph{Absences as measurements.}  The measured map contains delay
+frequencies $\omega_\tau\in\{E_{12},\qafm\}$ only.  A bright
+$\mu^z_{13}$ would store an $E_{13}$ coherence at first order and
+produce an $(E_{13},E_{23})$ peak with exactly the dipole product of
+the observed $(E_{12},E_{23})$: the absence of the whole row is a
+selection rule.  The data force more: the
+$(E\!\parallel\!c,H\!\parallel\!a)$ analyser physically contains
+$\mu_x\lambda^5$, and at the point-charge value $\mu^x_{13}=2.39$
+that single term would exceed the entire measured map by two orders
+of magnitude---$\mu^x_{13}$ fits to zero.  The $1\!\to\!3$ transition
+is magnetically dark in \emph{every} polarisation; its large measured
+oscillator strength ($f=8.7$) is electric, and precisely that strong
+$E1$ line makes the sample opaque at $1.20$\,THz.  The two measured
+$E_{13}$-emission features sit at $1.15$ and $1.25$\,THz---one
+absorption linewidth below and above the line---the textbook
+signature of self-reversal, and the same reabsorption acting on the
+delay-axis FID removes the two-quantum $(E_{13},E_{23})$ row
+\emph{exactly} (model $0.33\to0.00$ with the filter).  Finally, the
+magnon diagonal $(\qafm,\qafm)$ is the one feature of the
+same-polarised channel that genuinely requires iron emission---and
+the measured map does not contain it.  That null bounds the Fe:Tm
+emission efficiency from above and completes a picture that is
+uniform across the atlas: the iron sublattice is loud in geometry B,
+where the magnon owns the analysed moment and is driven resonantly,
+and quiet in geometry A, where everything measured arrives through
+the rare-earth ion.
+
+\emph{Geometry B, same-polarised: a one-line prediction.}  This
+channel shares its detection operator with geometry-A cross, so it is
+a prediction with no freedom left.  The linear readouts are
+suppressed in $\Mnl$; the channel collapses onto its quadratic term,
+and the prediction is a \emph{single} broad feature, the second
+harmonic $(E_{12},2E_{12})=1.00$, everything else below $0.07$.
+Since $\beta$ is fixed by the geometry-A parity, the channel is a
+zero-parameter test: a map led by anything else falsifies the
+quadratic moment, and an observed rectified pair at
+$(\pm E_{12},\omega_t\to0)$ would falsify the exclusion of population
+readout.
+
+\section{Term-by-term accounting}
 \label{sec:audit}
 
-Every component of the final model was subjected to a leave-one-out
-test: drive legs and Hamiltonian vertices by re-running the solver
-with one term removed, detection terms and propagation filters by
-dropping one term of the composite.  Table~\ref{tab:audit} summarises.
-The result is minimal in the audited sense: two cross-subsystem
-objects ($W$, $g_d$), one on-site anharmonicity ($\beta$), one
-measured drive ratio ($w_{E1}$) and one propagation filter carry the
-entire coherent atlas.  Every other symmetry-allowed object is zero,
-bounded, or inert: the field-assisted family is \emph{bitwise} inert
-in these geometries (removing $\kappa^B$ reproduces the trajectories
-to the last digit---its gating field component is never driven), the
-population channel $W_3$ moves no coherent feature by more than
-$5\%$ and enters only the incoherent observables, and the four
-remaining quadratic moments of the $4c$ site are excluded by the
-smallness of the measured $(E_{12},1.20)$ feature, since each would
-radiate the stored $E_{12}$ coherence at the $E_{12}{+}E_{23}$ sum
-frequency at line centre.
+Table~\ref{tab:audit} closes the loop: every component of the final
+Hamiltonian is certified necessary by a named measured feature that
+dies without it, and everything else that symmetry allows is zero,
+bounded, or inert.  The minimal content of the theory is two
+cross-subsystem constants ($W$ and $g_d$), one on-site anharmonicity
+($\beta$), one measured drive ratio ($w_{E1}$), and one propagation
+filter.  The interaction between the crystal-field ladder and the
+spin waves of TmFeO$_3$ is, in the audited sense, completely
+characterised by Eq.~(\ref{eq:faces}).
 
 \begin{table}[t]
-\caption{The leave-one-out audit (single-seed ablation runs; ratios of
-feature amplitudes to the baseline).}
+\caption{Term-by-term verification (single-seed ablation runs; ratios
+of feature amplitudes to the full model).}
 \label{tab:audit}
 \centering\small
 \renewcommand{\arraystretch}{1.2}
@@ -697,30 +637,21 @@ removed & what dies (ratio) & verdict\\
 Fe Zeeman leg & A-cross anchor $0.02$; tones $0.03$ & required\\
 $d_z^{\rm eff}$ drive & anchors, SHG $0.005$; tones $0.1$ & required\\
 $\mu_x\lambda^7$ drive & anchor $0.02$; cascade tones $0.05$ & required\\
-$W^{yy}_1$ & A-cross anchor $0.03$ & required\\
-$W^{xz}_1$ & sideband $0.64$; B transfer $0.76$ & required (shared)\\
+$W\,S_y^2\lambda^1$ & A-cross anchor $0.03$ & required\\
+$W\,S_xS_z\lambda^1$ & sideband $0.64$; B transfer $0.76$ & required (shared)\\
 $\beta$ (detect) & SHG $0.95\to0.01$ & required\\
 $\lambda^6$ (detect) & same-pol anchor $0.06$ & required\\
 $\delta F_x\lambda^2$ (detect) & SFG/DFG triplet $0.02$--$0.05$ & required\\
 $T_{13}$ (column / row) & $0.67$ line-centre peak / 2Q row $0.32$ & required\\
 $d_x$ drive (geom.\ B) & transfer $0.49$ & dominant leg\\
-$\kappa^B$ & nothing (bitwise) & inert, exact\\
-$W_3$ + thermal & coherent features $\leq5\%$ & atlas-inert\\
+$B S\lambda$ family & nothing (bitwise) & inert, exact\\
+$SS\lambda^3$ + thermal & coherent features $\leq5\%$ & incoherent only\\
 $\lambda^4$, $F_z$ (detect) & only the $1.15$ wing / nothing & bounded / spectator\\
 \hline
 \end{tabular}
 \end{table}
 
-The audit also corrected two assignments (already incorporated above):
-the same-polarised $E_{12}$-row features at $0.40$ and $0.90$ are
-driven-qutrit cascade tones, not Tm$\to$magnon transfers, and the
-A-cross magnon sideband and geometry-B transfer are shared between the
-two $W$ components rather than owned by one.  Both corrections
-sharpen, rather than weaken, the dressing principle: the conversion
-sector is one tensor, and the features that need no conversion at all
-are exactly the ones that survive every ablation of it.
-
-\section{What this says about rare-earth orthoferrites}
+\section{Implications for rare-earth magnetism}
 \label{sec:physics}
 
 Three statements generalise beyond TmFeO$_3$.
@@ -729,135 +660,125 @@ Three statements generalise beyond TmFeO$_3$.
 thermal bath.}  In the standard picture of the orthoferrites the
 $R$-ion enters through its free energy: thermally occupied CEF levels
 shift the Fe anisotropy, and reorientation follows.  The atlas shows
-the same coupling surface operating \emph{coherently}: the energy face
-$W\sim\partial^2E_{\rm CEF}/\partial S\,\partial S$ converts quanta
-between magnon and CEF coherence within picoseconds, in both
-directions (the geometry-A anchor forward, the geometry-B transfer
-backward), phase-resolved and mode-resolved.  The couplings that
-reorient the statics and the vertices that convert the dynamics are
-one object read at two temperatures of description---which is
-presumably why THz control of the Fe order through the rare-earth
-channel is possible at all~\cite{Baierl2016,Schlauderer2019}.  The
-sharpest consequence is collective: every dressed feature in the
-atlas---the transfer peaks, the $(\qafm,E_{12})$ readout, the SFG/DFG
-triplet---rides $\langle F_x\rangle$ or $G_z$ and must collapse
-\emph{together} at the reorientation, while the bare-structure
-features (the magnon--magnon peak, the SHG line, the cascade tones)
-survive it.  A temperature scan through $T_{\rm SR}$ cleaves the atlas
-into its two halves along exactly the line the dressing principle
-draws.
+the same coupling surface operating \emph{coherently}: the energy
+face converts quanta between magnon and CEF coherence within
+picoseconds, in both directions---the geometry-A anchor forward, the
+geometry-B transfer backward---phase-resolved and mode-resolved.  The
+couplings that reorient the statics and the vertices that convert the
+dynamics are one object read at two levels of description, which is
+presumably why terahertz control of the Fe order through the
+rare-earth channel is possible at
+all~\cite{Baierl2016,Schlauderer2019}.  The sharpest consequence is
+collective: every dressed feature---the transfer peaks, the
+$(\qafm,E_{12})$ readout, the SFG/DFG triplet---rides
+$\langle F_x\rangle$ or $G_z$ and must collapse \emph{together} at
+the reorientation, while the bare features (the magnon--magnon peak,
+the SHG line, the cascade tones) survive it.  A temperature scan
+through $T_{\rm SR}$ cleaves the atlas into its two halves along
+exactly the line Eq.~(\ref{eq:faces}) draws.
 
 \emph{Kramers parity controls the atlas.}  The cleanliness of
 TmFeO$_3$---sharp unshifted lines, perturbative assignable vertices,
-a readable atlas---is the singlet protection of
-Sec.~\ref{sec:principle} at work: first-order exchange is
-symmetry-blocked, so nothing hybridises strongly and everything
-converts weakly.  In a Kramers member of the family (Er, Yb) no such
-protection exists: linear exchange coupling is allowed, the $R$ modes
-and magnons form mixed magnon--CEF excitations, and the corresponding
-2DCS atlas should be qualitatively different---dominated by
-hybridisation shifts and shared-linewidth mixed modes rather than by
-weak, assignable conversion vertices.  The non-Kramers orthoferrites
-(Tm, Pr, Tb) are the clean laboratories; comparing a Kramers and a
-non-Kramers member under the same protocol would turn this prediction
-into a family-wide statement.
+a readable atlas---is the singlet protection at work: first-order
+exchange is symmetry-blocked, so nothing hybridises strongly and
+everything converts weakly.  In a Kramers member of the family (Er,
+Yb) no such protection exists: linear exchange coupling is allowed,
+the $R$ modes and magnons form mixed magnon--CEF excitations, and the
+corresponding 2D atlas should be qualitatively
+different---dominated by hybridisation shifts and mixed-mode
+linewidths rather than by weak, assignable conversion vertices.  The
+non-Kramers orthoferrites (Tm, Pr, Tb) are the clean laboratories;
+comparing a Kramers and a non-Kramers member under the same protocol
+would elevate this to a family-wide organising principle.
 
 \emph{Order-induced moments carry mandatory fluctuation sidebands.}
-The moment face is an order-induced dipole, and the audit forced its
-un-truncation: if a transition moment exists only because an order
-parameter condensed ($d_z^{\rm eff}\propto\langle F_x\rangle$), then
-the same coupling necessarily radiates sum- and difference-frequency
-tones with the order parameter's own fluctuations
-($g_d\,\delta F_x\lambda^2$ at $\qafm\pm E_{12}$), with amplitudes
-locked to the condensed readout by a single ratio.  This is a
-universal signature, not a TmFeO$_3$ accident: any order-induced line
-in any magnetoelectric---multiferroic electromagnons, exchange-induced
+If a transition moment exists only because an order parameter
+condensed ($d_z^{\rm eff}\propto\langle F_x\rangle$), then the same
+coupling constant necessarily radiates sum- and difference-frequency
+tones with the order parameter's own fluctuations, at amplitudes
+locked to the condensed line by a single ratio.  This is a universal
+signature, not a TmFeO$_3$ accident: any order-induced line in any
+magnetoelectric---multiferroic electromagnons, exchange-induced
 dipoles, field-induced moments---must carry these sidebands, and 2DCS
 is the instrument that separates them from cascades, because the
-delay-axis label distinguishes a stored order-parameter fluctuation
-from a stored coherence.  Here the sidebands were not decoration: they
-resolved the last unassigned peak in the spectrum.
+delay axis distinguishes a stored order-parameter fluctuation from a
+stored coherence.  Here the sidebands were not decoration: they
+account for the highest-frequency cross peak in the spectrum.
 
-\section{Falsifiable content}
+\section{Predictions and tests}
 
-The model constrains itself as follows.  Any peak emitting at $\qafm$
-through the Fe dipole inherits the $15\times$ sharper magnon
-linewidth; $(\qfm,\qafm)$ is temperature-flat while $(E_{12},\qafm)$
-falls as $n_1-n_2$; the transfer row sits at the frequency of the 1D
-absorption line exactly (a static mixer would place it below, at any
-coupling strength); $\mathrm{sign}(d_x\mu_z)<0$, checkable against the
-crystal-field wavefunctions; rotating either polarisation away from
-$c$ must revive the $\omega_\tau=E_{13}$ rows; the $2E_{12}$ line
-tracks $E_{12}$ and does \emph{not} soften at the spin reorientation,
-whereas the entire dressed sector---the $d_z^{\rm eff}$ family
-\emph{and} the $(E_{12},\qafm)$ transfer---must vanish there; the
-geometry-B same-polarised map must be led by the $2E_{12}$ harmonic
-essentially alone; and adiabatically long pulses collapse the
-geometry-A cross peak.  Propagation adds its own fingerprints: a
-lineout across $\omega_t=1.1$--$1.3$ at $\omega_\tau=\qafm$ must show
-a self-reversal \emph{doublet} around a dark centre at $1.20$; the
+The structure constrains itself as follows.  Any peak emitting at
+$\qafm$ through the iron dipole inherits the $15\times$ sharper
+magnon linewidth; $(\qfm,\qafm)$ is temperature-flat while
+$(E_{12},\qafm)$ falls as $n_1-n_2$; the transfer row sits at the 1D
+absorption frequency exactly (a static mixer would place it below, at
+any coupling strength); $\mathrm{sign}(d_x\mu_z)<0$, checkable
+against the crystal-field wavefunctions; rotating either polarisation
+away from $c$ must revive the $\omega_\tau=E_{13}$ rows; the
+$2E_{12}$ line tracks $E_{12}$ and does not soften at the
+reorientation, whereas the entire dressed sector must vanish there;
+the geometry-B same-polarised map must be led by the $2E_{12}$
+harmonic essentially alone; and adiabatically long pulses collapse
+the geometry-A cross peak.  Propagation adds fingerprints: a lineout
+across $\omega_t=1.1$--$1.3$ at $\omega_\tau=\qafm$ must show a
+self-reversal \emph{doublet} around a dark centre at $1.20$; the
 geometry-B cross channel must carry a $d_z^{\rm eff}$ doublet at
-$\omega_t=0.45/0.54$ at the $\sim\!0.17$ level; and every wing
-amplitude scales with sample thickness, so a thin sample revives the
-$E_{13}$ line centre and the two-quantum row together.  The emission
-assignments carry lineshape and position fingerprints: the
-same-polarised $E_{12}$-row tones must sit at $2(E_{23}{-}E_{12})=0.40$
-and $2E_{23}{-}E_{12}=0.90$ with CEF width and survive the
-reorientation---at the low tone a full linewidth above $\qfm=0.38$, a
-direct positional test---and any recovered $(\qafm,\qafm)$ diagonal
-would raise the $c_{\rm Fe}$ bound and must appear with the magnon
-width.  The SFG/DFG triplet is over-constrained: all three tones come
-from one product, so their ratios are locked, the sum tone must sit at
-$\qafm{+}E_{12}$ exactly (at $1.20$ it would be a quadratic moment
-instead, and the dark $E_{13}$ window separates the two), its position
-must track the magnon as $\qafm$ softens, and the whole triplet
-collapses at the reorientation with everything else that rides
-$g_d\propto\langle F_x\rangle$.  The temperature scan through the
-reorientation remains the decisive experiment: it cleaves the atlas
-into dressed and bare halves and measures $g_d$ by the size of the
-collapse.
+$\omega_t=0.45/0.54$ at the $\sim0.17$ level; and every wing
+amplitude scales with thickness, so a thin sample revives the
+$E_{13}$ line centre and the two-quantum row together.  The
+same-polarised $E_{12}$-row tones must sit at $0.40$ and $0.90$ with
+CEF width and survive the reorientation---at the low tone a full
+linewidth above $\qfm$, a direct positional test---and any recovered
+$(\qafm,\qafm)$ diagonal would raise the $c_{\rm Fe}$ bound and must
+appear with the magnon width.  The SFG/DFG triplet is
+over-constrained: locked ratios, position at $\qafm{+}E_{12}$ exactly
+(at $1.20$ it would be a quadratic moment instead, and the dark
+$E_{13}$ window separates the cases), tracking of the softening
+magnon, and collective collapse at the reorientation.  The
+temperature scan through $T_{\rm SR}$ remains the decisive
+experiment: it cleaves the atlas into dressed and bare halves and
+measures $g_d$ by the size of the collapse.
 
 One residual survives, named and characterised.  \emph{R1, the
 rephasing remnant} $(-E_{12},E_{23})$: the point-ion qutrit has an
 exact floor of $0.47$--$0.58$ of the dominant transfer (verified
 against a standalone three-level integrator; no coupling in the
-exhausted vertex space and no drive quadrature or sign removes it),
-while the measured negative-delay side carries only the rectified and
-$\qfm$ features---and the SFG/DFG tones add their own rephasing
-partners there (model $0.5$--$0.7$), sharpening the same question.
+admitted space and no drive quadrature or sign removes it), while the
+measured negative-delay side carries only the rectified and $\qfm$
+features---and the SFG/DFG tones contribute rephasing partners of
+their own there (model $0.5$--$0.7$), sharpening the same question.
 This residual, the self-reversal wing amplitudes, and the geometry-B
 $d_z^{\rm eff}$ doublet strength funnel into a single measurable
-object: the sample's polarisation-resolved optical depths at the three
-CEF lines.  One transmission measurement closes it or breaks the
-propagation layer cleanly.
+object: the sample's polarisation-resolved optical depths at the
+three CEF lines.  One transmission measurement closes it or breaks
+the propagation layer cleanly.
 
 \section{Conclusion}
 
-A single symmetry principle---the time-reversal protection of a
-non-Kramers singlet ion---reduces the rare-earth--iron coupling space
-of TmFeO$_3$ to two second-order dressings, one per quadrature of the
-crystal-field coherence: an energy face
-$W\,SS\,\lambda^1$ that converts and never radiates, and a moment face
-$g_d\,E_z(F_x\lambda^2)$ that drives and radiates, linearly through
-its condensed part and bilinearly through its fluctuations (internal
-magnon--crystal-field SFG/DFG).  These two objects, the bare
-subsystems, one on-site hyperpolarisability and one self-absorption
-filter reproduce the measured polarisation-resolved 2DCS atlas from
-measured inputs, with no field-assisted coupling and no free lineshape
-parameters, and every component certified necessary by a leave-one-out
-audit.  The absences do quantitative work alongside the peaks: the
-missing $E_{13}$ delay row measures the fully dark $1\!\to\!3$ dipole,
-the missing magnon diagonal bounds the Fe emission weight, and the
-missing $(E_{12},1.20)$ sum-frequency partner excludes every remaining
-quadratic moment of the rare-earth site.  Because the energy face is
-the spin-reorientation coupling surface itself, the atlas is a
-coherent, mode-resolved measurement of the mechanism that moves the
-statics of this family---and its sharpest prediction is collective:
-at the reorientation the dressed half of the atlas dies together,
-while the bare half survives.  The program---bound the vertex space by
-symmetry, assign every feature and every absence, audit every
-component, and let the atlas overdetermine the model---applies to any
-magnet whose 2D map spans distinct subsystems, and turns 2DCS from a
+The interaction between crystal-field excitations and spin waves in
+TmFeO$_3$ is intrinsically nonlinear: time reversal protects the
+singlet ion from its magnetic environment at first order, and what
+survives is a second-order dressing with exactly two faces---an
+energy face $W\,SS\,\lambda^1$ that converts and never radiates, and
+a moment face $g_d\,E_z(F_x\lambda^2)$ that drives and radiates,
+linearly through its condensed part and bilinearly through its
+fluctuations, as internal magnon--CEF sum- and difference-frequency
+generation.  Two-dimensional terahertz spectroscopy resolves this
+algebra term by term: two constants, one on-site anharmonicity, one
+measured drive ratio and one self-absorption filter reproduce the
+polarisation-resolved atlas from measured inputs, every assignment
+verified by switching off individual terms, and the absences doing
+quantitative work---a fully dark $1\!\to\!3$ dipole, a bounded iron
+emission weight, an excluded quadratic-moment sector.  Because the
+energy face is the spin-reorientation coupling surface promoted from
+thermodynamics to operators, the atlas is a coherent, mode-resolved
+measurement of the mechanism that moves the statics of the
+orthoferrite family, and its sharpest prediction is collective: at
+the reorientation the dressed half of the atlas dies together while
+the bare half survives.  The program---bound the interaction space by
+symmetry, assign every feature and every absence, verify every term,
+and let the atlas overdetermine the theory---applies to any magnet
+whose 2D map spans distinct subsystems, and turns 2DCS from a
 spectroscopy of modes into a spectroscopy of Hamiltonian terms.
 
 \begin{acknowledgments}
