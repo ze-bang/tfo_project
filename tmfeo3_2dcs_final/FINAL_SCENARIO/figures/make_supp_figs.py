@@ -93,10 +93,12 @@ def show_map(ax,wtb,wTb,Z0,vmax=None):
 # ---------------------------------------------------------------- 1. pulse
 tab=np.loadtxt(f"{ROOT}/experimental_pulse_codeunits.dat")
 tp,Ep=tab[:,0]*PS_PER_UNIT,tab[:,1]
+tp=tp-np.sum(tp*Ep**2)/np.sum(Ep**2)   # centre on the field-energy centroid (the solver auto-centres too)
 fig,axs=plt.subplots(1,2,figsize=(6.8,2.3))
 axs[0].plot(tp,Ep/np.abs(Ep).max(),color="#20415f",lw=1.0)
+axs[0].axhline(0,color="0.75",lw=0.4)
 axs[0].set_xlabel(r"$t$ (ps)"); axs[0].set_ylabel(r"$E(t)$ (norm.)")
-axs[0].set_xlim(-3,5); pubstyle.panel_tag(axs[0],"(a)")
+axs[0].set_xlim(-2.5,2.5); pubstyle.panel_tag(axs[0],"(a)")
 fr=np.fft.rfftfreq(len(tp)*8,(tp[1]-tp[0]))
 sp=np.abs(np.fft.rfft(Ep,n=len(tp)*8)); sp/=sp.max()
 axs[1].plot(fr,sp,color="#20415f",lw=1.0)
