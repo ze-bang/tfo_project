@@ -1859,7 +1859,8 @@ $(E\!\parallel\!a,H\!\parallel\!c)$ &
 \midrule
 $(E\!\parallel\!c,H\!\parallel\!a)$ &
   $F_x+\mu_x(\lambda^5,\lambda^7)$ ($m_x$, mirror-odd)\newline
-  $+\,w_{E1}'(\lambda^4,\lambda^6)$ ($d_z$, mirror-odd)\newline
+  $+\,w_{E1}'\lambda^6$ ($d_z$, mirror-odd;
+  $d_z(1\!\to\!3)\leq0.006$, dropped)\newline
   $+\,g_d(\langle F_x\rangle{+}\delta F_x)\lambda^2$;\ \ no $\lambda^{3,8}$ &
   A same;\newline B cross (Tm part $\equiv0$\newline by closure)\\
 \bottomrule
@@ -1888,9 +1889,10 @@ one operator serving excitation and detection alike---
 $O_2\equiv(E\!\parallel\!a,H\!\parallel\!c)
 =S_z+5.264\lambda^2+2.84\lambda^1+\beta\lambda^1\lambda^2$ and
 $O_1\equiv(E\!\parallel\!c,H\!\parallel\!a)
-=S_x+0.913\lambda^7+4.4\lambda^6+0.006\lambda^4
+=S_x+0.913\lambda^7+4.4\lambda^6
 +g_d(\langle F_x\rangle+\delta F_x)\lambda^2$ with
-$\mu^x_{13}=0$---and the channel map is
+$\mu^x_{13}=0$ and $d_z(1\!\to\!3)\leq0.006$ (dropped from the
+minimal operator; kept as a bound)---and the channel map is
 A-cross$\,=O_1\!\to\!O_2$, A-same$\,=O_1\!\to\!O_1$,
 B-cross$\,=O_2\!\to\!O_1$, B-same$\,=O_2\!\to\!O_2$.  Strict and
 verified: the operator content, the within-family dipole ratios, and
@@ -2066,17 +2068,18 @@ $(E_{12},0.40)$ & $0.45$ & $0.40$ & qutrit cascade tone
 $(E_{12},0.90)$ & $0.40$ & $0.43$ & qutrit cascade tone
   $2E_{23}{-}E_{12}=0.90$, degenerate with $\qafm$; Tm$\to$magnon
   transfer is the $\lesssim10\%$ remainder\\
-$(\qafm,E_{12})$ & $0.30$ & $0.38$ &
+$(\qafm,E_{12})$ & $0.30$ & $0.39$ &
   magnon$\to$Tm, read through $d_z^{\rm eff}$ (reciprocity partner)\\
 $(\qafm,\qafm)$ & absent & $0.13$ & magnon diagonal (Fe $F_x$, M1);
   its absence bounds $c_{\rm Fe}$ from above\\
 $(E_{13},E_{23})$ 2Q & $0$ & $0.00$ & killed exactly by FID reabsorption\\
-$(E_{12},1.15)$ & $0.15$ & $0.04$ & self-reversal wing of the $E_{13}$ line\\
-$(\qafm,1.41)$ & $0.30$ & $0.30$ & dynamical $d_z^{\rm eff}$
+$(E_{12},1.15)$ & $0.15$ & $0.02$ & $E_{13}$ wing; bounds
+  $d_z(1\!\to\!3)\leq0.006$\\
+$(\qafm,1.41)$ & $0.30$ & $0.31$ & dynamical $d_z^{\rm eff}$
   ($\delta F_x\lambda^2$): sum tone at $\qafm{+}E_{12}$\\
-$(\qafm,0.40)$ & obs. & $0.42$ & its difference tone
+$(\qafm,0.40)$ & obs. & $0.43$ & its difference tone
   $\qafm{-}E_{12}$, merging into the $(\qafm,E_{12})$ blob\\
-$(E_{12},1.41)$ & obs. & $0.41$ & its $E_{12}$-delay partner\\
+$(E_{12},1.41)$ & obs. & $0.36$ & its $E_{12}$-delay partner\\
 $(-E_{12},E_{23})$ & $<0.15$ & $\sim0.7$ & \textbf{open}: residual R1, point-ion floor\\
 \bottomrule
 \end{tabular}
@@ -2193,8 +2196,10 @@ $T_{13}$ column filter & a $0.67$ peak appears at the $E_{13}$
   line centre & required\\
 $T_{13}$ delay-row filter & the 2Q $(E_{13},E_{23})$ row returns at
   $0.32$ & required\\
+$W_3$ + thermal channel & every coherent feature moves $\leq5\%$ &
+  atlas-inert; incoherent observables only\\
 $\lambda^4$ (detect) & only the $1.15$ wing moves ($0.03\to0.02$) &
-  marginal (bounded small)\\
+  marginal; dropped, $d_z(1\!\to\!3)\leq0.006$ kept as a bound\\
 $F_z$ (detect) & nothing in A-cross ($F_z\equiv0$) &
   symmetry-required, data-inert\\
 $\lambda^1\!\leftrightarrow\!\lambda^2$, $\lambda^6\!\leftrightarrow\!
@@ -2202,6 +2207,26 @@ $\lambda^1\!\leftrightarrow\!\lambda^2$, $\lambda^6\!\leftrightarrow\!
 \bottomrule
 \end{tabular}
 \end{center}
+
+\paragraph{The minimal model, stated once.}  With the audit complete
+the construction reduces to its irreducible content.  Two
+cross-subsystem objects carry every conversion and every
+magnetoelectric feature: the exchange-modulated crystal-field tensor
+$S^T W S\,\lambda^1$---one object at one scale, whose two
+$\Gamma_2$-allowed components ($yy$, $xz$) share the conversion tasks
+rather than owning separate peaks---and the magnetoelectric vertex
+$g_d\,E_z(F_x\lambda^2)$, one constant whose drive avatar, linear
+emission avatar and bilinear (SFG/DFG) emission are the same object.
+The two land on opposite quadratures of the
+$1\!\leftrightarrow\!2$ coherence---$SS$ is $\mathcal T$-even and
+reaches $\lambda^1$; $E_zS$ reaches the $\mathcal T$-odd $\lambda^2$
+through the condensed order parameter---so together they are exactly
+the two two-leg dressings of the qutrit that symmetry admits, the
+energy face converting and the moment face radiating.  Everything
+else is bare structure (the Fe magnon sector with its own
+anharmonicity, the bare driven qutrit with its measured dipoles, the
+on-site $\beta$, the propagation filter), and every other
+symmetry-allowed object is zero, bounded, or exactly inert.
 
 The audit also \emph{corrected} two assignments.  First, the
 same-polarised $E_{12}$-row features at $\omega_t\simeq0.40$ and

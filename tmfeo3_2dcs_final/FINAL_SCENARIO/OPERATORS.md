@@ -26,10 +26,11 @@ O₂ ≡ (E∥a, H∥c):
     — no λ³/λ⁸. Drives geometry B; detects A-cross and B-same.
     Implemented drive vector (geometry B): (−0.0165, 0.030711, 0,…), amp 0.034864.
 
-O₁ ≡ (E∥c, H∥a):
+O₁ ≡ (E∥c, H∥a)  [MINIMAL form, necessity audit 2026-08-08]:
     S_x(Fe)  +  0.9128 λ⁷ (μ_x(2↔3), M1)
              +  0 λ⁵      (μ_x(1↔3): dark)
-             +  4.4 λ⁶ + 0.006 λ⁴  (d_z, E1)
+             +  4.4 λ⁶    (d_z(2↔3), E1)   [λ⁴ DROPPED: d_z(1↔3) ≤ 0.006
+                           kept as a bound from the 1.15 wing — audit: marginal]
              +  g_d (⟨F_x⟩ + δF_x) λ²
                           (d_z^eff UN-TRUNCATED, adopted 2026-08-08: the ESJ term
                            E_z·(F_x λ²).  Condensed piece ⟨F_x⟩λ² = the old static
@@ -52,9 +53,8 @@ Channel map:  A-cross = O₁→O₂;  A-same = O₁→O₁;  B-cross = O₂→O�
 
 | term | operator | value | role |
 |------|----------|-------|------|
-| W₁ʸʸ | S_y² λ¹            | 0.01 | two-magnon displacive vertex → geometry-A (qAFM, E₁₂) |
-| W₁ˣᶻ | S_x S_z λ¹         | 0.01 | static converter: electrically written λ¹ ↔ qAFM magnon → geometry-B (E₁₂, qAFM); also the forced (qAFM,qAFM) sideband |
-| W₃ʸᶻ | S_y S_z λ³ (+ thermal feedback c_heat=2000, cap 0.05) | 0.01 | population channel: reorientation physics; 2DCS tail only |
+| W (ONE tensor, ONE scale) | S^T W S λ¹: components W₁ʸʸ = W₁ˣᶻ = 0.01 | 0.01 | the exchange-modulated crystal field. NOT two mechanisms (audit 2026-08-08): the two Γ₂-allowed components share every conversion task — A-cross anchor (yy-led), forced (qAFM,qAFM) sideband (yy-dominant 0.43/0.64 split), B transfer (multi-path; xz removal costs 25%) |
+| W₃ʸᶻ | S_y S_z λ³ (+ thermal feedback c_heat=2000, cap 0.05) | 0.01 | ATLAS-INERT (audit: all coherent features ≤5% moved without it). Enters ONLY the incoherent observables: rectified (±E₁₂,0) line magnitude and the buildup reservoir |
 | m_z quad. | μλ² + βλ¹λ²   | β≈50–66 | hyperpolarisability (Tm 4c lacks inversion) → 2E₁₂ harmonic |
 | κᴮ (BSλ), κᴱ (ESλ) | —   | 0    | catalogued; superseded / rejected (κE_5y floods the 1↔2 block) |
 | other quadratics | λ¹λ⁶, λ²λ⁷ (d_z E1); λ¹λ⁷, λ²λ⁶ (m_x M1) | 0 | all four symmetry-allowed; radiate at E₁₂+E₂₃=1.20; tested for the (qAFM,>1.2) peak — each carries a 10–12× (E₁₂,1.2) partner (opposite of the measured ratio) → rejected. The peak is instead the dynamical d_z^eff sum tone at qAFM+E12=1.40 (see O₁) — R2 RESOLVED 2026-08-08 |

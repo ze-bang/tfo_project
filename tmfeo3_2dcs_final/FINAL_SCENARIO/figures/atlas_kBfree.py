@@ -125,7 +125,7 @@ _,_,fdyn,FXM=dynprod(S,10)
 T13c=np.exp(-6.0/(1+((wtb-1.20)/0.05)**2))[None,:]
 T13r=np.exp(-6.0/(1+((np.abs(wTb)-1.20)/0.05)**2))[:,None]
 CE12=1.488e-4   # g_d emission conversion, calibrated on the (qAFM,E12) peak (pre-split)
-Asame_full=(0.006*f4+4.4*f6)*T13c*T13r + 0.30*CE12*f2 + 0.42*(CE12/FXM)*fdyn*T13c
+Asame_full=(4.4*f6)*T13c*T13r + 0.30*CE12*f2 + 0.42*(CE12/FXM)*fdyn*T13c   # MINIMAL: lambda4 dropped (necessity audit: marginal; d13 bounded <=0.006 by the 1.15 wing)
 panels.append(("A same-pol   DRIVE: same single geometry-A pulse as A cross (second analyser on one experiment)\n"
                "DETECT (E$\\parallel$c,H$\\parallel$a) out: (0.006$\\lambda^4$+4.4$\\lambda^6$)$\\times$T$_{13}$ + g$_d$($\\langle F_x\\rangle$+$\\delta F_x$)$\\lambda^2$ (d$_z^{eff}$, un-truncated);  c$_{Fe}$=0;  E$_{13}$ self-abs. (d=6),  $T$=10 K",
                wtb,wTb,Asame_full,"A_same"))

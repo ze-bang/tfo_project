@@ -134,13 +134,32 @@ acting through two components,
   H_{W'}&=W^{xz}_1\,S_xS_z\,\lambda^1 ,
   \label{eq:vertices}
 \end{align}
-together with the population channel $W_3S_\alpha S_\beta\lambda^3$ (a
-weak incoherent tail).  The remaining ingredient is not a coupling but
+and these are not two mechanisms: they are the two
+$\Gamma_2$-allowed components of one exchange-modulated
+crystal-field tensor, carried at a single scale
+$W^{yy}_1=W^{xz}_1=W$, and the leave-one-out runs show them sharing
+every conversion task rather than owning separate peaks.  The
+population channel $W_3S_\alpha S_\beta\lambda^3$ is \emph{atlas-inert}
+(removing it moves every coherent feature by $\leq5\%$) and enters
+only the incoherent physics---the rectified line and the post-pulse
+buildup.  The remaining ingredient is not a coupling but
 a \emph{drive} channel: the pulse's electric field writes the $E_{12}$
 coherence through the Tm dipole $d_x\lambda^1$, a component owned
 exclusively by the $E\!\parallel\!a$ polarisation, with the $E1/M1$
 balance $w_{E1}=0.54$ (in units of $\mu$) \emph{measured} by the
 geometry-B transfer ratio.  Every peak below is built from these.
+
+The whole cross-subsystem sector then admits a one-sentence
+statement: \emph{the rare-earth qutrit is dressed by its magnetic
+environment through exactly two two-leg objects, one per quadrature
+of the $1\!\leftrightarrow\!2$ coherence}---the spin pair $S S$
+landing on the $\mathcal T$-even quadrature ($W\lambda^1$: the energy
+face, which converts), and the field--spin pair $E_z S$ landing on
+the $\mathcal T$-odd quadrature ($g_d F_x\lambda^2$: the moment face,
+which drives and radiates, its three avatars and the SFG/DFG tones
+all being the same constant).  Everything else in the atlas is bare
+structure: the Fe magnon sector, the bare driven qutrit with its
+dipoles and on-site hyperpolarisability, and one propagation filter.
 
 \section{Symmetry assigns each polarisation one block}
 \label{sec:blocks}
@@ -230,10 +249,10 @@ A cross & $F_z\equiv0$: Tm only.  $\lambda^{1,2}$ resonant at $E_{12}$\\
 B same & $F_z$ alive but $50\times$ smaller than the Tm terms\\
 \hline
 \multicolumn{2}{l}{$(E\!\parallel\!c,H\!\parallel\!a)$:\quad
-  $F_x+\mu_{x}(\lambda^5,\lambda^7)
-   +w_{E1}'(\lambda^4,\lambda^6)
+  $F_x+\mu_{x}\lambda^7
+   +w_{E1}'\lambda^6
    +g_d(\langle F_x\rangle{+}\delta F_x)\lambda^2$
-  \ \ (no $\lambda^{3,8}$)}\\
+  \ \ ($1\!\leftrightarrow\!3$ dark; no $\lambda^{3,8}$)}\\
 \hline
 A same & CEF $\lambda^{4,6}$; $d_z^{\rm eff}$ (static + dynamical); $F_x$ bounded\\
 B cross & $F_x$; Tm part $\equiv0$ by closure\\
@@ -452,9 +471,10 @@ reservoir this Hamiltonian does not contain.
 \subsection{Geometry A, same-polarised}
 
 The analysed moment is $m_x$, and three contributions reach it, each
-required by symmetry: the Tm CEF moments (the $d_z$ lines at $E_{23}$,
-$E_{13}$, which also carry the magnon frequencies as conversion
-sidebands), the order-induced dipole
+required by symmetry: the Tm CEF moment (the $d_z$ line at $E_{23}$,
+which also carries the cascade tones; the $1\!\to\!3$ member is
+bounded at $d_z\leq0.006$ by the weak $1.15$ wing and dropped from
+the minimal operator), the order-induced dipole
 $g_d(\langle F_x\rangle+\delta F_x)\lambda^2$---whose condensed piece
 emits at $E_{12}$ and whose \emph{dynamical} piece emits at
 $\qafm\pm E_{12}$ (below)---and the Fe $F_x$ itself.  The weights are
@@ -482,13 +502,13 @@ $(E_{12},E_{23})$ & $1.00$ & $1.00$ & coherence$\to$pop.$\to\rho_{23}$\\
 $(E_{12},0.40)$ & $0.45$ & $0.40$ & cascade tone $2(E_{23}{-}E_{12})$, adjacent to $\qfm$\\
 $(E_{12},0.90)$ & $0.40$ & $0.43$ & cascade tone $2E_{23}{-}E_{12}$, degenerate with $\qafm$\\
 $(0,E_{12})$ & $0.40$ & --- & pump--probe row\\
-$(\qafm,E_{12})$ & $0.30$ & $0.38$ & magnon$\to$Tm via $d_z^{\rm eff}$\\
+$(\qafm,E_{12})$ & $0.30$ & $0.39$ & magnon$\to$Tm via $d_z^{\rm eff}$\\
 $(\qafm,\qafm)$ & absent & $0.13$ & magnon diagonal; absence bounds $c_{\rm Fe}$\\
 $(E_{13},E_{23})$ & $0$ & $0.00$ & 2Q row, killed by FID reabsorption\\
-$(E_{12},1.15)$ & $0.15$ & $0.04$ & self-reversal wing of $E_{13}$\\
-$(\qafm,1.41)$ & $0.30$ & $0.30$ & dynamical $d_z^{\rm eff}$: sum tone $\qafm{+}E_{12}$\\
-$(\qafm,0.40)$ & obs. & $0.42$ & its difference tone $\qafm{-}E_{12}$\\
-$(E_{12},1.41)$ & obs. & $0.41$ & its $E_{12}$-delay partner\\
+$(E_{12},1.15)$ & $0.15$ & $0.02$ & $E_{13}$ wing; bounds $d_z(1\to3)\leq0.006$\\
+$(\qafm,1.41)$ & $0.30$ & $0.31$ & dynamical $d_z^{\rm eff}$: sum tone $\qafm{+}E_{12}$\\
+$(\qafm,0.40)$ & obs. & $0.43$ & its difference tone $\qafm{-}E_{12}$\\
+$(E_{12},1.41)$ & obs. & $0.36$ & its $E_{12}$-delay partner\\
 $(-E_{12},E_{23})$ & $<0.15$ & $0.7$ & \textbf{open} (residual R1, point-ion floor)\\
 \hline
 \end{tabular}
@@ -773,7 +793,14 @@ leave-one-out necessity audit---each drive leg, conversion vertex,
 detection term and propagation filter is required by a named measured
 feature, the only survivors of removal being the symmetry-mandated
 spectators ($F_z$, the near-dark $\lambda^4$, and the exactly inert
-field-assisted gate) [SM; long-form note].  The absences do
+field-assisted gate) [SM; long-form note].  The result is minimal in
+the audited sense: two cross-subsystem objects (the exchange tensor
+$W$ at one scale and the magnetoelectric constant $g_d$), one on-site
+anharmonicity ($\beta$), one measured drive ratio ($w_{E1}$) and one
+propagation filter carry the entire coherent atlas---every other
+symmetry-allowed object is zero, bounded, or inert, and the
+population channel $W_3$ enters only the incoherent observables.
+The absences do
 quantitative work alongside the peaks:
 the missing $E_{13}$ delay row measures the fully dark $1\!\to\!3$
 dipole, the missing magnon diagonal bounds the Fe emission weight, and
