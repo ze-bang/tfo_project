@@ -141,14 +141,29 @@ census={"detection_P2":"(E||a,H||c) = F_z + 5.264*l2 (m_z) + W_E1*l1 (d_x) + bet
         "beta_note":"beta re-fitted from the observed A-cross parity (E12,2E12)=(qAFM,E12)",
         "anchor_insensitivity":"A-cross observables move by <=0.04 over a 50x range of W_E1 (see p2_operator_fix.py)",
         "drive":"A_Fe=0.12 tied su3=0.02195, dark-mu13","mu13_admixture_pct":0.14}
-fig,axs=plt.subplots(2,2,figsize=(12.4,9.4))
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import pubstyle
+pubstyle.apply(fontsize=8)
+PANEL_TITLES={
+ "A_cross":(r"(a)\ A cross\quad $O_1\!\to\!O_2$",
+   r"in: $B\!\parallel\!a$, $d_z^{\rm eff}$, $\mu_x\lambda^7$;\quad out: $\mu\lambda^2{+}w_{E1}\lambda^1{+}\beta\lambda^1\lambda^2$"),
+ "B_cross":(r"(b)\ B cross\quad $O_2\!\to\!O_1$",
+   r"in: $B\!\parallel\!c$, $\mu_z\lambda^2$, $d_x\lambda^1$ [$w_{E1}$=0.54];\quad out: Fe $S_x$ (M1)"),
+ "A_same":(r"(c)\ A same-pol\quad $O_1\!\to\!O_1$",
+   r"in: as (a);\quad out: $4.4\lambda^6T_{13}+g_d(\langle F_x\rangle{+}\delta F_x)\lambda^2$;\ \ $c_{\rm Fe}$=0"),
+ "B_same_pred":(r"(d)\ B same-pol\quad $O_2\!\to\!O_2$ (prediction)",
+   r"in: as (b);\quad out: as (a);\ \ $\lambda^{4\text{--}7}\!\equiv\!0$: $\beta\lambda^1\lambda^2$ leads"),
+}
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import pubstyle
+pubstyle.apply(fontsize=8)
+fig,axs=plt.subplots(2,2,figsize=(7.6,6.4))
+last_pc=None
 for ax,(ttl,wtb,wTb,A,key) in zip(axs.ravel(),panels):
-    # smooth DC-corner taper: keeps the pump-probe row (resonant omega_t) and the
-    # rectified columns (resonant omega_tau); removes only the DC x DC corner drift
     taper=1-np.exp(-(((wTb[:,None]/0.25)**2)+((wtb[None,:]/0.25)**2)))
     A=A*taper
-    # pump-probe row auto-scale: broadband drift makes the raw row saturate; show it
-    # at the measured relative amplitude (exp row features ~0.4 of map max)
     offrow=A[np.ix_(np.abs(wTb)>0.18, wtb>0.25)].max()
     rowsel=np.abs(wTb)<0.10
     rowmax=A[np.ix_(rowsel, wtb>0.25)].max()
@@ -162,21 +177,27 @@ for ax,(ttl,wtb,wTb,A,key) in zip(axs.ravel(),panels):
     for a_,p,yy,xx in pk: print(f"   {a_:5.2f} x{p:4.1f}  ({yy:+.2f}, {xx:.2f})")
     Z=A.copy()
     zref=Z[np.ix_(np.abs(wTb)>0.18, wtb>0.25)].max()
-    ax.pcolormesh(wtb,wTb,np.minimum(Z/zref,1.0),shading="auto",cmap="inferno",norm=PowerNorm(gamma=1.0,vmin=0,vmax=1),rasterized=True)
-    for nm,v in MODES:
-        ax.axvline(v,color="w",ls="--",lw=0.7,alpha=0.32)
-        ax.axhline(v,color="w",ls="--",lw=0.7,alpha=0.32); ax.axhline(-v,color="w",ls="--",lw=0.7,alpha=0.32)
-        ax.text(v,1.31,nm,ha="center",va="top",color="w",alpha=0.6,fontsize=6)
-        ax.text(1.875,v,nm,ha="left",va="center",color="0.4",fontsize=6)
-        ax.text(1.575,-v,nm,ha="left",va="center",color="0.4",fontsize=6)
+    last_pc=ax.pcolormesh(wtb,wTb,np.minimum(Z/zref,1.0),shading="auto",cmap="inferno",
+                          norm=PowerNorm(gamma=1.0,vmin=0,vmax=1),rasterized=True)
+    pubstyle.mode_guides(ax, ymax=1.4)
     for a_,p,yy,xx in pk[:6]:
-        ax.plot(xx,yy,"x",color="cyan",ms=9,mew=1.8)
-        ax.annotate(f"({yy:+.2f},{xx:.2f})",(xx,yy),textcoords="offset points",xytext=(5,6),color="cyan",fontsize=7)
+        ax.plot(xx,yy,"x",color="cyan",ms=6,mew=1.3)
+        dy = -9 if yy > 1.12 else 4
+        ax.annotate(f"({yy:+.2f},{xx:.2f})",(xx,yy),textcoords="offset points",
+                    xytext=(4,dy),color="cyan",fontsize=5.6)
     ax.set_xlim(0.15,1.85); ax.set_ylim(-1.4,1.4)
-    ax.set_xlabel("$\\omega_t$ (THz)"); ax.set_ylabel("physical $\\omega_T$ (THz)")
-    ax.set_title(ttl,fontsize=8.2)
-fig.suptitle("The TmFeO$_3$ 2DCS atlas — $\\kappa^B$-FREE scenario: one Hamiltonian (all-static Fe-Tm vertices), one physical pulse per geometry\n"
-             "(geometry-B coherence written electrically via d$_x$, converted by master W$_1^{xz}$; pump--probe row retained in the A panels (as in the measured map); blind census; linear amplitude colour scale)",fontsize=11)
-fig.tight_layout(); fig.savefig("tfo_project/tmfeo3_2dcs_final/FINAL_SCENARIO/figures/atlas_kBfree.png",dpi=118)
+    t1,t2=PANEL_TITLES[key]
+    ax.set_title(t1+"\n"+t2, fontsize=7.0, loc="left", pad=4)
+for ax in axs[1,:]: ax.set_xlabel(r"$\omega_t/2\pi$ (THz)")
+for ax in axs[:,0]: ax.set_ylabel(r"$\omega_\tau/2\pi$ (THz), physical sign")
+for ax in axs[0,:]: ax.set_xticklabels([])
+for ax in axs[:,1]: ax.set_yticklabels([])
+fig.subplots_adjust(left=0.075,right=0.90,top=0.94,bottom=0.075,wspace=0.06,hspace=0.16)
+cax=fig.add_axes([0.915,0.075,0.018,0.865])
+cb=fig.colorbar(last_pc,cax=cax)
+cb.set_label(r"$|M_{\rm NL}(\omega_\tau,\omega_t)|$ (norm.)",fontsize=8)
+cb.outline.set_linewidth(0.6)
+fig.savefig("tfo_project/tmfeo3_2dcs_final/FINAL_SCENARIO/figures/atlas_kBfree.pdf",dpi=400)
+fig.savefig("tfo_project/tmfeo3_2dcs_final/FINAL_SCENARIO/figures/atlas_kBfree.png",dpi=150)
 json.dump(census,open("tfo_project/tmfeo3_2dcs_final/FINAL_SCENARIO/figures/census_atlas_kBfree.json","w"),indent=1)
-print("\nsaved w3_isolation/atlas_kBfree.png + census_atlas_kBfree.json")
+print("\nsaved FINAL_SCENARIO/figures/atlas_kBfree.{pdf,png} + census json")
