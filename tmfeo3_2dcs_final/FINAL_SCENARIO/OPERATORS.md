@@ -85,3 +85,17 @@ Channel map:  A-cross = O₁→O₂;  A-same = O₁→O₁;  B-cross = O₂→O�
 
 Strictly reciprocal: operator content, within-family dipole ratios, and the
 filter. Calibrated: the three cross-family scales. Everything else is zero.
+
+## Cross-geometry scale caveat (2026-08-09, user consistency check)
+The cross-family scales (w_E1, g_d avatars, c_Fe) are calibrated WITHIN
+geometry A and connect its two channels exactly. They do NOT transfer
+literally to geometry B: a strict full-O1 B-cross composite with the
+A-calibrated numbers becomes Tm-dominated (λ²/SFG-DFG at 0.6–1.0),
+whereas the measured B-cross is magnon-dominated (no Tm feature > ~0.15).
+=> per-geometry absolute emission normalisation (internal field +
+polarisation-resolved entry-face transmission) is a separate constant;
+the measured magnon dominance of B-cross is a NULL-BOUND placing the
+B-side Tm-emission scale ≥5× below the naive A-transfer. Prediction at
+whatever scale the bound allows: B-cross SFG/DFG tones at (0.90, 0.40)
+and (0.90, 1.41). The atlas B-cross panel displays the Fe part (the
+measured dominance); operator CONTENT is O1 everywhere.
