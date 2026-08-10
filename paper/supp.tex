@@ -830,19 +830,40 @@ equilibrated reference is the exact $\Gamma_2$ configuration.
 % =====================================================================
 \section{Data and code availability}
 % =====================================================================
-The project folder is self-contained.
-\texttt{tmfeo3\_2dcs\_final/FINAL\_SCENARIO/} holds the production
-parameter files (\texttt{params/}: geometries A and B, three thermal
-seeds), the run outputs (\texttt{runs/}), the full time-evolution
-trajectory pack in HDF5, MATLAB and CSV forms
-(\texttt{trajectories/}, with the exact readout-channel documentation
-in \texttt{READOUT\_CHANNELS.md} and the operator inventory in
-\texttt{OPERATORS.md}), and the atlas generator
-(\texttt{figures/atlas\_kBfree.py}), from which every spectrum and
-census in the paper regenerates.  The long-form derivation note
-(\texttt{tmfeo3\_foundation.tex}: transported-gauge orbit formulas,
-vertex diagrams, complete written-out Hamiltonian, the necessity and
-code-level audits in full) is archived alongside; every simulation
-uses the public \texttt{ClassicalSpin\_Cpp} solver.
+Everything needed to reproduce every spectrum in this work, in both the
+time and the frequency domain, is collected in \texttt{paper/data/}.
+
+The central object is \texttt{atlas\_construction\_pack.h5}, a single
+self-documented file (all conventions in its own HDF5 attributes)
+containing: the \emph{time domain} $\Mnl(\tau,t)$ of every coordinate
+at full resolution, for both geometries and all three thermal seeds;
+the two \emph{product} channels $(\lambda^1\lambda^2)_{\rm NL}$ and
+$(F_x\lambda^2)_{\rm NL}$, which are supplied explicitly because a
+product of nonlinear signals is not a function of the stored $\Mnl$
+(it requires the two-pulse, probe-only and pump-only trajectories
+separately) and without which the SFG/DFG triplet cannot be
+reconstructed; the \emph{frequency domain} $|{\rm FFT_2}|$ maps of the
+four published panels with their THz axes; and a \emph{hybrid} group
+holding $|{\rm FFT}_\tau|$ against real detection time.  The reader
+\texttt{make\_atlas\_from\_pack.py} rebuilds all four panels and their
+blind censuses from that file alone---no solver, no run
+directories---and reproduces the published censuses to float32 storage
+precision.  The same content is mirrored in conventional formats for
+collaborators who do not use HDF5: \texttt{matlab/} (per-run
+\texttt{.mat} time-domain files plus \texttt{spectra.mat} and
+\texttt{mixed\_domain.mat}, each carrying an embedded \texttt{readme})
+and \texttt{csv/} (gzipped CSV of every array with plain-text axes).
+Also included: \texttt{READOUT\_CHANNELS.md} (the exact drive and
+detection operator of each channel, with dataset names),
+\texttt{OPERATORS.md} (the complete operator inventory: what is in the
+model, what is bounded, what is excluded and why), \texttt{params/}
+(the exact solver inputs of the five production runs), the published
+censuses and the digitised experimental map.
+
+The long-form derivation note (\texttt{tmfeo3\_foundation.tex}:
+transported-gauge orbit formulas, vertex diagrams, the complete
+written-out Hamiltonian, and the necessity and code-level audits in
+full) accompanies the data; every simulation uses the public
+\texttt{ClassicalSpin\_Cpp} solver.
 
 \end{document}

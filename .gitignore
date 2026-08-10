@@ -1,4 +1,4 @@
-# raw simulation output (regenerate via catalogue_single_vertex/regen_fullres.py)
+# raw simulation output (regenerate from FINAL_SCENARIO/params via the solver)
 *.h5
 *.npy
 # latex build artifacts
@@ -8,6 +8,11 @@
 *.toc
 *.fls
 *.fdb_latexmk
-# bulk trajectory exports (regenerate: FINAL_SCENARIO/build_atlas_pack.py + export_conventional.py)
+*.bbl
+*.blg
+# bulk reproduction-package exports -- shared directly, not via git
+# (regenerate: FINAL_SCENARIO/build_atlas_pack.py + export_conventional.py)
+paper/data/matlab/
+paper/data/csv/
 *.mat
 *.csv.gz

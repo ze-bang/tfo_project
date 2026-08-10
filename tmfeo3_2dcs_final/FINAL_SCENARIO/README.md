@@ -22,11 +22,13 @@ Plus the bare subsystems, the on-site hyperpolarisability `β`, and one
 self-absorption filter. `κB = 0` (exactly inert); `W3` moves no coherent
 feature (it feeds only the rectified line and the slow buildup).
 
-## THE PACKAGE — `trajectories/atlas_construction_pack.h5` (~840 MB)
-Self-contained. Rebuild all four panels and their blind censuses with:
+## THE PACKAGE — `../../paper/data/atlas_construction_pack.h5` (800 MB)
+The collaborator-facing package lives in **`paper/data/`** (pack, MATLAB and
+CSV exports, reader, documentation). Rebuild all four panels and their blind
+censuses with:
 
 ```bash
-python3 ../make_atlas_from_pack.py trajectories/atlas_construction_pack.h5
+cd ../../paper/data && python3 make_atlas_from_pack.py
 ```
 
 That reader touches **only** the pack — no solver, no run directories — and
@@ -69,12 +71,12 @@ of the same-polarised channel cannot be reconstructed.
 ## Conventional formats (no HDF5/Python needed)
 Generated from the pack by `export_conventional.py` (single source of truth):
 
-- `trajectories/matlab/` — `<geom>_<seed>.mat` (time domain, full resolution:
+- `../../paper/data/matlab/` — `<geom>_<seed>.mat` (time domain, full resolution:
   `linear_*`, `products_*`, `components_*`, `reference_*`, axes in both code
   units and ps), plus `spectra.mat` (the four frequency-domain panels + axes)
   and `mixed_domain.mat`. Every file carries a `readme` string with the
   operators, units and recipe — `load('geomA_gs1.mat')` and go.
-- `trajectories/csv/` — gzipped CSV of every time-domain array
+- `../../paper/data/csv/` — gzipped CSV of every time-domain array
   (rows = τ, columns = t decimated ×5), of the four spectra and of the mixed
   maps (first row = the ω_t or t axis, first column = ω_τ), plus plain-text
   axes and full-resolution M0 reference CSVs. For Origin / Igor / Excel.
@@ -83,7 +85,7 @@ Generated from the pack by `export_conventional.py` (single source of truth):
 ```bash
 # 1. the runs themselves (~40 s each, from the repo root)
 mpirun -np 16 build/spin_solver FINAL_SCENARIO/params/geomA_gs1.param   # etc.
-# 2. the pack, then the conventional exports
+# 2. the pack and the conventional exports (both write into paper/data/)
 python3 FINAL_SCENARIO/build_atlas_pack.py
 python3 FINAL_SCENARIO/export_conventional.py
 # 3. the published figure (reads runs/ directly)
@@ -111,4 +113,4 @@ dynamical `d_z^eff` adopted 2026-08-08 after a 33-channel product sweep
 identified `δF_x·λ²` as the only emitter whose map is led by the magnon-delay
 row; every component then certified by a leave-one-out necessity audit, and
 the SU(2)⊗SU(3) implementation verified at code level. Full audit trails in
-`../../tmfeo3_foundation.tex` and `../probes_asame/README.md`.
+`../../tmfeo3_foundation.tex` (necessity audit, code-level verification).

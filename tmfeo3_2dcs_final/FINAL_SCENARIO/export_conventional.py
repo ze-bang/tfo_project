@@ -2,12 +2,12 @@
 # Convert atlas_construction_pack.h5 into conventional formats, in BOTH
 # domains, for collaborators who do not want to touch HDF5/Python:
 #
-#   trajectories/matlab/<geom>_<seed>.mat      time domain, FULL resolution
-#   trajectories/matlab/spectra.mat            frequency domain (4 panels + axes)
-#   trajectories/csv/<geom>_<seed>_<chan>_MNL.csv.gz   time domain (t decimated)
-#   trajectories/csv/spectrum_<panel>.csv.gz          frequency domain maps
-#   trajectories/csv/mixed_<name>.csv.gz              |FFT_tau| vs detection time
-#   trajectories/csv/*_axes*.csv, *_reference_M0.csv
+#   paper/data/matlab/<geom>_<seed>.mat      time domain, FULL resolution
+#   paper/data/matlab/spectra.mat            frequency domain (4 panels + axes)
+#   paper/data/csv/<geom>_<seed>_<chan>_MNL.csv.gz   time domain (t decimated)
+#   paper/data/csv/spectrum_<panel>.csv.gz          frequency domain maps
+#   paper/data/csv/mixed_<name>.csv.gz              |FFT_tau| vs detection time
+#   paper/data/csv/*_axes*.csv, *_reference_M0.csv
 #
 # Single source of truth: the pack. Run after build_atlas_pack.py.
 # =====================================================================
@@ -15,8 +15,9 @@ import numpy as np, h5py, os, gzip
 from scipy.io import savemat
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PACK = f"{HERE}/trajectories/atlas_construction_pack.h5"
-MDIR = f"{HERE}/trajectories/matlab"; CDIR = f"{HERE}/trajectories/csv"
+DATA = f"{HERE}/../../paper/data"
+PACK = f"{DATA}/atlas_construction_pack.h5"
+MDIR = f"{DATA}/matlab"; CDIR = f"{DATA}/csv"
 os.makedirs(MDIR, exist_ok=True); os.makedirs(CDIR, exist_ok=True)
 PS = 0.6582119569
 DEC = 5

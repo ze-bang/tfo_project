@@ -17,7 +17,7 @@
 import numpy as np, h5py, os, json
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT  = f"{HERE}/trajectories/atlas_construction_pack.h5"
+OUT  = f"{HERE}/../../paper/data/atlas_construction_pack.h5"   # canonical location: paper/data
 PS_PER_UNIT = 0.6582119569
 SCALE = 2*np.pi/4.135667696          # code angular freq -> THz
 E_LEVELS = [0.0, 2.067834, 4.9628]   # meV
