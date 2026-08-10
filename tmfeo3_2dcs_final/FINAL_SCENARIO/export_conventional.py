@@ -11,16 +11,19 @@
 #
 # Single source of truth: the pack. Run after build_atlas_pack.py.
 # =====================================================================
-import numpy as np, h5py, os, gzip
+import numpy as np, h5py, os, gzip, sys
 from scipy.io import savemat
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = f"{HERE}/../../paper/data"
-PACK = f"{DATA}/atlas_construction_pack.h5"
+# Default source is the LEAN pack (16x smaller, censuses unchanged). Pass the
+# full pack explicitly for full-resolution exports.
+PACK = sys.argv[1] if len(sys.argv) > 1 else f"{DATA}/atlas_pack_lean.h5"
 MDIR = f"{DATA}/matlab"; CDIR = f"{DATA}/csv"
 os.makedirs(MDIR, exist_ok=True); os.makedirs(CDIR, exist_ok=True)
 PS = 0.6582119569
-DEC = 5
+# the lean pack is already decimated; do not decimate again
+DEC = 1 if "lean" in os.path.basename(PACK) else 5
 
 README = (
  "TmFeO3 2DCS reproduction package - FINAL model (2026-08-09). "
@@ -71,10 +74,11 @@ with h5py.File(PACK) as f:
                 with gzip.open(f"{CDIR}/{geom}_{seed}_products_{k}.csv.gz", "wt") as fh:
                     fh.write(f"# {README}\n# rows: tau ({len(tau)}), columns: t decimated x{DEC} ({len(td)})\n")
                     np.savetxt(fh, arr[:, ::DEC], delimiter=",", fmt="%.6e")
-            mat["components_MNL_SU2"] = sg["components/MNL_SU2"][:]
-            mat["components_MNL_SU3"] = sg["components/MNL_SU3"][:]
-            mat["components_note"] = (f"(tau, t decimated x{DEC}, component); SU2 cols S_x,S_y,S_z; "
-                                      "SU3 cols lambda1..lambda8 -- the complete coordinate set")
+            if "components" in sg:
+                mat["components_MNL_SU2"] = sg["components/MNL_SU2"][:]
+                mat["components_MNL_SU3"] = sg["components/MNL_SU3"][:]
+                mat["components_note"] = ("(tau, t decimated, component); SU2 cols S_x,S_y,S_z; "
+                                          "SU3 cols lambda1..lambda8 -- the complete coordinate set")
             for name in ["M_global_SU2", "M_global_SU3", "M_local_SU3"]:
                 mat[f"reference_{name}"] = sg[f"reference/{name}"][:]
             savemat(f"{MDIR}/{geom}_{seed}.mat", mat, do_compression=True)

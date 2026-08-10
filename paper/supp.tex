@@ -848,7 +848,15 @@ holding $|{\rm FFT}_\tau|$ against real detection time.  The reader
 \texttt{make\_atlas\_from\_pack.py} rebuilds all four panels and their
 blind censuses from that file alone---no solver, no run
 directories---and reproduces the published censuses to float32 storage
-precision.  The same content is mirrored in conventional formats for
+precision.  Because the detection axis is oversampled by a factor
+$\sim\!20$ relative to the highest physical frequency, the
+distribution is tiered: \texttt{atlas\_spectra.h5} ($11$\,MB) carries
+the frequency and hybrid domains alone, and
+\texttt{atlas\_pack\_lean.h5} ($53$\,MB) carries the complete
+reproduction capability at $\tau/2$ and $t/8$ (Nyquist $3.8$ and
+$4.75$\,THz), which leaves the frequency resolution untouched---it is
+set by the scan ranges---and the blind censuses unchanged to $\pm0.03$
+in amplitude and $\pm0.01$\,THz in position.  The same content is mirrored in conventional formats for
 collaborators who do not use HDF5: \texttt{matlab/} (per-run
 \texttt{.mat} time-domain files plus \texttt{spectra.mat} and
 \texttt{mixed\_domain.mat}, each carrying an embedded \texttt{readme})

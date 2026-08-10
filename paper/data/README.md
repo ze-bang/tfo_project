@@ -6,20 +6,39 @@ and the frequency domain**, with no solver and no repository.
 ```bash
 python3 make_atlas_from_pack.py          # rebuilds all four atlas panels + censuses
 ```
-That reads **only** `atlas_construction_pack.h5` and writes
-`atlas_from_pack.pdf/.png` and `census_from_pack.json`. It reproduces the
-published census exactly (largest deviation 0.001 in normalised amplitude,
-from float32 storage).
+It writes `atlas_from_pack.pdf/.png` and `census_from_pack.json`, reading only
+the pack — no solver, no run directories.
+
+## What to copy — three tiers
+
+The detection axis is oversampled by ~20× in the raw simulation (Nyquist
+38 THz for content below 2 THz), so almost all of the raw volume is
+redundant. Pick the tier you need:
+
+| tier | files | size | what you can do |
+|---|---|---|---|
+| **1. spectra only** | `atlas_spectra.h5`, `csv/spectrum_*.csv.gz`, `matlab/spectra.mat` | **~12 MB** | plot and lineout the four published 2D maps and the hybrid maps |
+| **2. full reproduction** *(recommended)* | tier 1 + `atlas_pack_lean.h5`, `matlab/`, `csv/` | **~180 MB** | everything: re-derive the spectra from the raw M_NL, refit weights, rewindow, re-census |
+| **3. full resolution** | `atlas_construction_pack.h5` | 800 MB | only if you need sub-0.1 ps detail in the detection axis |
+
+`atlas_pack_lean.h5` is the full pack decimated by τ/2 and t/8 (Nyquist
+3.8 / 4.75 THz, still far above all physical content). **Frequency resolution
+is unaffected** — that is set by the scan ranges, which are untouched. The
+blind censuses are unchanged to ±0.03 in amplitude and ±0.01 THz in position,
+and `/spectra` and `/mixed` are carried over from the full-resolution
+computation, so nothing published depends on the decimation.
 
 ## Contents
 | file / dir | what it is |
 |---|---|
-| `atlas_construction_pack.h5` (800 MB) | **the package** — time domain, frequency domain and hybrid domain, fully self-documented in its own HDF5 attributes |
-| `make_atlas_from_pack.py` | the reader above; reads only the pack |
+| `atlas_spectra.h5` (11 MB) | frequency + hybrid domains only, with axes and the complete model documentation in its attributes |
+| `atlas_pack_lean.h5` (53 MB) | **the recommended package** — time, frequency and hybrid domains at the sampling the physics needs |
+| `atlas_construction_pack.h5` (800 MB) | the same at full detection-axis resolution (optional) |
+| `make_atlas_from_pack.py` | the reader above; defaults to the lean pack, accepts any pack as an argument |
 | `READOUT_CHANNELS.md` | **read this first** — exact drive and detection operator per channel, with dataset names |
 | `OPERATORS.md` | complete operator inventory: what is in the model, what is bounded, what is excluded and why |
-| `matlab/` (786 MB) | `<geom>_<seed>.mat` time domain, `spectra.mat` frequency domain, `mixed_domain.mat`; each carries a `readme` string |
-| `csv/` (245 MB) | gzipped CSV of every array (time, frequency and hybrid) plus plain-text axes — for Origin / Igor / Excel |
+| `matlab/` (49 MB) | `<geom>_<seed>.mat` time domain, `spectra.mat` frequency domain, `mixed_domain.mat`; each carries a `readme` string |
+| `csv/` (70 MB; the frequency subset is 0.8 MB) | gzipped CSV of every array (time, frequency, hybrid) plus plain-text axes — for Origin / Igor / Excel |
 | `params/` | the exact solver inputs of the five production runs |
 | `census_atlas_kBfree.json` | the published blind censuses |
 | `experiment_geomA_samepol_digitized.json` | the digitised experimental map used for comparison |
@@ -31,9 +50,11 @@ from float32 storage).
 /axes/geom{A,B}/       t, t_ps, t_dec, t_dec_ps, tau, tau_ps
 /geomA/gs{1,2,3}/      geometry A, three level seeds (Boltzmann-mix for T > 0)
 /geomB/gs1/            geometry B (evaluated at T = 0)
-   linear/{Fx,Fz,l1,l2,l4,l6,l7}   M_NL(tau, t) per coordinate, FULL resolution
+   linear/{Fx,Fz,l1,l2,l4,l6,l7}   M_NL(tau, t) per coordinate
    products/{QNL,DNL}              the two BILINEAR emitters  <-- see below
-   components/{MNL_SU2,MNL_SU3}    all coordinates (S_xyz, lambda1..8), t/5
+   components/{MNL_SU2,MNL_SU3}    all coordinates (S_xyz, lambda1..8)
+                                   [full pack only; the 7 linear coordinates
+                                    above are all the published atlas needs]
    reference/                      pump-only M0(t)
    attrs: Fx_mean = <|F_x|>
 /spectra/              the four published |FFT2| panels + THz axes
@@ -76,7 +97,9 @@ Channels: **A-cross = O1→O2, A-same = O1→O1, B-cross = O2→O1, B-same = O2�
 ## Regenerating the package from the runs
 ```bash
 mpirun -np 16 build/spin_solver <params/*.param>          # ~40 s each
-python3 ../../tmfeo3_2dcs_final/FINAL_SCENARIO/build_atlas_pack.py
-python3 ../../tmfeo3_2dcs_final/FINAL_SCENARIO/export_conventional.py
+FS=../../tmfeo3_2dcs_final/FINAL_SCENARIO
+python3 $FS/build_atlas_pack.py        # full pack, from the runs
+python3 $FS/make_lean_package.py       # -> atlas_pack_lean.h5 + atlas_spectra.h5
+python3 $FS/export_conventional.py     # -> matlab/ + csv/ (from the lean pack)
 ```
 The data files (`*.h5`, `*.mat`, `*.csv.gz`) are gitignored — share directly.

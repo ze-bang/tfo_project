@@ -14,7 +14,9 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PACK = sys.argv[1] if len(sys.argv) > 1 else f"{HERE}/atlas_construction_pack.h5"
+# default: the LEAN pack (16x smaller, censuses unchanged); fall back to the full one
+_lean, _full = f"{HERE}/atlas_pack_lean.h5", f"{HERE}/atlas_construction_pack.h5"
+PACK = sys.argv[1] if len(sys.argv) > 1 else (_lean if os.path.exists(_lean) else _full)
 SCALE = 2*np.pi/4.135667696
 E_LEVELS = [0.0, 2.067834, 4.9628]
 MODES = [("qFM", 0.38), ("E12", 0.50), ("E23", 0.70), ("qAFM", 0.90), ("E13", 1.20)]
