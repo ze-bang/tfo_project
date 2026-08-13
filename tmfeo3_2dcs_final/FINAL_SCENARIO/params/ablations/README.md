@@ -31,3 +31,4 @@ other effective fields are unchanged.
 
 Run as `mpirun -np 16 build/spin_solver <file>` (~40 s each); the figure
 scripts read the outputs from the paths set inside each param.
+| `A_narrow090` (+ `pulse_narrow090.dat`) | geomA with a synthetic narrowband 0.90 THz pulse (<1% spectral amplitude at 0.40 THz): pump-normalized down-conversion drops ~10x — the 0.40 THz leg of the down-conversion is supplied by the broadband pulse through the qAFM channel's forced response. NOTE: qFM eigenvector (F_y,G_x) is machine-zero throughout geomA dynamics — the down-conversion idler is NOT a free qFM magnon |
