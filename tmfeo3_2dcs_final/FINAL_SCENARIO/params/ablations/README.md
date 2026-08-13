@@ -17,6 +17,9 @@ other effective fields are unchanged.
 | `B_noL1drive` | the d_x electric writing (geometry B) |
 | `B_noW1xz` | `W1_xz` (geometry B) |
 | `B_noW3` | the `W3` population channel + thermal feedback |
+| `B_kappaB` | REINSTATES `kappaB_1y = W = 0.010` (not a removal): (R1,qAFM) rises 0.42 → map max, inverting the excitation-row hierarchy — the intensity-based exclusion of a field-assisted vertex |
+| `B_flu0.7` | production drive × 0.7 (field-scaling check: exponents 2.02 / 1.85) |
+| `B_flu0.5` | production drive × 0.5 (field-scaling check: exponents 2.02 / 1.88) |
 
 Run as `mpirun -np 16 build/spin_solver <file>` (~40 s each); the figure
 scripts read the outputs from the paths set inside each param.
