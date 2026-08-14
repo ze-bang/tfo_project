@@ -29,8 +29,8 @@ other effective fields are unchanged.
 | `B_Wxx` | W1_xx = 0.01 alone: weak low-frequency response only; map unchanged to 1% (supersedes the old 0.16 THz comb claim) |
 | `A_complete` | geomA drive completed with λ⁶ @ full tied weight 4.4 + λ⁴ @ 0.006 (amplitude rescaled to keep production legs): census amplitudes/ratios change < 1e-3 — drive-completion invariance |
 | `A_narrow090` (+ `pulse_narrow090.dat`) | geomA with a synthetic narrowband 0.90 THz pulse (<1% spectral amplitude at 0.40 THz): pump-normalized down-conversion drops ~10x — the 0.40 THz leg of the down-conversion is supplied by the broadband pulse through the qAFM channel's forced response. NOTE: qFM eigenvector (F_y,G_x) is machine-zero throughout geomA dynamics — the down-conversion idler is NOT a free qFM magnon |
+| `A_stagSeed` | geomA with the E∥c λ² writing applied site-resolved with the staggered (+,−,+,−) pattern (pump_direction_su3 per-sublattice, amplitude 0.021 as production): SHG product-channel amplitude 0.889 vs 0.866 uniform (within 3%), R1 diagonal removed, staggered λ² = 6.5e-2 vs uniform residual 3.6e-3 — verifies the order-induced dipole's staggered site pattern (SI §Light–matter) |
 
 Run as `mpirun -np 16 build/spin_solver <file>` (~40 s each); the figure
 scripts read the outputs from the paths set inside each param.
 
-| `A_stagSeed` | geomA with the E∥c λ² writing applied site-resolved with the staggered (+,−,+,−) pattern (pump_direction_su3 per-sublattice, amplitude 0.021 as production): SHG product-channel amplitude 0.889 vs 0.866 uniform (within 3%), R1 diagonal removed, staggered λ² = 6.5e-2 vs uniform residual 3.6e-3 — verifies the order-induced dipole's staggered site pattern (SI §Light–matter) |
