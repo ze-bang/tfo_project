@@ -32,3 +32,5 @@ other effective fields are unchanged.
 
 Run as `mpirun -np 16 build/spin_solver <file>` (~40 s each); the figure
 scripts read the outputs from the paths set inside each param.
+
+| `A_stagSeed` | geomA with the E∥c λ² writing applied site-resolved with the staggered (+,−,+,−) pattern (pump_direction_su3 per-sublattice, amplitude 0.021 as production): SHG product-channel amplitude 0.889 vs 0.866 uniform (within 3%), R1 diagonal removed, staggered λ² = 6.5e-2 vs uniform residual 3.6e-3 — verifies the order-induced dipole's staggered site pattern (SI §Light–matter) |
